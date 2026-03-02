@@ -266,14 +266,14 @@ export default function LandingPage() {
                   <p className="pt-3">R$ 2.150 <span className="line-through text-[11px] md:text-sm opacity-60">R$ 2.750</span></p>
                   <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Pacote para 5 sessões</p>
                 </div>
-                <button className="mt-5 bg-[#3c2922] text-white px-5 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em] w-max">Comprar</button>
+                <button className="mt-5 bg-[#3c2922] text-white px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Comprar</button>
                 <div className="mt-auto pt-6 h-[330px] md:h-[560px] rounded-[130px] md:rounded-[230px] overflow-hidden">
                   <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=1100&q=80" alt="Card esquerdo" className="w-full h-full object-cover object-center" />
                 </div>
               </article>
 
-              <article className="bg-[#978f79] text-white rounded-t-[170px] md:rounded-t-[250px] rounded-b-[38px] overflow-hidden px-6 md:px-9 pt-16 md:pt-20 pb-6 md:pb-9 min-h-[620px] md:min-h-[780px] flex flex-col md:mt-16">
-                <h3 className="text-4xl md:text-6xl leading-[0.93]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <article className="bg-[#978f79] text-white rounded-t-[170px] md:rounded-t-[250px] rounded-b-[38px] overflow-hidden px-6 md:px-9 pt-[4.5rem] md:pt-24 pb-6 md:pb-9 min-h-[620px] md:min-h-[780px] flex flex-col md:mt-16">
+                <h3 className="text-4xl md:text-5xl leading-[0.98]" style={{ fontFamily: 'Playfair Display, serif' }}>
                   tratamentos
                   <br />
                   faciais e
@@ -286,7 +286,7 @@ export default function LandingPage() {
                   <p className="pt-3">R$ 700 <span className="line-through text-[11px] md:text-sm opacity-70">R$ 1.000</span></p>
                   <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Certificado-presente</p>
                 </div>
-                <button className="mt-5 bg-white text-[#3c2922] px-5 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em] w-max">Comprar</button>
+                <button className="mt-5 bg-white text-[#3c2922] px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Comprar</button>
                 <div className="mt-auto pt-6 h-[300px] md:h-[490px] rounded-[130px] md:rounded-[220px] overflow-hidden">
                   <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=1100&q=80" alt="Card direito" className="w-full h-full object-cover object-center" />
                 </div>
@@ -328,11 +328,11 @@ export default function LandingPage() {
             </div>
             <div>
               <p className="text-4xl md:text-6xl leading-[0.92]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                são paulo,
+                salto, são paulo
                 <br />
                 sp
               </p>
-              <button className="mt-5 bg-white text-[#3f3828] px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em]">Navegar</button>
+              <button className="mt-5 bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Navegar</button>
             </div>
             <div className="md:text-right">
               <a href="tel:+5511999999999" className="text-4xl md:text-7xl leading-none block" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -340,7 +340,7 @@ export default function LandingPage() {
               </a>
               <a
                 href={sistemaUrl}
-                className="inline-block mt-5 border border-white/60 px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em] hover:bg-white hover:text-[#3f3828] transition-colors"
+                className="inline-block mt-5 border border-white/60 px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] hover:bg-white hover:text-[#3f3828] transition-colors"
               >
                 Agendar
               </a>
