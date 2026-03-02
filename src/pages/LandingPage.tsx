@@ -129,7 +129,7 @@ export default function LandingPage() {
               <div className="absolute left-1/2 -translate-x-1/2 top-[700px] md:top-[860px] w-[56px] h-[86px] md:w-[90px] md:h-[132px] rounded-[30px] md:rounded-[50px] overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Meditation tiny" className="w-full h-full object-cover" />
               </div>
-
+ 
               <p className="absolute right-0 md:right-2 top-[515px] md:top-[605px] max-w-[240px] md:max-w-[360px] text-[11px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Chegou o momento de criar um espaço que respeita seu ritmo e seu tempo, oferecendo relaxamento profundo e resultado estético visível.
               </p>
