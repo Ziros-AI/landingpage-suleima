@@ -101,7 +101,7 @@ export default function LandingPage() {
               bem cuidado.
             </h2>
 
-            <div className="relative min-h-[720px] md:min-h-[980px]">
+            <div className="relative min-h-[760px] md:min-h-[1020px]">
               <p className="absolute left-0 md:left-4 top-36 md:top-48 max-w-[250px] text-[11px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
                 A cidade grande impõe um ritmo acelerado e deixa pouco tempo para você. Desacelerar por alguns instantes ajuda a recuperar seu equilíbrio.
               </p>
@@ -126,7 +126,7 @@ export default function LandingPage() {
                 <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=700&q=80" alt="Body detail" className="w-full h-full object-cover" />
               </div>
 
-              <div className="absolute left-1/2 -translate-x-1/2 top-[865px] md:top-[980px] w-[56px] h-[86px] md:w-[90px] md:h-[132px] rounded-[30px] md:rounded-[50px] overflow-hidden">
+              <div className="absolute left-1/2 -translate-x-1/2 top-[700px] md:top-[860px] w-[56px] h-[86px] md:w-[90px] md:h-[132px] rounded-[30px] md:rounded-[50px] overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Meditation tiny" className="w-full h-full object-cover" />
               </div>
 
