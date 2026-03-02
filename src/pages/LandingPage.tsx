@@ -34,7 +34,7 @@ export default function LandingPage() {
         <section className="relative min-h-[440px] md:min-h-[760px] rounded-t-none rounded-b-[24px] md:rounded-b-[38px] overflow-hidden border-0">
           <img
             src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=2200&q=80"
-            alt="Hero"
+            alt="Destaque"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(43,28,17,0.58),rgba(96,63,32,0.3),rgba(54,34,18,0.5))]" />
@@ -101,33 +101,71 @@ export default function LandingPage() {
               bem cuidado.
             </h2>
 
-            <div className="relative min-h-[760px] md:min-h-[1020px]">
+            <div className="md:hidden space-y-5">
+              <p className="text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
+                A cidade grande impõe um ritmo acelerado e deixa pouco tempo para você. Desacelerar por alguns instantes ajuda a recuperar seu equilíbrio.
+              </p>
+
+              <div className="relative mx-auto w-[250px] h-[380px] rounded-[120px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80" alt="Yoga principal" className="w-full h-full object-cover" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="h-[180px] rounded-[90px] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1525845859779-54d477ff291f?w=900&q=80" alt="Modelo esquerda" className="w-full h-full object-cover" />
+                </div>
+                <div className="h-[180px] rounded-[90px] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80" alt="Rosto" className="w-full h-full object-cover" />
+                </div>
+              </div>
+
+              <p className="text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
+                Chegou o momento de criar um espaço que respeita seu ritmo e seu tempo, oferecendo relaxamento profundo e resultado estético visível.
+              </p>
+              <p className="text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
+                Você será cuidada desde o primeiro toque. Aromas, sons e sensações vão te conduzir para um estado de calma e relaxamento.
+              </p>
+
+              <div className="grid grid-cols-3 gap-3">
+                <div className="h-[120px] rounded-[60px] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=700&q=80" alt="Detalhe corporal" className="w-full h-full object-cover" />
+                </div>
+                <div className="h-[120px] rounded-[60px] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Meditação pequena" className="w-full h-full object-cover" />
+                </div>
+                <div className="h-[120px] rounded-[60px] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=700&q=80" alt="Massagem pequena" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+
+            <div className="hidden md:block relative min-h-[1020px]">
               <p className="absolute left-0 md:left-4 top-36 md:top-48 max-w-[250px] text-[11px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
                 A cidade grande impõe um ritmo acelerado e deixa pouco tempo para você. Desacelerar por alguns instantes ajuda a recuperar seu equilíbrio.
               </p>
 
               <div className="absolute left-1/2 -translate-x-1/2 top-52 md:top-40 w-[220px] h-[330px] md:w-[390px] md:h-[610px] rounded-[100px] md:rounded-[210px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80" alt="Yoga main" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80" alt="Yoga principal" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute right-0 md:right-2 top-20 md:top-18 w-[130px] h-[240px] md:w-[235px] md:h-[390px] rounded-[76px] md:rounded-[130px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80" alt="Face" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80" alt="Rosto" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute left-5 md:left-12 top-[470px] md:top-[560px] w-[110px] h-[190px] md:w-[175px] md:h-[285px] rounded-[58px] md:rounded-[95px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1525845859779-54d477ff291f?w=900&q=80" alt="Model left" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1525845859779-54d477ff291f?w=900&q=80" alt="Modelo esquerda" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute right-8 md:right-28 top-[620px] md:top-[690px] w-[88px] h-[136px] md:w-[142px] md:h-[205px] rounded-[44px] md:rounded-[72px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=700&q=80" alt="Massage small" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=700&q=80" alt="Massagem pequena" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute left-[34%] md:left-[30%] top-[780px] md:top-[868px] w-[72px] h-[110px] md:w-[115px] md:h-[170px] rounded-[38px] md:rounded-[80px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=700&q=80" alt="Body detail" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=700&q=80" alt="Detalhe corporal" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute left-1/2 -translate-x-1/2 top-[700px] md:top-[860px] w-[56px] h-[86px] md:w-[90px] md:h-[132px] rounded-[30px] md:rounded-[50px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Meditation tiny" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Meditação pequena" className="w-full h-full object-cover" />
               </div>
  
               <p className="absolute right-0 md:right-2 top-[515px] md:top-[605px] max-w-[240px] md:max-w-[360px] text-[11px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -223,14 +261,14 @@ export default function LandingPage() {
                 <h3 className="text-4xl md:text-6xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>icoone</h3>
                 <p className="text-[13px] md:text-[17px] mt-2" style={{ fontFamily: 'Inter, sans-serif' }}>massagem com aparelho</p>
                 <div className="mt-5 text-[15px] md:text-[30px] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  <p>13 500 rub. <span className="line-through text-[11px] md:text-sm opacity-60">16 500 rub.</span></p>
+                  <p>R$ 1.350 <span className="line-through text-[11px] md:text-sm opacity-60">R$ 1.650</span></p>
                   <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Pacote para 3 sessões</p>
-                  <p className="pt-3">21 500 rub. <span className="line-through text-[11px] md:text-sm opacity-60">27 500 rub.</span></p>
+                  <p className="pt-3">R$ 2.150 <span className="line-through text-[11px] md:text-sm opacity-60">R$ 2.750</span></p>
                   <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Pacote para 5 sessões</p>
                 </div>
                 <button className="mt-5 bg-[#3c2922] text-white px-5 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em] w-max">Comprar</button>
                 <div className="mt-auto pt-6 h-[330px] md:h-[560px] rounded-[130px] md:rounded-[230px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=1100&q=80" alt="Card left" className="w-full h-full object-cover object-center" />
+                  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=1100&q=80" alt="Card esquerdo" className="w-full h-full object-cover object-center" />
                 </div>
               </article>
 
@@ -243,14 +281,14 @@ export default function LandingPage() {
                   corporais
                 </h3>
                 <div className="mt-5 text-[15px] md:text-[30px] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  <p>3 800 rub. <span className="line-through text-[11px] md:text-sm opacity-70">5 000 rub.</span></p>
+                  <p>R$ 380 <span className="line-through text-[11px] md:text-sm opacity-70">R$ 500</span></p>
                   <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Certificado-presente</p>
-                  <p className="pt-3">7 000 rub. <span className="line-through text-[11px] md:text-sm opacity-70">10 000 rub.</span></p>
+                  <p className="pt-3">R$ 700 <span className="line-through text-[11px] md:text-sm opacity-70">R$ 1.000</span></p>
                   <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Certificado-presente</p>
                 </div>
                 <button className="mt-5 bg-white text-[#3c2922] px-5 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em] w-max">Comprar</button>
                 <div className="mt-auto pt-6 h-[300px] md:h-[490px] rounded-[130px] md:rounded-[220px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=1100&q=80" alt="Card right" className="w-full h-full object-cover object-center" />
+                  <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=1100&q=80" alt="Card direito" className="w-full h-full object-cover object-center" />
                 </div>
               </article>
             </div>
@@ -290,9 +328,9 @@ export default function LandingPage() {
             </div>
             <div>
               <p className="text-4xl md:text-6xl leading-[0.92]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                moscou,
+                são paulo,
                 <br />
-                ul. pogodinskaya, 2
+                sp
               </p>
               <button className="mt-5 bg-white text-[#3f3828] px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em]">Navegar</button>
             </div>
