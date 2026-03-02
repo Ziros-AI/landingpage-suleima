@@ -29,9 +29,9 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="bg-[#ececea] min-h-screen py-4 md:py-7 text-[#2f2321]">
+    <div className="bg-[#ececea] min-h-screen pt-0 pb-0 text-[#2f2321]">
       <main className="w-full px-0 space-y-0">
-        <section className="relative min-h-[440px] md:min-h-[760px] rounded-[24px] md:rounded-[38px] overflow-hidden border border-[#b5ab9e]/60">
+        <section className="relative min-h-[440px] md:min-h-[760px] rounded-t-none rounded-b-[24px] md:rounded-b-[38px] overflow-hidden border border-[#b5ab9e]/60 border-t-0">
           <img
             src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=2200&q=80"
             alt="Hero"
@@ -276,7 +276,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <footer id="contacts" className="relative rounded-[28px] md:rounded-[40px] overflow-hidden bg-[#8f876f] text-white px-4 md:px-16 py-10 md:py-14">
+        <footer id="contacts" className="relative rounded-t-[28px] md:rounded-t-[40px] rounded-b-none overflow-hidden bg-[#8f876f] text-white px-4 md:px-16 py-10 md:py-14">
           <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1200 360" fill="none">
             <path d="M-40 200C170 130 340 190 540 240C760 290 920 240 1210 300" stroke="#d8d1c2" strokeWidth="1.1" />
             <path d="M420 40C560 50 620 100 640 160C650 230 600 280 510 320" stroke="#d8d1c2" strokeWidth="1.1" />
