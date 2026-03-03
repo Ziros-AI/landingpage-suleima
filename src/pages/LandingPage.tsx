@@ -1,16 +1,28 @@
 import { useEffect } from 'react';
 
+import imagem1 from '../assets/ImagensClinica/imagem1.jpg';
+import imagem2 from '../assets/ImagensClinica/imagem2.jpg';
+import imagem3 from '../assets/ImagensClinica/imagem3.jpg';
+import imagem4 from '../assets/ImagensClinica/imagem4.jpg';
+import imagem5 from '../assets/ImagensClinica/imagem5.jpg';
+import imagem6 from '../assets/ImagensClinica/imagem6.jpg';
+import imagem7 from '../assets/ImagensClinica/imagem7.jpg';
+import imagemSu1 from '../assets/imagensSuleima/imagemSu1.jpg';
+import imagemSu2 from '../assets/imagensSuleima/imagemSu2.jpg';
+import imagemSu3 from '../assets/imagensSuleima/imagemSu3.jpg';
+import imagemSu4 from '../assets/imagensSuleima/imagemSu4.jpg';
+
 const galleryImages = [
-  'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80',
-  'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80',
-  'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80',
-  'https://images.unsplash.com/photo-1549236177-4f93b503e645?w=600&q=80',
-  'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80',
-  'https://images.unsplash.com/photo-1525845859779-54d477ff291f?w=600&q=80',
-  'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=80',
-  'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&q=80',
-  'https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=600&q=80',
-  'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80',
+  imagemSu1,
+  imagemSu2,
+  imagemSu3,
+  imagemSu4,
+  imagem1,
+  imagem2,
+  imagem3,
+  imagem4,
+  imagem5,
+  imagem6,
 ];
 
 export default function LandingPage() {
@@ -33,8 +45,8 @@ export default function LandingPage() {
       <main className="w-full px-0 space-y-0">
         <section className="relative min-h-[440px] md:min-h-[760px] rounded-t-none rounded-b-[24px] md:rounded-b-[38px] overflow-hidden border-0">
           <img
-            src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=2200&q=80"
-            alt="Destaque"
+            src={imagemSu2}
+            alt="Suleima com equipamento estético"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(43,28,17,0.58),rgba(96,63,32,0.3),rgba(54,34,18,0.5))]" />
@@ -52,7 +64,7 @@ export default function LandingPage() {
             <nav className="hidden md:flex items-center gap-8 text-[10px] tracking-[0.12em] uppercase">
               <a href="#about">Sobre</a>
               <a href="#services">Serviços</a>
-              <a href="#subscription">Pacotes</a>
+              <a href="#subscription">Protocolos</a>
               <a href="#gallery">Galeria</a>
               <a href="#contacts">Contato</a>
             </nav>
@@ -67,19 +79,22 @@ export default function LandingPage() {
 
           <div className="relative z-10 h-full px-4 md:px-10 pb-8 md:pb-12 flex flex-col justify-end text-white">
             <h1 className="leading-[0.88] font-medium max-w-[960px]" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(3.2rem,7.6vw,6.8rem)' }}>
-              <span className="block">cuide do seu</span>
-              <span className="block md:pl-[36%]">
-                corpo <span className="text-[clamp(1.2rem,2.5vw,2.2rem)] font-light">e</span> alma
-              </span>
-              <span className="block">em equilíbrio</span>
+              <span className="block">alta tecnologia</span>
+              <span className="block md:pl-[26%]">em estética corporal</span>
+              <span className="block">e facial em Salto.</span>
             </h1>
             <div className="ml-auto max-w-[350px] mt-4 text-[12px] md:text-[16px]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
               <p className="leading-relaxed">
-                Um espaço acolhedor para beleza corporal e bem-estar mental, onde o processo é tão prazeroso quanto o resultado.
+                Protocolos personalizados para modelagem corporal, rejuvenescimento e valorização da sua beleza natural.
               </p>
-              <a href="#contacts" className="inline-flex items-center gap-2 mt-4 text-[10px] uppercase tracking-[0.13em] border-b border-white/70 pb-1">
-                Agendar agora <span aria-hidden>→</span>
-              </a>
+              <div className="mt-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.13em]">
+                <a href={sistemaUrl} className="border-b border-white/70 pb-1">
+                  Agendar avaliação <span aria-hidden>→</span>
+                </a>
+                <a href="#services" className="border-b border-white/70 pb-1">
+                  Conhecer tratamentos <span aria-hidden>→</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -94,86 +109,86 @@ export default function LandingPage() {
 
           <div className="relative z-10">
             <h2 className="text-center leading-[1.08] mb-10 md:mb-12" style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2rem,4.5vw,4.3rem)' }}>
-              beleza não é uma característica.
+              sobre a suleima.
               <br />
-              é um estado — um corpo saudável, calmo e
+              especialista em estética avançada,
               <br />
-              bem cuidado.
+              corporal e facial.
             </h2>
 
             <div className="md:hidden space-y-5">
               <p className="text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
-                A cidade grande impõe um ritmo acelerado e deixa pouco tempo para você. Desacelerar por alguns instantes ajuda a recuperar seu equilíbrio.
+                Suleima é especialista em estética corporal modeladora e tratamentos faciais, atuando com protocolos modernos e tecnologia de ponta.
               </p>
 
               <div className="relative mx-auto w-[250px] h-[380px] rounded-[120px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80" alt="Yoga principal" className="w-full h-full object-cover" />
+                <img src={imagemSu2} alt="Suleima com equipamento" className="w-full h-full object-cover" />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div className="h-[180px] rounded-[90px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1525845859779-54d477ff291f?w=900&q=80" alt="Modelo esquerda" className="w-full h-full object-cover" />
+                  <img src={imagemSu3} alt="Suleima segurando aplicador" className="w-full h-full object-cover" />
                 </div>
                 <div className="h-[180px] rounded-[90px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80" alt="Rosto" className="w-full h-full object-cover" />
+                  <img src={imagemSu1} alt="Suleima apontando para o logo" className="w-full h-full object-cover" />
                 </div>
               </div>
 
               <p className="text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
-                Chegou o momento de criar um espaço que respeita seu ritmo e seu tempo, oferecendo relaxamento profundo e resultado estético visível.
+                Cada cliente recebe uma avaliação individualizada, garantindo segurança, estratégia personalizada e resultados progressivos.
               </p>
               <p className="text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>
-                Você será cuidada desde o primeiro toque. Aromas, sons e sensações vão te conduzir para um estado de calma e relaxamento.
+                Atendimento exclusivo, equipamentos profissionais, protocolos estruturados e foco em resultado real.
               </p>
 
               <div className="grid grid-cols-3 gap-3">
                 <div className="h-[120px] rounded-[60px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=700&q=80" alt="Detalhe corporal" className="w-full h-full object-cover" />
+                  <img src={imagem5} alt="Procedimento corporal" className="w-full h-full object-cover" />
                 </div>
                 <div className="h-[120px] rounded-[60px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Meditação pequena" className="w-full h-full object-cover" />
+                  <img src={imagem4} alt="Procedimento facial com luvas" className="w-full h-full object-cover" />
                 </div>
                 <div className="h-[120px] rounded-[60px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=700&q=80" alt="Massagem pequena" className="w-full h-full object-cover" />
+                  <img src={imagem6} alt="Aplicação facial" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
 
             <div className="hidden md:block relative min-h-[1020px]">
               <p className="absolute left-0 md:left-4 top-36 md:top-48 max-w-[250px] text-[11px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-                A cidade grande impõe um ritmo acelerado e deixa pouco tempo para você. Desacelerar por alguns instantes ajuda a recuperar seu equilíbrio.
+                Suleima é especialista em estética corporal modeladora e tratamentos faciais, com protocolos modernos e tecnologia de ponta.
               </p>
 
               <div className="absolute left-1/2 -translate-x-1/2 top-52 md:top-40 w-[220px] h-[330px] md:w-[390px] md:h-[610px] rounded-[100px] md:rounded-[210px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1000&q=80" alt="Yoga principal" className="w-full h-full object-cover" />
+                <img src={imagemSu2} alt="Suleima com equipamento" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute right-0 md:right-2 top-20 md:top-18 w-[130px] h-[240px] md:w-[235px] md:h-[390px] rounded-[76px] md:rounded-[130px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80" alt="Rosto" className="w-full h-full object-cover" />
+                <img src={imagemSu1} alt="Suleima apontando para o logo" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute left-5 md:left-12 top-[470px] md:top-[560px] w-[110px] h-[190px] md:w-[175px] md:h-[285px] rounded-[58px] md:rounded-[95px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1525845859779-54d477ff291f?w=900&q=80" alt="Modelo esquerda" className="w-full h-full object-cover" />
+                <img src={imagemSu3} alt="Suleima segurando aplicador" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute right-8 md:right-28 top-[620px] md:top-[690px] w-[88px] h-[136px] md:w-[142px] md:h-[205px] rounded-[44px] md:rounded-[72px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=700&q=80" alt="Massagem pequena" className="w-full h-full object-cover" />
+                <img src={imagem5} alt="Procedimento corporal" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute left-[34%] md:left-[30%] top-[780px] md:top-[868px] w-[72px] h-[110px] md:w-[115px] md:h-[170px] rounded-[38px] md:rounded-[80px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=700&q=80" alt="Detalhe corporal" className="w-full h-full object-cover" />
+                <img src={imagem4} alt="Procedimento facial com luvas" className="w-full h-full object-cover" />
               </div>
 
               <div className="absolute left-1/2 -translate-x-1/2 top-[700px] md:top-[860px] w-[56px] h-[86px] md:w-[90px] md:h-[132px] rounded-[30px] md:rounded-[50px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Meditação pequena" className="w-full h-full object-cover" />
+                <img src={imagem6} alt="Aplicação facial" className="w-full h-full object-cover" />
               </div>
  
               <p className="absolute right-0 md:right-2 top-[515px] md:top-[605px] max-w-[240px] md:max-w-[360px] text-[11px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Chegou o momento de criar um espaço que respeita seu ritmo e seu tempo, oferecendo relaxamento profundo e resultado estético visível.
+                Cada cliente recebe uma avaliação individualizada, garantindo segurança, estratégia personalizada e resultados progressivos.
               </p>
 
               <p className="absolute left-[35%] md:left-[40%] top-[690px] md:top-[800px] max-w-[220px] md:max-w-[350px] text-[11px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Você será cuidada desde o primeiro toque. Aromas, sons e sensações vão te conduzir para um estado de calma e relaxamento.
+                Atendimento exclusivo, equipamentos profissionais, protocolos estruturados e foco em resultado real.
               </p>
             </div>
           </div>
@@ -187,37 +202,37 @@ export default function LandingPage() {
           <div className="relative z-10 grid grid-cols-2 md:grid-cols-12 gap-y-10 md:gap-y-0 md:gap-x-6">
             <div className="col-span-2 md:col-span-4">
               <h3 className="leading-none mb-7" style={{ fontFamily: 'Playfair Display, serif' }}>
-                <span className="block text-5xl md:text-7xl">nossa</span>
-                <span className="block text-5xl md:text-7xl pl-10 md:pl-14 -mt-1">base</span>
+                <span className="block text-5xl md:text-7xl">tecnologia</span>
+                <span className="block text-5xl md:text-7xl pl-10 md:pl-14 -mt-1">de ponta</span>
               </h3>
               <h4 className="leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>
-                <span className="block text-4xl md:text-5xl">lugar</span>
-                <span className="block text-4xl md:text-5xl pl-9 md:pl-14">seguro</span>
+                <span className="block text-4xl md:text-5xl">estrutura</span>
+                <span className="block text-4xl md:text-5xl pl-9 md:pl-14">premium</span>
               </h4>
               <p className="max-w-[270px] mt-4 text-[12px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Um refúgio no centro da cidade, onde o estado de bem-estar das nossas clientes é o principal valor.
+                Equipamentos modernos e reconhecidos no mercado estético para garantir segurança, conforto e eficácia em cada sessão.
               </p>
             </div>
 
             <div className="col-span-2 md:col-span-5 md:col-start-7">
               <h4 className="text-5xl md:text-6xl leading-[0.9]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                corpo & alma
+                resultados
                 <br />
-                conceito
+                superiores
               </h4>
               <p className="mt-4 max-w-[390px] text-[12px] md:text-[14px] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Acreditamos que a beleza nasce do estado interior, e a satisfação com o corpo traz confiança e equilíbrio.
+                Nosso espaço foi planejado para oferecer atendimento reservado, acolhimento e uma experiência de alto padrão.
               </p>
 
               <h4 className="text-5xl md:text-6xl leading-none mt-8 md:mt-10" style={{ fontFamily: 'Playfair Display, serif' }}>
-                beleza
+                diferenciais
                 <br />
-                saudável
+                reais
               </h4>
               <ul className="mt-4 text-[12px] md:text-[14px] space-y-2" style={{ fontFamily: 'Inter, sans-serif' }}>
-                <li>➤ rituais relaxantes de spa</li>
-                <li>➤ tratamentos corporais com eficácia</li>
-                <li>➤ reposição da energia mental com meditações e práticas</li>
+                <li>➤ atendimento exclusivo</li>
+                <li>➤ equipamentos profissionais</li>
+                <li>➤ foco em resultado progressivo</li>
               </ul>
             </div>
           </div>
@@ -229,16 +244,16 @@ export default function LandingPage() {
           </h2>
 
           {[
-            { title: 'corpo', image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1800&q=80' },
-            { title: 'rosto', image: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1800&q=80' },
-            { title: 'alma', image: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1800&q=80' },
+            { title: 'corporal', image: imagem5 },
+            { title: 'facial', image: imagem4 },
+            { title: 'experiência', image: imagem3 },
           ].map((item) => (
             <article key={item.title} className="relative h-[170px] md:h-[265px] border-t border-white/65 first:border-t-0">
               <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/10" />
               <div className="relative z-10 h-full flex flex-col justify-center pl-8 md:pl-16">
                 <h3 className="text-white text-6xl md:text-7xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>{item.title}</h3>
-                <button className="mt-4 w-max bg-white text-[#2f2321] px-4 py-2 text-[10px] uppercase tracking-[0.12em]">Ver serviços</button>
+                <a href={sistemaUrl} className="mt-4 w-max bg-white text-[#2f2321] px-4 py-2 text-[10px] uppercase tracking-[0.12em]">Agendar avaliação</a>
               </div>
             </article>
           ))}
@@ -251,44 +266,44 @@ export default function LandingPage() {
           </svg>
           <div className="relative z-10">
             <h2 className="text-center leading-none mb-10 md:mb-12" style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.8rem,5.8vw,5.4rem)' }}>
-              pacotes
+              protocolos
               <br />
-              e certificados
+              exclusivos
             </h2>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-9 items-end">
               <article className="bg-[#d3cdc0] rounded-t-[170px] md:rounded-t-[250px] rounded-b-[38px] overflow-hidden px-6 md:px-9 pt-16 md:pt-20 pb-6 md:pb-9 min-h-[620px] md:min-h-[860px] flex flex-col">
-                <h3 className="text-4xl md:text-6xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>icoone</h3>
-                <p className="text-[13px] md:text-[17px] mt-2" style={{ fontFamily: 'Inter, sans-serif' }}>massagem com aparelho</p>
+                <h3 className="text-4xl md:text-6xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>modelagem</h3>
+                <p className="text-[13px] md:text-[17px] mt-2" style={{ fontFamily: 'Inter, sans-serif' }}>protocolos corporais estratégicos</p>
                 <div className="mt-5 text-[15px] md:text-[30px] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  <p>R$ 1.350 <span className="line-through text-[11px] md:text-sm opacity-60">R$ 1.650</span></p>
-                  <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Pacote para 3 sessões</p>
-                  <p className="pt-3">R$ 2.150 <span className="line-through text-[11px] md:text-sm opacity-60">R$ 2.750</span></p>
-                  <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Pacote para 5 sessões</p>
+                  <p>Protocolo Modelagem Intensiva</p>
+                  <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Foco em definição e contorno corporal</p>
+                  <p className="pt-3">Protocolo Detox Corporal</p>
+                  <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Redução de retenção e melhora da circulação</p>
                 </div>
-                <button className="mt-5 bg-[#3c2922] text-white px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Comprar</button>
+                <a href={sistemaUrl} className="mt-5 bg-[#3c2922] text-white px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Solicitar avaliação</a>
                 <div className="mt-auto pt-6 h-[330px] md:h-[560px] rounded-[130px] md:rounded-[230px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=1100&q=80" alt="Card esquerdo" className="w-full h-full object-cover object-center" />
+                  <img src={imagemSu4} alt="Protocolo corporal com tecnologia" className="w-full h-full object-cover object-center" />
                 </div>
               </article>
 
               <article className="bg-[#978f79] text-white rounded-t-[170px] md:rounded-t-[250px] rounded-b-[38px] overflow-hidden px-6 md:px-9 pt-[4.5rem] md:pt-24 pb-6 md:pb-9 min-h-[620px] md:min-h-[780px] flex flex-col md:mt-16">
                 <h3 className="text-4xl md:text-5xl leading-[0.98]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  tratamentos
+                  protocolos
                   <br />
-                  faciais e
+                  faciais
                   <br />
-                  corporais
+                  exclusivos
                 </h3>
                 <div className="mt-5 text-[15px] md:text-[30px] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  <p>R$ 380 <span className="line-through text-[11px] md:text-sm opacity-70">R$ 500</span></p>
-                  <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Certificado-presente</p>
-                  <p className="pt-3">R$ 700 <span className="line-through text-[11px] md:text-sm opacity-70">R$ 1.000</span></p>
-                  <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Certificado-presente</p>
+                  <p>Protocolo Rejuvenescimento Facial</p>
+                  <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Vitalidade, firmeza e luminosidade da pele</p>
+                  <p className="pt-3">Protocolo Redução de Medidas</p>
+                  <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Combinação personalizada para resultado real</p>
                 </div>
-                <button className="mt-5 bg-white text-[#3c2922] px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Comprar</button>
+                <a href={sistemaUrl} className="mt-5 bg-white text-[#3c2922] px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Solicitar avaliação</a>
                 <div className="mt-auto pt-6 h-[300px] md:h-[490px] rounded-[130px] md:rounded-[220px] overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=1100&q=80" alt="Card direito" className="w-full h-full object-cover object-center" />
+                  <img src={imagem7} alt="Protocolo facial na clínica" className="w-full h-full object-cover object-center" />
                 </div>
               </article>
             </div>
@@ -301,13 +316,13 @@ export default function LandingPage() {
           </svg>
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-5 md:mb-8">
-              <h2 className="text-6xl md:text-8xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>instagram</h2>
-              <button className="bg-[#3c2922] text-white px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em]">Entrar</button>
+              <h2 className="text-6xl md:text-8xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>galeria</h2>
+              <a href={sistemaUrl} className="bg-[#3c2922] text-white px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em]">Agendar</a>
             </div>
             <div className="grid grid-cols-5 gap-1.5 md:gap-2">
               {galleryImages.map((image, i) => (
                 <div key={i} className="aspect-square overflow-hidden">
-                  <img src={image} alt={`Instagram ${i + 1}`} className="w-full h-full object-cover" />
+                  <img src={image} alt={`Galeria da clínica ${i + 1}`} className="w-full h-full object-cover" />
                 </div>
               ))}
             </div>
@@ -323,16 +338,16 @@ export default function LandingPage() {
             <div>
               <p className="text-2xl md:text-4xl tracking-[0.22em] leading-none"><br />SULEIMA</p>
               <p className="mt-6 text-[11px] md:text-sm text-white/85" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Um espaço de cuidado para corpo e mente.
+                Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.
               </p>
             </div>
             <div>
               <p className="text-4xl md:text-6xl leading-[0.92]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                salto, são paulo
+                avaliação
                 <br />
-                sp
+                personalizada
               </p>
-              <button className="mt-5 bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Navegar</button>
+              <a href={sistemaUrl} className="mt-5 inline-block bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Agendar agora</a>
             </div>
             <div className="md:text-right">
               <a href="tel:+5511999999999" className="text-4xl md:text-7xl leading-none block" style={{ fontFamily: 'Playfair Display, serif' }}>
