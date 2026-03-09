@@ -108,7 +108,7 @@ export default function LandingPage() {
           <div className="relative z-10 h-full px-4 md:px-10 pb-8 md:pb-12 flex flex-col justify-end text-white">
             <div className="w-fit max-w-[760px] rounded-[22px] bg-black/26 px-4 py-4 md:px-7 md:py-6 backdrop-blur-[1px]">
               <h1 className="leading-[0.95] font-medium max-w-[600px]" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(1.95rem,8vw,4.8rem)' }}>
-                <span className="block">Alta tecnologia</span>
+                <span className="block">Alta tecnologia</span> 
                 <span className="block md:pl-[6%]">em estética corporal</span>
                 <span className="block">e facial em Salto.</span>
               </h1>
