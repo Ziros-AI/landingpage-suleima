@@ -598,38 +598,49 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <footer id="contacts" className="relative rounded-t-[28px] md:rounded-t-[40px] rounded-b-none overflow-hidden bg-[#8f876f] text-white px-4 md:px-16 py-10 md:py-14">
+        <footer
+          id="contacts"
+          className="relative rounded-t-[32px] md:rounded-t-[40px] overflow-hidden bg-[#8f876f] text-white px-6 md:px-16 py-14"
+        >
+
           <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 1200 360" fill="none">
             <path d="M-40 200C170 130 340 190 540 240C760 290 920 240 1210 300" stroke="#d8d1c2" strokeWidth="1.1" />
             <path d="M420 40C560 50 620 100 640 160C650 230 600 280 510 320" stroke="#d8d1c2" strokeWidth="1.1" />
           </svg>
-          <div className="relative z-10 grid md:grid-cols-3 gap-8 items-start">
-            <div>
-              <p className="text-2xl md:text-4xl tracking-[0.22em] leading-snug"><br />SULEIMA</p>
-              <p className="mt-6 text-[11px] md:text-sm text-white/85" style={{ fontFamily: 'Inter, sans-serif' }}>
+
+          <div className="relative z-10 grid md:grid-cols-3 gap-14 md:gap-10 lg:gap-14 items-start text-center md:text-left">
+
+            {/* COLUNA 1 */}
+            <div className="space-y-6 flex flex-col items-center md:items-start">
+              <h2 className="text-3xl md:text-4xl tracking-[0.25em]">
+                SULEIMA
+              </h2>
+
+              <p className="text-sm text-white/85 max-w-[280px]">
                 Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.
               </p>
-              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Agendar agora</a>
-            </div>
-            <div>
-              <p
-                className="text-[11px] uppercase tracking-[0.18em] text-white/70"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+
+              <a
+                href={whatsappAgendamento}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-auto bg-white text-[#3f3828] px-5 py-2 text-[11px] uppercase tracking-[0.12em] rounded-full transition-all duration-300 hover:bg-[#f2f2f2]"
               >
-                Endereço
+                Agendar agora
+              </a>
+            </div>
+
+            {/* COLUNA 2 */}
+            <div className="space-y-5 flex flex-col items-center md:items-start text-center md:text-left">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-white/70">
+              Endereço
               </p>
 
-              <h3
-                className="mt-2 text-3xl md:text-4xl leading-[1.1]"
-                style={{ fontFamily: 'Playfair Display, serif' }}
-              >
+              <h3 className="text-3xl md:text-4xl leading-[1.1]">
                 Rua América 1321
               </h3>
 
-              <p
-                className="mt-1 text-lg text-white/90"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
+              <p className="text-lg text-white/90">
                 Salto — SP
               </p>
 
@@ -637,32 +648,72 @@ export default function LandingPage() {
                 href={googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-5 inline-block border border-white/60 px-4 py-2 text-[10px] uppercase tracking-[0.1em]
-    rounded-full transition-all duration-300
-    hover:bg-white hover:text-[#3f3828]"
+                className="inline-block mt-auto border border-white/60 px-5 py-2 text-[11px]
+                uppercase tracking-[0.12em] rounded-full
+                transition-all duration-300
+                hover:bg-white hover:text-[#3f3828]"
               >
                 Ver no Google Maps
               </a>
             </div>
-            <div className="md:text-right">
-              <a href="tel:+5511958671658" className="text-4xl md:text-3xl leading-none block" style={{ fontFamily: 'Playfair Display, serif' }}>
-                +55 (11) 95867-1658
-              </a>
-              <a
-                href="mailto:suleimaestetica@icloud.com"
-                className="mt-4 block text-[12px] md:text-sm text-white/90 underline underline-offset-4"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                suleimaestetica@icloud.com
-              </a>
-              <a
-                href={whatsappAgendamento} target="_blank" rel="noopener noreferrer"
-                className="inline-block mt-5 border border-white/60 px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] hover:bg-white hover:text-[#3f3828] transition-colors"
-              >
-                Agendar
-              </a>
+
+            {/* COLUNA 3 */}
+            <div className="space-y-4 w-full md:max-w-[220px] md:ml-auto flex flex-col items-center md:items-end">
+
+              <p className="text-[11px] uppercase tracking-[0.2em] text-white/70 text-center w-full">
+              Contato
+              </p>
+              
+              <div className="grid grid-cols-[18px_auto] md:grid-cols-[24px_auto] gap-x-2 md:gap-x-3 gap-y-4">
+
+                {/* TELEFONE */}
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z" />
+                </svg>
+
+                <a
+                  href="tel:+5511958671658"
+                  className="whitespace-nowrap text-center md:text-left"
+                >
+                  +55 (11) 95867-1658
+                </a>
+
+                {/* EMAIL */}
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 6l9 7 9-7" />
+                </svg>
+
+                <a
+                  href="mailto:suleimaestetica@icloud.com"
+                  className="text-center md:text-left"
+                >
+                  suleimaestetica@icloud.com
+                </a>
+
+                {/* INSTAGRAM */}
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" />
+                </svg>
+
+                <a
+                  href={instagramProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center md:text-left"
+                >
+                  @suleimaestetica
+                </a>
+
+              </div>
+
             </div>
+
           </div>
+
         </footer>
       </main>
     </div>
