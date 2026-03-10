@@ -62,6 +62,20 @@ const navLinks = [
   { href: '#contacts',       label: 'Contato'         },
 ];
 
+//Links de WhatsApp de cada seção:
+const whatsappCursos =
+  "https://api.whatsapp.com/send/?phone=5511958671658&text=Olá,%20gostaria%20de%20informações%20sobre%20os%20cursos.";
+
+const whatsappAvaliacao =
+  "https://api.whatsapp.com/send/?phone=5511958671658&text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação.";
+
+const whatsappClinica =
+  "https://api.whatsapp.com/send/?phone=5511958671658&text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20tratamentos.";
+
+const whatsappAgendamento = 
+  "https://api.whatsapp.com/send/?phone=5511958671658&text=Olá,%20gostaria%20de%20realizar%20um%20agendamento.";
+
+
 export default function LandingPage() {
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
 
@@ -121,7 +135,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-4 text-[10px]">
               <span className="hidden sm:block text-[11px] tracking-wide
                            hover:text-white/70 transition-colors duration-200">+55 (11) 95867-1658</span>
-              <a href={sistemaUrl} className="hidden sm:inline-flex items-center
+              <a href={whatsappClinica} target="_blank" rel="noopener noreferrer"className="hidden sm:inline-flex items-center
                            border border-white/60 rounded-full
                            px-4 py-2 text-[11px] uppercase tracking-[0.1em]
                            transition-all duration-300
@@ -145,7 +159,7 @@ export default function LandingPage() {
                 Protocolos personalizados para modelagem corporal, rejuvenescimento e valorização da sua beleza natural.
               </p>
               <div className="mt-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.13em]">
-                <a href={sistemaUrl} className="border-b border-white/70 pb-1">
+                <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer" className="border-b border-white/70 pb-1">
                   Agendar avaliação <span aria-hidden>→</span>
                 </a>
                 <a href="#services" className="border-b border-white/70 pb-1">
@@ -198,7 +212,7 @@ export default function LandingPage() {
               hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">
                     Ver tratamentos
                   </a>
-                  <a href={sistemaUrl} className="border border-[#3c2922]/50 px-4 py-2 text-[10.5px] uppercase tracking-[0.1em]
+                  <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer" className="border border-[#3c2922]/50 px-4 py-2 text-[10.5px] uppercase tracking-[0.1em]
                   rounded-full transition-all duration-300
                   text-[#3c2922]
                   hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98] ">
@@ -287,12 +301,12 @@ export default function LandingPage() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={sistemaUrl} className="bg-[#3c2922] px-5 py-2.5 text-[11px] uppercase tracking-[0.1em] text-white
+              <a href={sistemaUrl} target="_blank" rel="noopener noreferrer" className="bg-[#3c2922] px-5 py-2.5 text-[11px] uppercase tracking-[0.1em] text-white
               rounded-full transition-all duration-300
               hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">
                 Conhecer o Método CONTOUR
               </a>
-              <a href="#contacts" className="border border-[#3c2922]/45 px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] 
+              <a href={whatsappClinica} target="_blank" rel="noopener noreferrer" className="border border-[#3c2922]/45 px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] 
               text-[#3c2922]
               rounded-full transition-all duration-300
               hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">
@@ -318,7 +332,7 @@ export default function LandingPage() {
               <div className="relative z-10 h-full flex flex-col justify-center pl-8 md:pl-16">
                 <h3 className="text-white text-6xl md:text-7xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>{item.title}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <a href={sistemaUrl} className="w-max bg-white text-[#2f2321] px-4 py-2 text-[10px] uppercase tracking-[0.12em] rounded-full transition-all duration-300
+                  <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer" className="w-max bg-white text-[#2f2321] px-4 py-2 text-[10px] uppercase tracking-[0.12em] rounded-full transition-all duration-300
               hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">Agendar avaliação</a>
                   <a href="#about" className="w-max border border-white text-white px-4 py-2 text-[10px] uppercase tracking-[0.12em] rounded-full transition-all duration-300
               hover:bg-[#9E9E9E] hover:shadow-md active:scale-[0.98]">Ver mais sobre</a>
@@ -500,12 +514,12 @@ export default function LandingPage() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#contacts" className="top-[6.8%] h-[87.3%] w-[15%] bg-[#3c2922] px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] text-white 
+              <a href={whatsappCursos} target="_blank" rel="noopener noreferrer"className="top-[6.8%] h-[87.3%] w-[15%] bg-[#3c2922] px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] text-white 
               rounded-full transition-all duration-300
               hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">
                 Falar sobre cursos
               </a>
-              <a href={sistemaUrl} className="border border-[#3c2922]/45 px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] 
+              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer"className="border border-[#3c2922]/45 px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] 
               text-[#3c2922] rounded-full transition-all duration-300
               hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">
                 Agendar
@@ -530,7 +544,7 @@ export default function LandingPage() {
               <p className="text-4xl md:text-4x1 leading-snug" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Rua América 1321 - Salto
               </p>
-              <a href={sistemaUrl} className="mt-5 inline-block bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Agendar agora</a>
+              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Agendar agora</a>
             </div>
             <div className="md:text-right">
               <a href="tel:+5511958671658" className="text-4xl md:text-3xl leading-none block" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -544,7 +558,7 @@ export default function LandingPage() {
                 suleimaestetica@icloud.com
               </a>
               <a
-                href={sistemaUrl}
+                href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" 
                 className="inline-block mt-5 border border-white/60 px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] hover:bg-white hover:text-[#3f3828] transition-colors"
               >
                 Agendar
