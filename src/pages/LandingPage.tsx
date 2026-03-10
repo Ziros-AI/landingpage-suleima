@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import imagem1 from '../assets/ImagensClinica/imagem1.jpg';
 import imagem2 from '../assets/ImagensClinica/imagem2.jpg';
@@ -78,6 +78,9 @@ const whatsappAgendamento =
 const googleMapsUrl = "https://maps.app.goo.gl/5ACdHhu2EvLqRs1k7";
 
 export default function LandingPage() {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
 
   useEffect(() => {
@@ -93,6 +96,8 @@ export default function LandingPage() {
   }, []);
 
   return (
+
+
     <div className="bg-[#ececea] min-h-screen pt-0 pb-0 text-[#2f2321]">
       <main className="w-full px-0 space-y-0">
         <section className="relative min-h-[460px] md:min-h-[780px] rounded-t-none rounded-b-[24px] md:rounded-b-[38px] overflow-hidden border-0">
@@ -108,7 +113,7 @@ export default function LandingPage() {
           </svg>
 
           <header className="relative z-20 px-4 md:px-9 pt-4 md:pt-8 flex items-center justify-between text-white/90">
-            <div className="leading-none text-[10px] md:text-[11px] tracking-[0.23em]">
+            <div className="leading-none text-[10px] md:text-[11px] tracking-[0.23em] mr-12">
               <p className="mt-1">SULEIMA</p>
               <p className="mt-1">ESTETICA</p>
             </div>
@@ -133,18 +138,68 @@ export default function LandingPage() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-4 text-[10px]">
+            <div className="flex items-center gap-4 text-[10px] ml-auto">
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="md:hidden flex flex-col gap-1"
+              >
+                <span className="w-6 h-[2px] bg-white"></span>
+                <span className="w-6 h-[2px] bg-white"></span>
+                <span className="w-6 h-[2px] bg-white"></span>
+              </button>
+
               <span className="hidden sm:block text-[11px] tracking-wide
-                           hover:text-white/70 transition-colors duration-200">+55 (11) 95867-1658</span>
-              <a href={whatsappClinica} target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex items-center
-                           border border-white/60 rounded-full
-                           px-4 py-2 text-[11px] uppercase tracking-[0.1em]
-                           transition-all duration-300
-                           hover:bg-white hover:text-[#2f2321] hover:border-white
-                           active:scale-[0.97]">
+      hover:text-white/70 transition-colors duration-200">
+                +55 (11) 95867-1658
+              </span>
+
+              <a
+                href={whatsappClinica}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center
+      border border-white/60 rounded-full
+      px-4 py-2 text-[11px] uppercase tracking-[0.1em]
+      transition-all duration-300
+      hover:bg-white hover:text-[#2f2321] hover:border-white
+      active:scale-[0.97]"
+              >
                 Agendar
               </a>
             </div>
+
+
+            <div className="flex items-center justify-between">
+              {/* logo + nav + botão */}
+            </div>
+
+            {menuOpen && (
+              <div className="absolute top-full left-0 w-full bg-[#2f2321] text-white shadow-lg md:hidden">
+                <div className="flex flex-col items-center gap-6 py-8">
+
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="uppercase tracking-[0.15em]"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+
+                  <a
+                    href={whatsappAvaliacao}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-white px-6 py-3 rounded-full uppercase text-sm"
+                  >
+                    Agendar avaliação
+                  </a>
+
+                </div>
+              </div>
+            )}
           </header>
 
           <div className="relative z-10 h-full px-4 md:px-10 pb-8 md:pb-12 flex flex-col justify-end text-white">
