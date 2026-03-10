@@ -16,6 +16,7 @@ import imagemG2 from '../assets/imagensGluteo/imagemG2.jpg';
 import imagemG3 from '../assets/imagensGluteo/imagemG3.jpg';
 import imagemG4 from '../assets/imagensGluteo/imagemG4.jpg';
 import imagemG5 from '../assets/imagensGluteo/imagemG5.jpg';
+import imagemT1 from '../assets/imagensThelma/imagemTh1.jpg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -50,6 +51,15 @@ const instagramPosts = [
     image: imagemG5,
     label: 'Reel de harmonização glútea',
   },
+];
+
+const navLinks = [
+  { href: '#about',          label: 'Sobre'           },
+  { href: '#services',       label: 'Serviços'        },
+  { href: '#gluteo-contour', label: 'Método CONTOUR'  },
+  { href: '#subscription',   label: 'Protocolos'      },
+  { href: '#cursos',         label: 'Cursos'          },
+  { href: '#contacts',       label: 'Contato'         },
 ];
 
 export default function LandingPage() {
@@ -88,18 +98,35 @@ export default function LandingPage() {
               <p className="mt-1">ESTETICA</p>
             </div>
 
-            <nav className="hidden md:flex items-center gap-8 text-[10px] tracking-[0.12em] uppercase">
-              <a href="#about">Sobre</a>
-              <a href="#services">Serviços</a>
-              <a href="#gluteo-contour">Método CONTOUR</a>
-              <a href="#subscription">Protocolos</a>
-              <a href="#gallery">Galeria</a>
-              <a href="#contacts">Contato</a>
+            <nav
+              className="hidden md:flex items-center gap-7 text-[11px] tracking-[0.12em] uppercase font-light"
+              aria-label="Navegação principal"
+            >
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="relative pb-0.5
+                             after:absolute after:bottom-0 after:left-0
+                             after:h-px after:w-0 after:bg-white/70
+                             after:transition-all after:duration-300
+                             hover:after:w-full hover:text-white
+                             transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
             </nav>
 
             <div className="flex items-center gap-4 text-[10px]">
-              <span className="hidden sm:block">+55 (11) 95867-1658</span>
-              <a href={sistemaUrl} className="border border-white/60 px-3 py-2 uppercase tracking-[0.1em]">
+              <span className="hidden sm:block text-[11px] tracking-wide
+                           hover:text-white/70 transition-colors duration-200">+55 (11) 95867-1658</span>
+              <a href={sistemaUrl} className="hidden sm:inline-flex items-center
+                           border border-white/60 rounded-full
+                           px-4 py-2 text-[11px] uppercase tracking-[0.1em]
+                           transition-all duration-300
+                           hover:bg-white hover:text-[#2f2321] hover:border-white
+                           active:scale-[0.97]">
                 Agendar
               </a>
             </div>
@@ -109,7 +136,7 @@ export default function LandingPage() {
             <div className="w-fit max-w-[760px] rounded-[22px] bg-black/26 px-4 py-4 md:px-7 md:py-6 backdrop-blur-[1px]">
               <h1 className="leading-[0.95] font-medium max-w-[600px]" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(1.95rem,8vw,4.8rem)' }}>
                 <span className="block">Alta tecnologia</span> 
-                <span className="block md:pl-[6%]">em estética corporal</span>
+                <span className="block">em estética corporal</span>
                 <span className="block">e facial em Salto.</span>
               </h1>
             </div>
@@ -133,8 +160,8 @@ export default function LandingPage() {
         </section>
 
         <section id="about" className="relative overflow-hidden bg-[#dddacf] px-4 py-12 md:px-16 md:py-16">
-          <div className="absolute left-1/2 top-[8%] h-[84%] w-[108%] -translate-x-1/2 rounded-full bg-[#d2cec2]" />
-          <svg className="absolute inset-0 h-full w-full opacity-55" viewBox="0 0 1200 1200" fill="none">
+          <div className="absolute left-1/2 top-[6.8%] h-[87.3%] w-[108%] -translate-x-1/2 rounded-full bg-[#d2cec2]" />
+          <svg className="absolute inset-0 h-full w-full opacity-100" viewBox="0 0 1200 1200" fill="none">
             <path d="M-80 470C160 300 320 390 520 560C710 730 930 680 1230 760" stroke="#b5ac9d" strokeWidth="1.1" />
             <path d="M-20 930C200 760 390 850 620 980C840 1110 1030 1050 1210 1140" stroke="#bdb4a6" strokeWidth="1.1" />
             <path d="M760 180C860 150 960 220 1010 340C1060 460 1030 600 940 700" stroke="#beb6a7" strokeWidth="1.1" />
@@ -166,10 +193,15 @@ export default function LandingPage() {
                   <li>✔ Cuidado humanizado em cada etapa</li>
                 </ul>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <a href="#services" className="bg-[#3c2922] px-4 py-2 text-[10px] uppercase tracking-[0.1em] text-white">
+                  <a href="#services" className="bg-[#3c2922] px-5 py-2.5 text-[11px] uppercase tracking-[0.1em] text-white
+              rounded-full transition-all duration-300
+              hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">
                     Ver tratamentos
                   </a>
-                  <a href={sistemaUrl} className="border border-[#3c2922]/50 px-4 py-2 text-[10px] uppercase tracking-[0.1em] text-[#3c2922]">
+                  <a href={sistemaUrl} className="border border-[#3c2922]/50 px-4 py-2 text-[10.5px] uppercase tracking-[0.1em]
+                  rounded-full transition-all duration-300
+                  text-[#3c2922]
+                  hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98] ">
                     Agendar avaliação
                   </a>
                 </div>
@@ -246,7 +278,7 @@ export default function LandingPage() {
               Técnica de harmonização glútea com protocolo personalizado para melhorar contorno, firmeza e proporção, respeitando a estrutura corporal de cada cliente.
             </p>
 
-            <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 ">
               {[imagemG4, imagemG5, imagemG3, imagemG2, imagemG].map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-[22px] bg-[#d8d1c2]">
                   <img src={img} alt={`Resultado Método Glúteos CONTOUR ${i + 1}`} className="h-[170px] w-full object-cover md:h-[220px]" />
@@ -255,10 +287,15 @@ export default function LandingPage() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={sistemaUrl} className="bg-[#3c2922] px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] text-white">
-                Agendar avaliação do CONTOUR
+              <a href={sistemaUrl} className="bg-[#3c2922] px-5 py-2.5 text-[11px] uppercase tracking-[0.1em] text-white
+              rounded-full transition-all duration-300
+              hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">
+                Conhecer o Método CONTOUR
               </a>
-              <a href="#contacts" className="border border-[#3c2922]/45 px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] text-[#3c2922]">
+              <a href="#contacts" className="border border-[#3c2922]/45 px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] 
+              text-[#3c2922]
+              rounded-full transition-all duration-300
+              hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">
                 Falar com a clínica
               </a>
             </div>
@@ -267,13 +304,13 @@ export default function LandingPage() {
 
         <section id="services" className="rounded-none overflow-hidden bg-[#dddacf]">
           <h2 className="text-center pt-8 md:pt-10 pb-6 md:pb-8 text-6xl md:text-8xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>
-            serviços
+            Serviços
           </h2>
 
           {[
-            { title: 'corporal', image: imagemSu4, position: 'object-[52%_40%] md:object-[50%_38%]' },
-            { title: 'facial', image: imagem7, position: 'object-[48%_36%] md:object-[52%_32%]' },
-            { title: 'experiência', image: imagem3, position: 'object-[50%_32%] md:object-[50%_30%]' },
+            { title: 'Corporal', image: imagemSu4, position: 'object-[52%_40%] md:object-[50%_38%]' },
+            { title: 'Facial', image: imagem7, position: 'object-[48%_36%] md:object-[52%_32%]' },
+            { title: 'Experiência', image: imagem3, position: 'object-[50%_32%] md:object-[50%_30%]' },
           ].map((item) => (
             <article key={item.title} className="relative h-[200px] md:h-[300px] border-t border-white/65 first:border-t-0">
               <img src={item.image} alt={item.title} className={`absolute inset-0 w-full h-full object-cover ${item.position}`} />
@@ -281,8 +318,10 @@ export default function LandingPage() {
               <div className="relative z-10 h-full flex flex-col justify-center pl-8 md:pl-16">
                 <h3 className="text-white text-6xl md:text-7xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>{item.title}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <a href={sistemaUrl} className="w-max bg-white text-[#2f2321] px-4 py-2 text-[10px] uppercase tracking-[0.12em]">Agendar avaliação</a>
-                  <a href="#about" className="w-max border border-white text-white px-4 py-2 text-[10px] uppercase tracking-[0.12em]">Ver mais sobre</a>
+                  <a href={sistemaUrl} className="w-max bg-white text-[#2f2321] px-4 py-2 text-[10px] uppercase tracking-[0.12em] rounded-full transition-all duration-300
+              hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">Agendar avaliação</a>
+                  <a href="#about" className="w-max border border-white text-white px-4 py-2 text-[10px] uppercase tracking-[0.12em] rounded-full transition-all duration-300
+              hover:bg-[#9E9E9E] hover:shadow-md active:scale-[0.98]">Ver mais sobre</a>
                 </div>
               </div>
             </article>
@@ -290,110 +329,187 @@ export default function LandingPage() {
         </section>
 
         <section id="subscription" className="relative rounded-none overflow-hidden bg-[#dddacf] px-4 md:px-16 py-12 md:py-16">
-          <svg className="absolute inset-0 w-full h-full opacity-45" viewBox="0 0 1200 700" fill="none">
-            <path d="M-10 390C200 340 390 420 610 410C860 400 980 280 1200 340" stroke="#b7ae9f" strokeWidth="1.1" />
-            <path d="M40 620C260 520 430 570 640 620C860 670 1030 620 1230 690" stroke="#bdb4a5" strokeWidth="1.1" />
+          <svg className="absolute inset-0 w-full h-full opacity-45" viewBox="0 0 1200 680" fill="none">
+            <path d="M-60 320C180 190 360 260 570 370C760 470 940 400 1200 500" stroke="#b3aa9c" strokeWidth="1.1" />
+            <path d="M820 80C730 160 730 250 780 340C850 450 1010 470 1250 560" stroke="#b9b1a2" strokeWidth="1.1" />
           </svg>
-          <div className="relative z-10">
-            <h2 className="text-center leading-none mb-10 md:mb-12" style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.8rem,5.8vw,5.4rem)' }}>
-              protocolos
-              <br />
-              exclusivos
+          
+          <div className="relative z-10 mx-auto max-w-6xl">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Terapias Complementares
+            </p>
+            <h2 className="mt-2 text-4xl md:text-6xl leading-[0.95]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Thelma Arcuri
             </h2>
+            <p className="mt-3 text-lg md:text-xl text-[#4a3d37]" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Massoterapeuta e Fisioterapeuta
+            </p>
 
-            <div className="grid md:grid-cols-2 gap-6 md:gap-9 items-end">
-              <article className="bg-[#d3cdc0] rounded-t-[170px] md:rounded-t-[250px] rounded-b-[38px] overflow-hidden px-6 md:px-9 pt-16 md:pt-20 pb-6 md:pb-9 min-h-[620px] md:min-h-[860px] flex flex-col">
-                <h3 className="text-4xl md:text-6xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>modelagem</h3>
-                <p className="text-[13px] md:text-[17px] mt-2" style={{ fontFamily: 'Inter, sans-serif' }}>protocolos corporais estratégicos</p>
-                <div className="mt-5 text-[15px] md:text-[30px] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  <p>Protocolo Modelagem Intensiva</p>
-                  <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Foco em definição e contorno corporal</p>
-                  <p className="pt-3">Protocolo Detox Corporal</p>
-                  <p className="text-[11px] md:text-sm mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>Redução de retenção e melhora da circulação</p>
+            <div className="mt-8 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
+              <div className="md:col-span-5">
+                <div className="overflow-hidden rounded-[120px] md:rounded-[180px]">
+                  <img 
+                    src="https://alur.com.br/wp-content/uploads/2024/01/Estetica-Avancada-1.jpg" 
+                    alt="Thelma Arcuri - Massoterapeuta e Fisioterapeuta" 
+                    className="h-[400px] md:h-[520px] w-full object-cover object-[50%_30%]" 
+                  />
                 </div>
-                <a href={sistemaUrl} className="mt-5 bg-[#3c2922] text-white px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Solicitar avaliação</a>
-                <div className="mt-auto pt-6 h-[330px] md:h-[560px] rounded-[130px] md:rounded-[230px] overflow-hidden">
-                  <img src={imagemSu4} alt="Protocolo corporal com tecnologia" className="w-full h-full object-cover object-center" />
-                </div>
-              </article>
+              </div>
 
-              <article className="bg-[#978f79] text-white rounded-t-[170px] md:rounded-t-[250px] rounded-b-[38px] overflow-hidden px-6 md:px-9 pt-[4.5rem] md:pt-24 pb-6 md:pb-9 min-h-[620px] md:min-h-[780px] flex flex-col md:mt-16">
-                <h3 className="text-4xl md:text-5xl leading-[0.98]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  protocolos
-                  <br />
-                  faciais
-                  <br />
-                  exclusivos
-                </h3>
-                <div className="mt-5 text-[15px] md:text-[30px] leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  <p>Protocolo Rejuvenescimento Facial</p>
-                  <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Vitalidade, firmeza e luminosidade da pele</p>
-                  <p className="pt-3">Protocolo Redução de Medidas</p>
-                  <p className="text-[11px] md:text-sm mt-1 text-white/90" style={{ fontFamily: 'Inter, sans-serif' }}>Combinação personalizada para resultado real</p>
+              <div className="md:col-span-7 space-y-6">
+                <div className="bg-gradient-to-br from-[#d8d1c2] to-[#cfc8b8] p-6 md:p-8 rounded-[22px] border-2 border-[#b5ac9d]">
+                  <h3 className="text-2xl md:text-3xl leading-[0.95] mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Microfisioterapia
+                  </h3>
+                  <div className="space-y-3 text-[14px] md:text-[15px] leading-relaxed text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <p>
+                      A microfisioterapia é uma técnica manual terapêutica que utiliza toques sutis e precisos para identificar e tratar marcas deixadas por traumas físicos, emocionais ou infecciosos no organismo.
+                    </p>
+                    <p>
+                      Baseada na embriologia e na anatomia palpatória, ela estimula o próprio corpo a reconhecer e eliminar essas memórias celulares, favorecendo o equilíbrio e a autorregulação.
+                    </p>
+                    <p>
+                      É um método complementar, indicado para dores crônicas, alterações emocionais, distúrbios funcionais e para promover bem-estar integral.
+                    </p>
+                  </div>
                 </div>
-                <a href={sistemaUrl} className="mt-5 bg-white text-[#3c2922] px-4 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] w-max">Solicitar avaliação</a>
-                <div className="mt-auto pt-6 h-[300px] md:h-[490px] rounded-[130px] md:rounded-[220px] overflow-hidden">
-                  <img src={imagem7} alt="Protocolo facial na clínica" className="w-full h-full object-cover object-center" />
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-white/60 p-5 rounded-[18px] border border-[#b5ac9d]/50">
+                    <h4 className="text-lg md:text-xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Barra de Access</h4>
+                    <p className="text-[13px] md:text-[14px] text-[#4a3d37]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Técnica energética que promove relaxamento profundo e liberação de bloqueios mentais.
+                    </p>
+                  </div>
+
+                  <div className="bg-white/60 p-5 rounded-[18px] border border-[#b5ac9d]/50">
+                    <h4 className="text-lg md:text-xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Reiki</h4>
+                    <p className="text-[13px] md:text-[14px] text-[#4a3d37]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Terapia energética que equilibra corpo, mente e espírito através da canalização de energia vital.
+                    </p>
+                  </div>
                 </div>
-              </article>
+
+                <div className="bg-gradient-to-r from-[#8f876f] to-[#a39a83] p-6 rounded-[18px] text-white">
+                  <p className="text-[14px] md:text-[15px] italic leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    "A verdadeira beleza começa no equilíbrio interior. Cuidamos de você de dentro para fora"
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="gallery" className="relative rounded-none overflow-hidden bg-[#dddacf] px-4 md:px-16 py-10 md:py-12">
-          <svg className="absolute left-0 top-0 w-full h-full opacity-35" viewBox="0 0 1200 300" fill="none">
-            <path d="M50 70C190 30 260 80 360 80C510 80 590 10 780 50" stroke="#b6ad9f" strokeWidth="1.1" />
+        <section id="cursos" className="relative rounded-none overflow-hidden bg-[#ececea] px-4 md:px-16 py-12 md:py-16">
+          <div className="absolute left-1/2 top-[6%] h-[88%] w-[104%] -translate-x-1/2 rounded-full bg-[#e2dfda]" />
+          <svg className="absolute inset-0 h-full w-full opacity-50" viewBox="0 0 1200 900" fill="none">
+            <path d="M-100 380C140 220 300 310 500 480C690 650 910 600 1250 680" stroke="#c5bfb1" strokeWidth="1.1" />
+            <path d="M-40 840C180 680 370 770 600 900C820 1030 1010 970 1190 1060" stroke="#cbc5b8" strokeWidth="1.1" />
           </svg>
-          <div className="relative z-10">
-            <div className="flex items-center justify-between mb-5 md:mb-8">
-              <div>
-                <h2 className="text-6xl md:text-8xl leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>instagram</h2>
-                <p className="mt-2 text-[12px] md:text-[14px]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  @suleimaestetica
-                </p>
-              </div>
-              <a
-                href={instagramProfileUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="bg-[#3c2922] text-white px-4 py-2 text-[10px] md:text-[11px] uppercase tracking-[0.1em]"
-              >
-                Ver perfil
-              </a>
+
+          <div className="relative z-10 mx-auto max-w-6xl">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Capacitação Profissional
+            </p>
+            <h2 className="mt-2 text-4xl md:text-6xl leading-[0.95]" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Cursos para Profissionais da Saúde
+            </h2>
+            <p className="mt-4 max-w-3xl text-[14px] md:text-[16px] leading-relaxed text-[#4a3d37]" style={{ fontFamily: 'Inter, sans-serif' }}>
+              Quer se aperfeiçoar, não ter medo de atender, aprender novas técnicas, se aprimorar para fazer a diferença em sua clínica? Nos procure, somos uma clínica escola!
+            </p>
+
+            <div className="mt-8 bg-gradient-to-r from-[#3c2922] to-[#4f3b30] text-white p-6 md:p-8 rounded-[22px]">
+              <h3 className="text-2xl md:text-4xl leading-[0.95] mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                Cursos VIP
+              </h3>
+              <p className="text-[14px] md:text-[16px]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                Atendimento exclusivo com apenas <strong>3 alunos por curso</strong> para garantir aprendizado personalizado e prática intensiva.
+              </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
-              {instagramPosts.map((post, i) => (
-                <div key={post.url} className="rounded-[18px] bg-[#ececea] border border-[#c8c0af] overflow-hidden">
-                  <div className="flex items-center gap-2 px-3 py-2 border-b border-[#d8d0bf]">
-                    <div className="h-7 w-7 rounded-full bg-[#3c2922] text-white text-[9px] grid place-items-center">SE</div>
-                    <a
-                      href={post.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[11px] text-[#3c2922] underline underline-offset-4"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
-                    >
-                      Ver post {i + 1} no Instagram
-                    </a>
-                  </div>
-                  <a href={post.url} target="_blank" rel="noreferrer" className="block aspect-[4/5] overflow-hidden">
-                    <img src={post.image} alt={post.label} className="h-full w-full object-cover" />
-                  </a>
-                  <div className="px-3 py-3">
-                    <p className="text-[12px] text-[#4a3d37]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      {post.label}
-                    </p>
-                    <a
-                      href={post.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-2 inline-block text-[10px] uppercase tracking-[0.1em] text-[#3c2922] border-b border-[#3c2922]/40 pb-1"
-                    >
-                      Abrir no Instagram →
-                    </a>
+
+            <div className="mt-8 grid md:grid-cols-12 gap-8">
+              <div className="md:col-span-7">
+                <h3 className="text-2xl md:text-3xl mb-5 leading-[0.95]" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Cursos Disponíveis
+                </h3>
+                <div className="bg-white/70 rounded-[22px] p-6 md:p-7 border border-[#b5ac9d]/40">
+                  <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2.5 text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <li>💉 Limpeza de pele</li>
+                    <li>💉 Prime shape (ganho de massa)</li>
+                    <li>💉 Harmonização glútea</li>
+                    <li>💉 Peeling</li>
+                    <li>💉 Microagulhamento</li>
+                    <li>💉 Jato de plasma</li>
+                    <li>💉 Hidrolipoclasia</li>
+                    <li>💉 Carboxiterapia</li>
+                    <li>💉 Peim</li>
+                    <li>💉 Intradermoterapia</li>
+                    <li>💉 Toxina botulínica</li>
+                    <li>💉 Preenchimento</li>
+                    <li>💉 Bioestimulador</li>
+                    <li>💉 Ozônio terapia</li>
+                    <li>💉 Fios de PDO</li>
+                  </ul>
+                </div>
+
+                <div className="mt-6 bg-gradient-to-r from-[#d8d1c2] to-[#cfc8b8] p-5 rounded-[18px] border border-[#b5ac9d]/60">
+                  <h4 className="text-lg md:text-xl mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>Formas de Pagamento</h4>
+                  <div className="space-y-2 text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <p>✓ Até <strong>6x sem juros</strong></p>
+                    <p>✓ Até <strong>10x com juros</strong></p>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="md:col-span-5">
+                <h3 className="text-2xl md:text-3xl mb-5 leading-[0.95]" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Itens Inclusos
+                </h3>
+                <div className="space-y-3">
+                  <div className="bg-white/70 p-4 rounded-[16px] border border-[#b5ac9d]/40">
+                    <p className="text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>💁🏻 Modelos</p>
+                  </div>
+                  <div className="bg-white/70 p-4 rounded-[16px] border border-[#b5ac9d]/40">
+                    <p className="text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>💉 Descartáveis</p>
+                  </div>
+                  <div className="bg-white/70 p-4 rounded-[16px] border border-[#b5ac9d]/40">
+                    <p className="text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>☕ Coffee break</p>
+                  </div>
+                  <div className="bg-white/70 p-4 rounded-[16px] border border-[#b5ac9d]/40">
+                    <p className="text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>🗒 Apostila</p>
+                  </div>
+                  <div className="bg-white/70 p-4 rounded-[16px] border border-[#b5ac9d]/40">
+                    <p className="text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>📝 Caderno e caneta</p>
+                  </div>
+                  <div className="bg-white/70 p-4 rounded-[16px] border border-[#b5ac9d]/40">
+                    <p className="text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>📜 Certificado</p>
+                  </div>
+                  <div className="bg-white/70 p-4 rounded-[16px] border border-[#b5ac9d]/40">
+                    <p className="text-[13px] md:text-[14px] text-[#2f2321]" style={{ fontFamily: 'Inter, sans-serif' }}>📞 Suporte pós-curso ilimitado</p>
+                  </div>
+                </div>
+
+                <div className="mt-8 overflow-hidden rounded-[25px]">
+                  <img 
+                    src="https://img.cdndsgni.com/preview/11795962.jpg" 
+                    alt="Ambiente de treinamento profissional" 
+                    className="h-[240px] w-full object-cover" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#contacts" className="top-[6.8%] h-[87.3%] w-[15%] bg-[#3c2922] px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] text-white 
+              rounded-full transition-all duration-300
+              hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">
+                Falar sobre cursos
+              </a>
+              <a href={sistemaUrl} className="border border-[#3c2922]/45 px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] 
+              text-[#3c2922] rounded-full transition-all duration-300
+              hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">
+                Agendar
+              </a>
             </div>
           </div>
         </section>
@@ -405,21 +521,19 @@ export default function LandingPage() {
           </svg>
           <div className="relative z-10 grid md:grid-cols-3 gap-8 items-start">
             <div>
-              <p className="text-2xl md:text-4xl tracking-[0.22em] leading-none"><br />SULEIMA</p>
+              <p className="text-2xl md:text-4xl tracking-[0.22em] leading-snug"><br />SULEIMA</p>
               <p className="mt-6 text-[11px] md:text-sm text-white/85" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.
               </p>
             </div>
             <div>
-              <p className="text-4xl md:text-6xl leading-[0.92]" style={{ fontFamily: 'Playfair Display, serif' }}>
-                rua América
-                <br />
-                1321 - Salto
+              <p className="text-4xl md:text-4x1 leading-snug" style={{ fontFamily: 'Playfair Display, serif' }}>
+                Rua América 1321 - Salto
               </p>
               <a href={sistemaUrl} className="mt-5 inline-block bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Agendar agora</a>
             </div>
             <div className="md:text-right">
-              <a href="tel:+5511958671658" className="text-4xl md:text-7xl leading-none block" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <a href="tel:+5511958671658" className="text-4xl md:text-3xl leading-none block" style={{ fontFamily: 'Playfair Display, serif' }}>
                 +55 (11) 95867-1658
               </a>
               <a
