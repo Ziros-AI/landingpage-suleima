@@ -54,12 +54,12 @@ const instagramPosts = [
 ];
 
 const navLinks = [
-  { href: '#about',          label: 'Sobre'           },
-  { href: '#services',       label: 'Serviços'        },
-  { href: '#gluteo-contour', label: 'Método CONTOUR'  },
-  { href: '#subscription',   label: 'Protocolos'      },
-  { href: '#cursos',         label: 'Cursos'          },
-  { href: '#contacts',       label: 'Contato'         },
+  { href: '#about', label: 'Sobre' },
+  { href: '#services', label: 'Serviços' },
+  { href: '#gluteo-contour', label: 'Método CONTOUR' },
+  { href: '#subscription', label: 'Protocolos' },
+  { href: '#cursos', label: 'Cursos' },
+  { href: '#contacts', label: 'Contato' },
 ];
 
 //Links de WhatsApp de cada seção:
@@ -72,9 +72,10 @@ const whatsappAvaliacao =
 const whatsappClinica =
   "https://api.whatsapp.com/send/?phone=5511958671658&text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20tratamentos.";
 
-const whatsappAgendamento = 
+const whatsappAgendamento =
   "https://api.whatsapp.com/send/?phone=5511958671658&text=Olá,%20gostaria%20de%20realizar%20um%20agendamento.";
 
+const googleMapsUrl = "https://maps.app.goo.gl/5ACdHhu2EvLqRs1k7";
 
 export default function LandingPage() {
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
@@ -135,7 +136,7 @@ export default function LandingPage() {
             <div className="flex items-center gap-4 text-[10px]">
               <span className="hidden sm:block text-[11px] tracking-wide
                            hover:text-white/70 transition-colors duration-200">+55 (11) 95867-1658</span>
-              <a href={whatsappClinica} target="_blank" rel="noopener noreferrer"className="hidden sm:inline-flex items-center
+              <a href={whatsappClinica} target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex items-center
                            border border-white/60 rounded-full
                            px-4 py-2 text-[11px] uppercase tracking-[0.1em]
                            transition-all duration-300
@@ -149,7 +150,7 @@ export default function LandingPage() {
           <div className="relative z-10 h-full px-4 md:px-10 pb-8 md:pb-12 flex flex-col justify-end text-white">
             <div className="w-fit max-w-[760px] rounded-[22px] bg-black/26 px-4 py-4 md:px-7 md:py-6 backdrop-blur-[1px]">
               <h1 className="leading-[0.95] font-medium max-w-[600px]" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(1.95rem,8vw,4.8rem)' }}>
-                <span className="block">Alta tecnologia</span> 
+                <span className="block">Alta tecnologia</span>
                 <span className="block">em estética corporal</span>
                 <span className="block">e facial em Salto.</span>
               </h1>
@@ -347,7 +348,7 @@ export default function LandingPage() {
             <path d="M-60 320C180 190 360 260 570 370C760 470 940 400 1200 500" stroke="#b3aa9c" strokeWidth="1.1" />
             <path d="M820 80C730 160 730 250 780 340C850 450 1010 470 1250 560" stroke="#b9b1a2" strokeWidth="1.1" />
           </svg>
-          
+
           <div className="relative z-10 mx-auto max-w-6xl">
             <p className="text-[11px] uppercase tracking-[0.18em] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
               Terapias Complementares
@@ -362,10 +363,10 @@ export default function LandingPage() {
             <div className="mt-8 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
               <div className="md:col-span-5">
                 <div className="overflow-hidden rounded-[120px] md:rounded-[180px]">
-                  <img 
-                    src="https://alur.com.br/wp-content/uploads/2024/01/Estetica-Avancada-1.jpg" 
-                    alt="Thelma Arcuri - Massoterapeuta e Fisioterapeuta" 
-                    className="h-[400px] md:h-[520px] w-full object-cover object-[50%_30%]" 
+                  <img
+                    src="https://alur.com.br/wp-content/uploads/2024/01/Estetica-Avancada-1.jpg"
+                    alt="Thelma Arcuri - Massoterapeuta e Fisioterapeuta"
+                    className="h-[400px] md:h-[520px] w-full object-cover object-[50%_30%]"
                   />
                 </div>
               </div>
@@ -504,25 +505,38 @@ export default function LandingPage() {
                 </div>
 
                 <div className="mt-8 overflow-hidden rounded-[25px]">
-                  <img 
-                    src="https://img.cdndsgni.com/preview/11795962.jpg" 
-                    alt="Ambiente de treinamento profissional" 
-                    className="h-[240px] w-full object-cover" 
+                  <img
+                    src="https://img.cdndsgni.com/preview/11795962.jpg"
+                    alt="Ambiente de treinamento profissional"
+                    className="h-[240px] w-full object-cover"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={whatsappCursos} target="_blank" rel="noopener noreferrer"className="top-[6.8%] h-[87.3%] w-[15%] bg-[#3c2922] px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] text-white 
-              rounded-full transition-all duration-300
-              hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+              <a
+                href={whatsappCursos}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#3c2922] px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] text-white 
+    rounded-full transition-all duration-300
+    hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]
+    text-center"
+              >
                 Falar sobre cursos
               </a>
-              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer"className="border border-[#3c2922]/45 px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] 
-              text-[#3c2922] rounded-full transition-all duration-300
-              hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">
-                Agendar
+
+              <a
+                href={whatsappAgendamento + ' Seria de um curso profissionalizante na Suleima.'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-[#3c2922]/45 px-5 py-2.5 text-[10px] uppercase tracking-[0.1em] 
+    text-[#3c2922] rounded-full transition-all duration-300
+    hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]
+    text-center"
+              >
+                Agendar Curso
               </a>
             </div>
           </div>
@@ -539,12 +553,40 @@ export default function LandingPage() {
               <p className="mt-6 text-[11px] md:text-sm text-white/85" style={{ fontFamily: 'Inter, sans-serif' }}>
                 Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.
               </p>
+              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Agendar agora</a>
             </div>
             <div>
-              <p className="text-4xl md:text-4x1 leading-snug" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Rua América 1321 - Salto
+              <p
+                className="text-[11px] uppercase tracking-[0.18em] text-white/70"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                Endereço
               </p>
-              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" className="mt-5 inline-block bg-white text-[#3f3828] px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em]">Agendar agora</a>
+
+              <h3
+                className="mt-2 text-3xl md:text-4xl leading-[1.1]"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
+                Rua América 1321
+              </h3>
+
+              <p
+                className="mt-1 text-lg text-white/90"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                Salto — SP
+              </p>
+
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-block border border-white/60 px-4 py-2 text-[10px] uppercase tracking-[0.1em]
+    rounded-full transition-all duration-300
+    hover:bg-white hover:text-[#3f3828]"
+              >
+                Ver no Google Maps
+              </a>
             </div>
             <div className="md:text-right">
               <a href="tel:+5511958671658" className="text-4xl md:text-3xl leading-none block" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -558,7 +600,7 @@ export default function LandingPage() {
                 suleimaestetica@icloud.com
               </a>
               <a
-                href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" 
+                href={whatsappAgendamento} target="_blank" rel="noopener noreferrer"
                 className="inline-block mt-5 border border-white/60 px-3.5 py-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.08em] hover:bg-white hover:text-[#3f3828] transition-colors"
               >
                 Agendar
