@@ -106,7 +106,7 @@ export default function LandingPage() {
             alt="Suleima com equipamento"
             className="absolute inset-0 w-full h-full object-cover object-[62%_18%] md:object-[84%_20%] lg:object-[87%_20%]"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(24,15,10,0.78)_0%,rgba(43,28,17,0.55)_36%,rgba(60,39,26,0.22)_72%,rgba(60,39,26,0.12)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(24,15,10,0.78)_0%,rgba(43,28,17,0.55)_36%,rgba(60,39,26,0.22)_72%,rgba(60,39,26,0.12)_100%)] bg-black/40" />
           <svg className="absolute inset-0 w-full h-full opacity-35" viewBox="0 0 1400 760" fill="none">
             <path d="M120 550C380 410 620 620 910 510C1100 440 1280 450 1460 520" stroke="#d3c9b8" strokeWidth="1.2" />
             <path d="M70 620C300 500 520 670 820 640C1060 620 1270 660 1490 740" stroke="#d3c9b8" strokeWidth="1.2" />
