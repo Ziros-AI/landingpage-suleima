@@ -148,26 +148,27 @@ export default function LandingPage() {
                 <span className="w-6 h-[2px] bg-white"></span>
               </button>
 
-              <span className="hidden sm:block text-[11px] tracking-wide
-      hover:text-white/70 transition-colors duration-200">
-                +55 (11) 95867-1658
-              </span>
+              <div className="hidden lg:flex flex-col items-center justify-center gap-2 text-[11px]">
 
-              <a
-                href={whatsappClinica}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center
-      border border-white/60 rounded-full
-      px-4 py-2 text-[11px] uppercase tracking-[0.1em]
-      transition-all duration-300
-      hover:bg-white hover:text-[#2f2321] hover:border-white
-      active:scale-[0.97]"
-              >
-                Agendar
-              </a>
+                <a
+                  href={whatsappClinica}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-[#2f2321] px-4 py-2 rounded-full uppercase tracking-[0.1em]
+                  text-center w-[170px]
+                  transition-all duration-300
+                  hover:bg-[#f2f2f2] active:scale-[0.97]"
+                >
+                  Agendar
+                </a>
+
+                <span className="tracking-wide text-center w-[170px]
+                  hover:text-white/70 transition-colors duration-200">
+                  +55 (11) 95867-1658
+                </span>
+
+              </div>
             </div>
-
 
             <div className="flex items-center justify-between">
               {/* logo + nav + botão */}
