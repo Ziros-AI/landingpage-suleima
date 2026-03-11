@@ -33,7 +33,6 @@ const navLinks = [
   { href: '#about', label: 'Sobre' },
   { href: '#services', label: 'Serviços' },
   { href: '#gluteo-contour', label: 'Método CONTOUR' },
-  { href: '#subscription', label: 'Protocolos' },
   { href: '#cursos', label: 'Cursos' },
   { href: '#contacts', label: 'Contato' },
 ];
@@ -51,7 +50,29 @@ const googleMapsUrl = 'https://maps.app.goo.gl/5ACdHhu2EvLqRs1k7';
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeServiceTab, setActiveServiceTab] = useState(0);
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
+  
+  const serviceDetails = [
+    {
+      label: 'CUIDADO FACIAL',
+      count: '12 tratamentos',
+      image: imagem7,
+      description: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.',
+    },
+    {
+      label: 'RITUAIS CORPORAIS',
+      count: '8 tratamentos',
+      image: imagemSu4,
+      description: 'Tratamentos corporais especializados para tonificar, nutrir e realçar a beleza natural do seu corpo.',
+    },
+    {
+      label: 'GLÚTEOS CONTOUR',
+      count: '5 protocolos',
+      image: imagemG4,
+      description: 'Técnica de harmonização glútea com protocolo personalizado para melhorar contorno e firmeza.',
+    },
+  ];
 
   useEffect(() => {
     const link = document.createElement('link');
@@ -114,15 +135,165 @@ export default function LandingPage() {
       .thelma-quote { border-left: 3px solid #8f876f; padding-left: 1.25rem; }
 
       .photo-hover { overflow: hidden; }
-      .photo-hover img { transition: transform 0.6s ease; }
+      .photo-hover img { transition: transform 0.6s ease; will-change: transform; }
       .photo-hover:hover img { transform: scale(1.04); }
 
       .ig-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
       .ig-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(47,35,33,0.12); }
+
+      /* SERVICES PREVIEW */
+      .lx-services-section { background: #fff; padding: 4rem 2rem; }
+      .lx-services-title { text-align: center; margin-bottom: 3rem; }
+      .lx-services-title h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2rem,5vw,3.5rem); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0; }
+      .lx-services-title .service-box { display: inline-block; border: 2px solid #2f2321; padding: 0.5rem 1rem; margin-left: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 600; }
+      .lx-tabs-container { max-width: 1000px; margin: 0 auto; }
+      .lx-tabs-nav { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+      .lx-tab-button { background: white; border: 1px solid #ccc; padding: 0.9rem 1.5rem; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; transition: all 0.3s ease; color: #2f2321; position: relative; }
+      .lx-tab-button:hover { background: #f5f5f5; }
+      .lx-tab-button.active { background: #2f2321; color: white; border-color: #2f2321; }
+      .lx-tab-button .tab-close { position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%); font-size: 1rem; opacity: 0.6; }
+      .lx-service-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: flex-start; }
+      .lx-service-info { }  
+      .lx-service-title { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(2rem,4vw,3rem); text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 0.03em; }
+      .lx-service-description { font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #666; line-height: 1.7; margin-bottom: 2rem; }
+      .lx-service-image { width: 100%; height: 350px; object-fit: cover; border-radius: 4px; }
+      @media (max-width: 768px) { 
+        .lx-services-section { padding: 2rem 1rem; }
+        .lx-services-title h2 { font-size: 1.8rem; }
+        .lx-tabs-nav { flex-direction: column; }
+        .lx-tab-button { width: 100%; }
+        .lx-service-detail { grid-template-columns: 1fr; }
+        .lx-service-image { height: 250px; }
+      }
+
+      /* INSTAGRAM */
+      .ig-section { background: #fff; }
+      .ig-header { display: flex; align-items: center; justify-content: space-between; padding: 3rem 2.5rem 1.5rem; }
+      .ig-header h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.5rem,4vw,3rem); text-transform: uppercase; }
+      .ig-grid { display: grid; grid-template-columns: repeat(6,1fr); }
+      .ig-cell { overflow: hidden; aspect-ratio: 1; }
+      .ig-cell a { display: block; height: 100%; }
+      .ig-cell img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, filter 0.5s ease; filter: brightness(0.9); }
+      .ig-cell:hover img { transform: scale(1.07); filter: brightness(1); }
+      @media (max-width: 768px) { .ig-grid { grid-template-columns: repeat(3,1fr); } .ig-header { padding: 2rem 1.25rem 1rem; } }
+
+      /* FOOTER */
+      .lx-footer { background: #8f876f; color: white; }
+      .lx-footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .lx-footer-col { padding: 3rem 2.5rem; border-right: 1px solid rgba(255,255,255,0.12); }
+      .lx-footer-col:last-child { border-right: none; }
+      .lx-footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.2rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+      .lx-footer-tagline { font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 1.5rem; }
+      .lx-footer-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1rem; }
+      .lx-footer-address-big { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 2rem; text-transform: uppercase; line-height: 1; margin-bottom: 0.5rem; }
+      .lx-footer-city { font-family: 'Barlow', sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-bottom: 1.25rem; }
+      .lx-footer-contact-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .lx-footer-contact-row:last-child { border-bottom: none; }
+      .lx-footer-contact-row a { font-family: 'Barlow', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+      .lx-footer-contact-row a:hover { color: #fff; }
+      .lx-footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; }
+      .lx-footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+      @media (max-width: 768px) { .lx-footer-top { grid-template-columns: 1fr; } .lx-footer-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 2rem 1.25rem; } .lx-footer-bottom { flex-direction: column; gap: 0.5rem; padding: 1.25rem; } }
+
+      /* Scroll Animation Classes */
+      .scroll-parallax { will-change: transform; }
+      .scroll-reveal { opacity: 0; }
+      .scroll-reveal.in-view { opacity: 1; }
+      .stagger-item { opacity: 0; transform: translateY(30px) scale(0.95); transition: none; }
+      .stagger-item.in-view { opacity: 1; transform: translateY(0) scale(1); }
+
+      .contour-img { will-change: transform; }
+      .about-grid-img { opacity: 0; transform: translateY(20px); }
+      .about-grid-img.revealed { animation: revealImage 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+
+      @keyframes revealImage {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      /* Mobile delays and extended animation times */
+      @media (max-width: 768px) {
+        .about-grid-img.revealed { animation: revealImage 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .stagger-item.in-view { transition: opacity 1.2s ease, transform 1.2s ease; }
+        .service-img-animate { animation: slideInLeft 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .service-img-animate.delay-1 { animation-delay: 0.35s; }
+        .service-img-animate.delay-2 { animation-delay: 0.65s; }
+      }
+
+      Desktop delays
+      @media (min-width: 769px) {
+        .service-img-animate { animation: slideInLeft 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .service-img-animate.delay-1 { animation-delay: 0.1s; }
+        .service-img-animate.delay-2 { animation-delay: 0.2s; }
+      }
     `;
     document.head.appendChild(style);
+    
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
 
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+      // Parallax effect on hero image
+      const hero = document.querySelector('.hero-parallax');
+      if (hero) {
+        const scrollY = window.scrollY;
+        const parallaxOffset = scrollY * 0.5;
+        (hero as HTMLElement).style.transform = `translateY(${parallaxOffset}px)`;
+      }
+
+      // Animate images on scroll
+      const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+      scrollRevealElements.forEach((el) => {
+        const rect = (el as HTMLElement).getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
+        if (isInView) {
+          el.classList.add('in-view');
+        }
+      });
+
+      // Stagger animation for grid items
+      const staggerItems = document.querySelectorAll('.stagger-item');
+      staggerItems.forEach((el, index) => {
+        const rect = (el as HTMLElement).getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight * 0.7;
+        if (isInView && !el.classList.contains('in-view')) {
+          const isMobile = window.innerWidth < 768;
+          const delayMultiplier = isMobile ? 150 : 80; // Longer delays on mobile
+          setTimeout(() => {
+            el.classList.add('in-view');
+          }, index * delayMultiplier);
+        }
+      });
+
+      // Parallax scroll on CONTOUR images
+      const contourImgs = document.querySelectorAll('.contour-img');
+      contourImgs.forEach((img, index) => {
+        const rect = (img as HTMLElement).getBoundingClientRect();
+        const scrollPercent = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + (img as HTMLElement).offsetHeight)));
+        const offsetY = (scrollPercent - 0.5) * 15;
+        const scaleValue = 0.95 + scrollPercent * 0.1;
+        (img.parentElement as HTMLElement).style.transform = `translateY(${offsetY}px) scale(${scaleValue})`;
+      });
+
+      // Smooth scale animation on about grid images
+      const aboutGridImages = document.querySelectorAll('.about-grid-img');
+      aboutGridImages.forEach((img) => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8 && !img.classList.contains('revealed')) {
+          img.classList.add('revealed');
+        }
+      });
+    };
+
     window.addEventListener('scroll', handleScroll);
 
     const observer = new IntersectionObserver(
@@ -189,11 +360,7 @@ export default function LandingPage() {
               style={{ color: scrolled ? '#7a6355' : 'rgba(255,255,255,0.6)' }}>
               +55 (11) 95867-1658
             </span>
-            <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer"
-              className="nav-agendar hidden sm:block text-[10px] uppercase tracking-[0.1em] px-4 py-2 rounded-full transition-all duration-300 hover:opacity-90"
-              style={{ background: scrolled ? '#3c2922' : 'white', color: scrolled ? 'white' : '#2f2321', border: '1px solid', borderColor: scrolled ? '#3c2922' : 'white' }}>
-              Agendar
-            </a>
+            {/* navbar Agendar button removed */}
             <button onClick={() => setMenuOpen(true)} className="md:hidden flex flex-col gap-[5px]"
               style={{ color: scrolled ? '#2f2321' : 'white' }}>
               <span className="block w-6 h-[1.5px] bg-current" />
@@ -209,8 +376,8 @@ export default function LandingPage() {
         {/* HERO */}
         <section className="relative h-screen min-h-[600px] flex flex-col overflow-hidden">
           <img src={imagemSu3} alt="Suleima com equipamento"
-            className="absolute inset-0 w-full h-full object-cover object-[62%_18%] md:object-[84%_20%] lg:object-[87%_20%]" />
-          <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(20,12,8,0.85)_0%,rgba(43,28,17,0.58)_38%,rgba(60,39,26,0.2)_72%,transparent_100%)]" />
+            className="hero-parallax absolute inset-0 w-full h-full object-cover object-[62%_18%] md:object-[84%_20%] lg:object-[87%_20%]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_75%,rgba(0,0,0,0.75)_0%,rgba(0,0,0,0.55)_25%,rgba(0,0,0,0.25)_45%,transparent_65%)]" />
           <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 1400 760" fill="none">
             <path d="M120 550C380 410 620 620 910 510C1100 440 1280 450 1460 520" stroke="#d3c9b8" strokeWidth="1.2" />
             <path d="M70 620C300 500 520 670 820 640C1060 620 1270 660 1490 740" stroke="#d3c9b8" strokeWidth="1.2" />
@@ -218,28 +385,13 @@ export default function LandingPage() {
 
           <div className="relative z-10 flex-1 flex flex-col justify-end px-5 md:px-10 pb-10 md:pb-14 text-white">
             <p className="text-[10px] uppercase tracking-[0.25em] text-white/55 mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Clínica de Estética · Salto, SP
+              Seu brilho começa aqui. Bem-vinda à Suleima.
             </p>
             <h1 className="leading-[0.96] font-light max-w-[680px]"
               style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2.8rem,7.5vw,5.8rem)' }}>
-              Alta tecnologia<br />
-              em <em>estética corporal</em><br />
-              e facial em Salto.
+              ESTÉTICA AVANÇADA
             </h1>
-            <div className="mt-5 max-w-[420px] md:ml-auto text-[13px] md:text-[15px] font-light leading-relaxed text-white/70"
-              style={{ fontFamily: 'Inter, sans-serif' }}>
-              <p>Protocolos personalizados para modelagem corporal, rejuvenescimento e valorização da sua beleza natural.</p>
-              <div className="mt-5 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.13em]">
-                <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer"
-                  className="bg-white text-[#2f2321] px-5 py-2.5 rounded-full hover:bg-white/90 transition-all duration-300 active:scale-[0.97]">
-                  Agendar avaliação →
-                </a>
-                <a href="#services"
-                  className="border border-white/50 text-white px-5 py-2.5 rounded-full hover:bg-white/10 transition-all duration-300">
-                  Conhecer tratamentos
-                </a>
-              </div>
-            </div>
+            {/* hero buttons removed */}
           </div>
 
           <div className="absolute bottom-6 right-6 z-10 flex flex-col items-center gap-2">
@@ -271,77 +423,38 @@ export default function LandingPage() {
             <path d="M-80 470C160 300 320 390 520 560C710 730 930 680 1230 760" stroke="#b5ac9d" strokeWidth="1.1" opacity="0.6" />
             <path d="M-20 930C200 760 390 850 620 980C840 1110 1030 1050 1210 1140" stroke="#bdb4a6" strokeWidth="1.1" opacity="0.6" />
           </svg>
-          <div className="relative z-10 mx-auto max-w-6xl fade-in">
+          <div className="relative z-10 mx-auto max-w-6xl fade-in text-center">
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>Sobre a Suleima e a clínica</p>
             <h2 className="mb-10 md:mb-12" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2rem,4.5vw,4.3rem)', lineHeight: 1.05 }}>
-              Estética avançada com estratégia<br />e cuidado personalizado em Salto.
+              Nós ajudamos a criar momentos de beleza<br />para você e seu brilho.
             </h2>
-            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-              <div className="space-y-5 text-[14px] md:text-[15px] leading-relaxed text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                <p>Suleima atua com estética corporal modeladora e tratamentos faciais, unindo experiência prática, avaliação criteriosa e protocolos personalizados para cada objetivo.</p>
-                <p>A clínica foi planejada para oferecer atendimento reservado, tecnologia profissional e conforto em cada etapa, com foco em resultados progressivos, harmoniosos e naturais.</p>
-                <ul className="grid gap-2.5 text-[13px] md:text-[14px]">
-                  {['Atendimento exclusivo e personalizado','Estrutura moderna com tecnologia avançada','Protocolos corporais e faciais estratégicos','Cuidado humanizado em cada etapa'].map((item) => (
-                    <li key={item} className="flex items-center gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#8f876f] flex-shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <a href="#services" className="bg-[#3c2922] px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-white rounded-full transition-all duration-300 hover:bg-[#5a3d33] hover:shadow-md active:scale-[0.98]">Ver tratamentos</a>
-                  <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer" className="border border-[#3c2922]/50 px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-[#3c2922] rounded-full transition-all duration-300 hover:bg-[#CDCDCD] hover:shadow-md active:scale-[0.98]">Agendar avaliação</a>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
-                <div className="row-span-2 h-[330px] md:h-[470px] rounded-[120px] md:rounded-[180px] photo-hover">
-                  <img src={imagemSu2} alt="Suleima com equipamento" className="h-full w-full object-cover object-[50%_32%]" />
-                </div>
-                <div className="h-[160px] md:h-[225px] rounded-[72px] md:rounded-[110px] photo-hover">
-                  <img src={imagemSu1} alt="Suleima na clínica" className="h-full w-full object-cover object-[72%_30%]" />
-                </div>
-                <div className="h-[160px] md:h-[225px] rounded-[72px] md:rounded-[110px] photo-hover">
-                  <img src={imagem3} alt="Clientes na clínica" className="h-full w-full object-cover object-[52%_38%]" />
-                </div>
-                <div className="h-[135px] md:h-[190px] rounded-[58px] md:rounded-[90px] photo-hover">
-                  <img src={imagem4} alt="Procedimento facial" className="h-full w-full object-cover object-[48%_34%]" />
-                </div>
-                <div className="h-[135px] md:h-[190px] rounded-[58px] md:rounded-[90px] photo-hover">
-                  <img src={imagem5} alt="Procedimento corporal" className="h-full w-full object-cover object-[52%_34%]" />
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* FEATURES */}
-        <section className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
-          <svg className="absolute inset-0 w-full h-full opacity-45 pointer-events-none" viewBox="0 0 1200 580" fill="none">
-            <path d="M-20 250C170 110 340 180 530 280C700 370 860 290 1090 410" stroke="#b3aa9c" strokeWidth="1.1" />
-            <path d="M740 40C650 120 650 210 700 300C770 410 930 430 1170 520" stroke="#b9b1a2" strokeWidth="1.1" />
-          </svg>
-          <div className="relative z-10 mx-auto max-w-6xl fade-in">
-            <div className="flex items-end justify-between mb-2 border-b border-[#2f2321]/10 pb-6">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>Por que nos escolher</p>
-                <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.2rem,4vw,3.8rem)' }}>Diferenciais reais.</h2>
-              </div>
-              <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer"
-                className="hidden md:block bg-[#3c2922] text-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-[#5a3d33] transition-all duration-300">
-                Agendar agora
-              </a>
-            </div>
-            <div className="feature-grid">
-              {[
-                { num: '01', title: 'Tecnologia de ponta', desc: 'Equipamentos modernos e reconhecidos no mercado estético para garantir segurança, conforto e eficácia em cada sessão.' },
-                { num: '02', title: 'Estrutura premium', desc: 'Nosso espaço foi pensado para proporcionar atendimento reservado, acolhimento e uma experiência de alto padrão do início ao fim.' },
-                { num: '03', title: 'Resultados superiores', desc: 'Protocolos com foco em resultado visível, progressivo e natural — respeitando a individualidade de cada cliente.' },
-              ].map((f) => (
-                <div key={f.num} className="feature-card">
-                  <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '3rem', fontWeight: 300, color: '#8f876f', lineHeight: 1, marginBottom: '1rem' }}>{f.num}</div>
-                  <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.5rem', fontWeight: 400, marginBottom: '0.75rem' }}>{f.title}</h3>
-                  <p className="text-[13px] leading-relaxed text-[#4a3d37] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>{f.desc}</p>
-                </div>
+        {/* SERVICES PREVIEW */}
+        <section className="lx-services-section fade-in">
+          <div className="lx-services-title">
+            <h2>NOSSOS SERVIÇOS</h2>
+          </div>
+          <div className="lx-tabs-container">
+            <div className="lx-tabs-nav">
+              {serviceDetails.map((service, idx) => (
+                <button
+                  key={idx}
+                  className={`lx-tab-button ${activeServiceTab === idx ? 'active' : ''}`}
+                  onClick={() => setActiveServiceTab(idx)}
+                >
+                  {service.label.split(' ')[0]}
+                  <span className="tab-close">✕</span>
+                </button>
               ))}
+            </div>
+            <div className="lx-service-detail">
+              <div className="lx-service-info">
+                <h3 className="lx-service-title">{serviceDetails[activeServiceTab].label}</h3>
+                <p className="lx-service-description">{serviceDetails[activeServiceTab].description}</p>
+              </div>
+              <img src={serviceDetails[activeServiceTab].image} alt={serviceDetails[activeServiceTab].label} className="lx-service-image" />
             </div>
           </div>
         </section>
@@ -365,7 +478,7 @@ export default function LandingPage() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8">
               {[imagemG4, imagemG5, imagemG3, imagemG2, imagemG].map((img, i) => (
-                <div key={i} className="overflow-hidden rounded-[18px] photo-hover" style={{ height: '200px' }}>
+                <div key={i} className="overflow-hidden rounded-[18px] photo-hover contour-img stagger-item" style={{ height: '200px' }}>
                   <img src={img} alt={`Resultado CONTOUR ${i + 1}`} className="h-full w-full object-cover" />
                 </div>
               ))}
@@ -383,6 +496,16 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* FEATURES */}
+        <section className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
+          <svg className="absolute inset-0 w-full h-full opacity-45 pointer-events-none" viewBox="0 0 1200 580" fill="none">
+            <path d="M-20 250C170 110 340 180 530 280C700 370 860 290 1090 410" stroke="#b3aa9c" strokeWidth="1.1" />
+            <path d="M740 40C650 120 650 210 700 300C770 410 930 430 1170 520" stroke="#b9b1a2" strokeWidth="1.1" />
+          </svg>
+
+        </section>
+
+
         {/* THELMA ARCURI — antes de Serviços */}
         <section className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
           <div className="absolute left-1/2 top-[6%] h-[88%] w-[108%] -translate-x-1/2 rounded-full bg-[#e4e0d9]" />
@@ -395,7 +518,7 @@ export default function LandingPage() {
             <p className="mt-2 text-base md:text-lg text-[#4a3d37] font-light mb-10" style={{ fontFamily: 'Inter, sans-serif' }}>Massoterapeuta e Fisioterapeuta</p>
 
             <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
-              <div className="md:col-span-4">
+              <div className="md:col-span-4 scroll-reveal">
                 <div className="overflow-hidden rounded-[120px] md:rounded-[160px] photo-hover" style={{ height: '420px' }}>
                   <img src={imagemT1} alt="Thelma Arcuri - Massoterapeuta e Fisioterapeuta" className="h-full w-full object-cover object-[50%_30%]" />
                 </div>
@@ -450,7 +573,7 @@ export default function LandingPage() {
               { title: 'Experiência', desc: 'Ambiente reservado, estrutura premium e acolhimento em cada etapa.', image: imagem3, position: 'object-[50%_32%] md:object-[50%_30%]' },
             ].map((item, i) => (
               <article key={item.title} className="service-row">
-                <img src={item.image} alt={item.title} className={`service-bg ${item.position}`} />
+                <img src={item.image} alt={item.title} className={`service-bg service-img-animate ${i === 0 ? '' : i === 1 ? 'delay-1' : 'delay-2'} ${item.position}`} />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/10" />
                 <div className="relative z-10 h-full flex items-center gap-6 md:gap-10 px-6 md:px-16">
                   <span className="text-white/35 text-sm hidden md:block" style={{ fontFamily: 'Cormorant Garamond, serif' }}>0{i + 1}</span>
@@ -537,53 +660,60 @@ export default function LandingPage() {
         </section>
 
         {/* FOOTER */}
+        {/* INSTAGRAM PREVIEW */}
+        <section className="ig-section fade-in">
+          <div className="ig-header">
+            <h2>@SULEIMAESTETICA</h2>
+            <a href={instagramProfileUrl} target="_blank" rel="noopener noreferrer" className="text-[#2f2321] underline">Ver Perfil</a>
+          </div>
+          <div className="ig-grid">
+            {instagramPosts.map((p,i) => (
+              <div key={i} className="ig-cell">
+                <a href={p.url} target="_blank" rel="noopener noreferrer">
+                  <img src={p.image} alt="" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <footer id="contacts" className="relative rounded-t-[32px] md:rounded-t-[40px] overflow-hidden bg-[#8f876f] text-white px-6 md:px-16 py-14">
           <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 1200 360" fill="none">
             <path d="M-40 200C170 130 340 190 540 240C760 290 920 240 1210 300" stroke="#d8d1c2" strokeWidth="1.1" />
             <path d="M420 40C560 50 620 100 640 160C650 230 600 280 510 320" stroke="#d8d1c2" strokeWidth="1.1" />
           </svg>
-          <div className="relative z-10 grid md:grid-cols-3 gap-12 md:gap-10 lg:gap-14 items-start text-center md:text-left">
-            <div className="flex flex-col items-center md:items-start gap-5">
-              <h2 className="text-3xl md:text-4xl tracking-[0.25em]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>SULEIMA</h2>
-              <p className="text-sm text-white/80 max-w-[280px] font-light leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.
-              </p>
-              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer"
-                className="inline-block bg-white text-[#3f3828] px-5 py-2.5 text-[10.5px] uppercase tracking-[0.12em] rounded-full hover:bg-white/90 transition-all duration-300">
-                Agendar agora
-              </a>
+          <div className="lx-footer-top">
+            <div className="lx-footer-col">
+              <div className="lx-footer-logo">SULEIMA</div>
+              <p className="lx-footer-tagline">Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.</p>
+              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" className="lx-btn-white" style={{ textDecoration: 'none', display: 'inline-block' }}>Agendar Agora</a>
             </div>
-            <div className="flex flex-col items-center md:items-start gap-4">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/55" style={{ fontFamily: 'Inter, sans-serif' }}>Endereço</p>
-              <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(1.8rem,3vw,2.5rem)', lineHeight: 1.15 }}>Rua América 1321</h3>
-              <p className="text-lg text-white/80 font-light">Salto — SP</p>
-              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer"
-                className="inline-block border border-white/50 px-5 py-2 text-[10.5px] uppercase tracking-[0.12em] rounded-full hover:bg-white hover:text-[#3f3828] transition-all duration-300">
-                Ver no Google Maps
-              </a>
+
+            <div className="lx-footer-col">
+              <p className="lx-footer-label">Endereço</p>
+              <div className="lx-footer-address-big">Rua América<br />1321</div>
+              <p className="lx-footer-city">Salto — SP</p>
+              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="lx-btn-ghost-white" style={{ textDecoration: 'none', display: 'inline-block' }}>Ver no Google Maps</a>
             </div>
-            <div className="flex flex-col items-center md:items-end gap-4">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/55 w-full text-center md:text-right" style={{ fontFamily: 'Inter, sans-serif' }}>Contato</p>
-              <div className="grid grid-cols-[20px_auto] gap-x-3 gap-y-4 text-sm font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                <svg className="w-5 h-5 text-white mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z" />
-                </svg>
-                <a href="tel:+5511958671658" className="text-white/85 hover:text-white transition-colors">+55 (11) 95867-1658</a>
-
-                <svg className="w-5 h-5 text-white mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-                  <rect x="3" y="4" width="18" height="16" rx="2" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 6l9 7 9-7" />
-                </svg>
-                <a href="mailto:suleimaestetica@icloud.com" className="text-white/85 hover:text-white transition-colors break-all">suleimaestetica@icloud.com</a>
-
-                <svg className="w-5 h-5 text-white mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-                </svg>
-                <a href={instagramProfileUrl} target="_blank" rel="noopener noreferrer" className="text-white/85 hover:text-white transition-colors">@suleimaestetica</a>
+            <div className="lx-footer-col">
+              <p className="lx-footer-label">Contato</p>
+              <div className="lx-footer-contact-row">
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z"/></svg>
+                <a href="tel:+5511958671658">+55 (11) 95867-1658</a>
+              </div>
+              <div className="lx-footer-contact-row">
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="4" width="18" height="16" rx="2"/><path strokeLinecap="round" d="M3 6l9 7 9-7"/></svg>
+                <a href="mailto:suleimaestetica@icloud.com">suleimaestetica@icloud.com</a>
+              </div>
+              <div className="lx-footer-contact-row">
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                <a href={instagramProfileUrl} target="_blank" rel="noopener noreferrer">@suleimaestetica</a>
               </div>
             </div>
+          </div>
+          <div className="lx-footer-bottom mt-6">
+            <p className="lx-footer-copy">© 2025 SULEIMA ESTÉTICA · TODOS OS DIREITOS RESERVADOS</p>
+            <p className="lx-footer-copy">SALTO, SÃO PAULO · BRASIL</p>
           </div>
         </footer>
 
