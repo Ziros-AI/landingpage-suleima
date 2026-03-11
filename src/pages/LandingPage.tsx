@@ -16,7 +16,7 @@ import imagemG2 from '../assets/imagensGluteo/imagemG2.jpg';
 import imagemG3 from '../assets/imagensGluteo/imagemG3.jpg';
 import imagemG4 from '../assets/imagensGluteo/imagemG4.jpg';
 import imagemG5 from '../assets/imagensGluteo/imagemG5.jpg';
-import imagemT1 from '../assets/ImagensThelma/imagemTh1.jpeg';
+import imagemT1 from '../assets/ImagensThelma/ImagemTh1.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
