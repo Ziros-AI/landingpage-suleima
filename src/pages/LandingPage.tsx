@@ -494,7 +494,7 @@ export default function LandingPage() {
         </section>
 
         {/* SERVICES PREVIEW */}
-        <section className="lx-services-section fade-in relative overflow-hidden hidden md:block">
+        <section id="services" className="lx-services-section fade-in relative overflow-hidden hidden md:block">
 
           {/* Background shapes */}
           <div className="absolute -top-40 -left-40 w-[520px] h-[520px] bg-[#5a3e36]/30 rounded-full blur-[140px]"></div>
@@ -794,11 +794,33 @@ export default function LandingPage() {
                   </h3>
 
                   <div className="bg-white/70 rounded-[22px] p-6 md:p-7 border border-[#b5ac9d]/40">
-                    <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2.5 text-[13px] md:text-[14px] text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      {['Limpeza de pele', 'Prime shape (ganho de massa)', 'Harmonização glútea', 'Peeling', 'Microagulhamento', 'Jato de plasma', 'Hidrolipoclasia', 'Carboxiterapia', 'Peim', 'Intradermoterapia', 'Toxina botulínica', 'Preenchimento', 'Bioestimulador', 'Ozônio terapia', 'Fios de PDO'].map((c) => (
-                        <li key={c} className="flex items-center gap-2">
-                          <span className="w-1 h-1 rounded-full bg-[#8f876f] flex-shrink-0" />
-                          {c}
+                    <ul
+                      className="grid sm:grid-cols-2 gap-3 text-[13px] md:text-[14px] text-[#2f2321] font-light"
+                      style={{ fontFamily: "Inter, sans-serif" }}
+                    >
+                      {[
+                        "Limpeza de pele",
+                        "Prime shape (ganho de massa)",
+                        "Harmonização glútea",
+                        "Peeling",
+                        "Microagulhamento",
+                        "Jato de plasma",
+                        "Hidrolipoclasia",
+                        "Carboxiterapia",
+                        "Peim",
+                        "Intradermoterapia",
+                        "Toxina botulínica",
+                        "Preenchimento",
+                        "Bioestimulador",
+                        "Ozônio terapia",
+                        "Fios de PDO",
+                      ].map((c) => (
+                        <li
+                          key={c}
+                          className="flex items-center gap-3 px-3 py-2 rounded-xl bg-[#f3f1ea] border border-[#e1dbcf] transition-colors duration-300 hover:bg-[#e9e5db]"
+                        >
+                          <span className="text-[#8f876f] text-sm">✦</span>
+                          <span>{c}</span>
                         </li>
                       ))}
                     </ul>
