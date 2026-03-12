@@ -17,6 +17,9 @@ import imagemG3 from '../assets/imagensGluteo/imagemG3.jpg';
 import imagemG4 from '../assets/imagensGluteo/imagemG4.jpg';
 import imagemG5 from '../assets/imagensGluteo/imagemG5.jpg';
 import imagemT1 from '../assets/ImagensThelma/ImagemTh1.jpeg';
+import imagem8 from '../assets/ImagensBronzeamento/imagem8.jpeg';
+import imagem9 from '../assets/ImagensBronzeamento/imagem9.jpeg';
+import imagemCurso from '../assets/ImagensCurso/imagemCurso.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -32,7 +35,6 @@ const instagramPosts = [
 const navLinks = [
   { href: '#about', label: 'Sobre' },
   { href: '#services', label: 'Serviços' },
-  { href: '#gluteo-contour', label: 'Método CONTOUR' },
   { href: '#cursos', label: 'Cursos' },
   { href: '#contacts', label: 'Contato' },
 ];
@@ -52,25 +54,27 @@ export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const [activeServiceTab, setActiveServiceTab] = useState(0);
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
-  
+
   const serviceDetails = [
     {
       label: 'CUIDADO FACIAL',
-      count: '12 tratamentos',
       image: imagem7,
       description: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.',
     },
     {
       label: 'RITUAIS CORPORAIS',
-      count: '8 tratamentos',
       image: imagemSu4,
       description: 'Tratamentos corporais especializados para tonificar, nutrir e realçar a beleza natural do seu corpo.',
     },
     {
       label: 'GLÚTEOS CONTOUR',
-      count: '5 protocolos',
       image: imagemG4,
       description: 'Técnica de harmonização glútea com protocolo personalizado para melhorar contorno e firmeza.',
+    },
+    {
+      label: 'BRONZEAMENTO ARTIFICAL',
+      image: imagemG4,
+      description: 'O bronzeamento artificial é um procedimento estético desenvolvido para proporcionar à pele um tom dourado, uniforme e saudável, sem a necessidade de exposição prolongada ao sol. A técnica utiliza produtos específicos que reagem com a camada superficial da pele, promovendo um efeito de bronzeado natural e temporário.'
     },
   ];
 
@@ -109,7 +113,7 @@ export default function LandingPage() {
       }
       .scroll-line { width: 1px; height: 52px; background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent); animation: scrollPulse 2.2s ease-in-out infinite; }
 
-      .stats-bar { background: #2f2321; color: white; display: grid; grid-template-columns: repeat(4, 1fr); }
+      .stats-bar { background: #2f2321; color: white; display: grid; grid-template-columns: repeat(3, 1fr); }
       .stat-item { padding: 1.6rem 2rem; border-right: 1px solid rgba(255,255,255,0.09); }
       .stat-item:last-child { border-right: none; }
       @media (max-width: 768px) {
@@ -238,7 +242,7 @@ export default function LandingPage() {
       }
     `;
     document.head.appendChild(style);
-    
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -297,7 +301,10 @@ export default function LandingPage() {
     window.addEventListener('scroll', handleScroll);
 
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+        else e.target.classList.remove('visible');
+      }),
       { threshold: 0.08 }
     );
     const observe = () => document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
@@ -356,10 +363,6 @@ export default function LandingPage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <span className="nav-phone hidden lg:block text-[11px] tracking-wide"
-              style={{ color: scrolled ? '#7a6355' : 'rgba(255,255,255,0.6)' }}>
-              +55 (11) 95867-1658
-            </span>
             {/* navbar Agendar button removed */}
             <button onClick={() => setMenuOpen(true)} className="md:hidden flex flex-col gap-[5px]"
               style={{ color: scrolled ? '#2f2321' : 'white' }}>
@@ -402,11 +405,10 @@ export default function LandingPage() {
         </section>
 
         {/* STATS BAR */}
-        <div className="stats-bar">
+        <div className="stats-bar flex w-full text-center items-center justify-center w-full auto-rows-fr">
           {[
             { num: '10+', label: 'Anos de experiência' },
             { num: '500+', label: 'Clientes atendidas' },
-            { num: '15+', label: 'Protocolos exclusivos' },
             { num: '100%', label: 'Atendimento personalizado' },
           ].map((s) => (
             <div key={s.label} className="stat-item">
@@ -424,76 +426,65 @@ export default function LandingPage() {
             <path d="M-20 930C200 760 390 850 620 980C840 1110 1030 1050 1210 1140" stroke="#bdb4a6" strokeWidth="1.1" opacity="0.6" />
           </svg>
           <div className="relative z-10 mx-auto max-w-6xl fade-in text-center">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>Sobre a Suleima e a clínica</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>Sobre a Suleima e a clínica<br /><br /></p>
             <h2 className="mb-10 md:mb-12" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2rem,4.5vw,4.3rem)', lineHeight: 1.05 }}>
-              Nós ajudamos a criar momentos de beleza<br />para você e seu brilho.
+              "Nós ajudamos a <br />criar momentos de beleza<br />para você e seu brilho."
             </h2>
           </div>
         </section>
 
         {/* SERVICES PREVIEW */}
-        <section className="lx-services-section fade-in">
-          <div className="lx-services-title">
-            <h2>NOSSOS SERVIÇOS</h2>
-          </div>
-          <div className="lx-tabs-container">
-            <div className="lx-tabs-nav">
-              {serviceDetails.map((service, idx) => (
-                <button
-                  key={idx}
-                  className={`lx-tab-button ${activeServiceTab === idx ? 'active' : ''}`}
-                  onClick={() => setActiveServiceTab(idx)}
-                >
-                  {service.label.split(' ')[0]}
-                  <span className="tab-close">✕</span>
-                </button>
-              ))}
-            </div>
-            <div className="lx-service-detail">
-              <div className="lx-service-info">
-                <h3 className="lx-service-title">{serviceDetails[activeServiceTab].label}</h3>
-                <p className="lx-service-description">{serviceDetails[activeServiceTab].description}</p>
-              </div>
-              <img src={serviceDetails[activeServiceTab].image} alt={serviceDetails[activeServiceTab].label} className="lx-service-image" />
-            </div>
-          </div>
-        </section>
+        <section className="lx-services-section fade-in relative overflow-hidden">
 
-        {/* MÉTODO CONTOUR */}
-        <section id="gluteo-contour" className="relative overflow-hidden bg-[#2f2321] text-white px-4 md:px-16 py-14 md:py-20">
-          <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewBox="0 0 1200 580" fill="none">
-            <path d="M-20 250C170 110 340 180 530 280C700 370 860 290 1090 410" stroke="#d3c9b8" strokeWidth="1.1" />
-          </svg>
-          <div className="relative z-10 mx-auto max-w-6xl fade-in">
-            <div className="grid md:grid-cols-2 gap-8 items-start mb-10">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>Destaque exclusivo</p>
-                <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 0.95 }}>
-                  Método Glúteos<br />CONTOUR
-                </h2>
+          {/* Background shapes */}
+          <div className="absolute -top-40 -left-40 w-[520px] h-[520px] bg-[#5a3e36]/30 rounded-full blur-[140px]"></div>
+
+          <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] bg-[#8b6a60]/30 rounded-full blur-[140px]"></div>
+
+          <div className="absolute top-1/2 left-1/3 w-[380px] h-[380px] bg-[#3a2a26]/20 rounded-full blur-[120px]"></div>
+
+          <div className="relative">
+
+            <div className="lx-services-title">
+              <h2>NOSSOS SERVIÇOS</h2>
+            </div>
+
+            <div className="lx-tabs-container">
+
+              <div className="lx-tabs-nav">
+                {serviceDetails.map((service, idx) => (
+                  <button
+                    key={idx}
+                    className={`lx-tab-button ${activeServiceTab === idx ? 'active' : ''}`}
+                    onClick={() => setActiveServiceTab(idx)}
+                  >
+                    {service.label.split(' ')[0]}
+                  </button>
+                ))}
               </div>
-              <p className="text-[14px] md:text-[15px] leading-relaxed text-white/65 font-light md:pt-8" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Técnica de harmonização glútea com protocolo personalizado para melhorar contorno, firmeza e proporção, respeitando a estrutura corporal de cada cliente.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-8">
-              {[imagemG4, imagemG5, imagemG3, imagemG2, imagemG].map((img, i) => (
-                <div key={i} className="overflow-hidden rounded-[18px] photo-hover contour-img stagger-item" style={{ height: '200px' }}>
-                  <img src={img} alt={`Resultado CONTOUR ${i + 1}`} className="h-full w-full object-cover" />
+
+              <div className="lx-service-detail">
+                <div className="lx-service-info">
+                  <h3 className="lx-service-title">
+                    {serviceDetails[activeServiceTab].label}
+                  </h3>
+
+                  <p className="lx-service-description">
+                    {serviceDetails[activeServiceTab].description}
+                  </p>
                 </div>
-              ))}
+
+                <img
+                  src={serviceDetails[activeServiceTab].image}
+                  alt={serviceDetails[activeServiceTab].label}
+                  className="lx-service-image"
+                />
+              </div>
+
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a href={sistemaUrl} target="_blank" rel="noopener noreferrer"
-                className="bg-white text-[#2f2321] px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-white/90 transition-all duration-300 active:scale-[0.98]">
-                Conhecer o Método CONTOUR
-              </a>
-              <a href={whatsappClinica} target="_blank" rel="noopener noreferrer"
-                className="border border-white/40 text-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-white/10 transition-all duration-300">
-                Falar com a clínica
-              </a>
-            </div>
+
           </div>
+
         </section>
 
         {/* FEATURES */}
@@ -513,9 +504,9 @@ export default function LandingPage() {
             <path d="M-100 380C140 220 300 310 500 480C690 650 910 600 1250 680" stroke="#c5bfb1" strokeWidth="1.1" />
           </svg>
           <div className="relative z-10 mx-auto max-w-6xl fade-in">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>Terapias Complementares</p>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 0.95 }}>Thelma Arcuri</h2>
-            <p className="mt-2 text-base md:text-lg text-[#4a3d37] font-light mb-10" style={{ fontFamily: 'Inter, sans-serif' }}>Massoterapeuta e Fisioterapeuta</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif', textAlign: 'center' }}>Terapias Complementares</p>
+            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 0.95, textAlign: 'center' }}>Thelma Arcuri</h2>
+            <p className="mt-2 text-base md:text-lg text-[#4a3d37] font-light mb-10" style={{ fontFamily: 'Inter, sans-serif', textAlign: 'center' }}>Massoterapeuta e Fisioterapeuta</p>
 
             <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
               <div className="md:col-span-4 scroll-reveal">
@@ -596,85 +587,180 @@ export default function LandingPage() {
 
         {/* CURSOS */}
         <section id="cursos" className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
+
           <div className="absolute left-1/2 top-[6%] h-[88%] w-[104%] -translate-x-1/2 rounded-full bg-[#e2dfda]" />
+
           <svg className="absolute inset-0 h-full w-full opacity-50 pointer-events-none" viewBox="0 0 1200 900" fill="none">
             <path d="M-100 380C140 220 300 310 500 480C690 650 910 600 1250 680" stroke="#c5bfb1" strokeWidth="1.1" />
             <path d="M-40 840C180 680 370 770 600 900C820 1030 1010 970 1190 1060" stroke="#cbc5b8" strokeWidth="1.1" />
           </svg>
-          <div className="relative z-10 mx-auto max-w-6xl fade-in">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>Capacitação Profissional</p>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 0.95 }}>
-              Cursos para Profissionais<br />da Saúde
-            </h2>
-            <p className="mt-4 max-w-3xl text-[14px] md:text-[15px] leading-relaxed text-[#4a3d37] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Quer se aperfeiçoar, não ter medo de atender, aprender novas técnicas, se aprimorar para fazer a diferença em sua clínica? Nos procure, somos uma clínica escola!
-            </p>
-            <div className="mt-8 bg-gradient-to-r from-[#3c2922] to-[#4f3b30] text-white p-6 md:p-8 rounded-[22px]">
-              <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2rem,3.5vw,3rem)', marginBottom: '0.5rem' }}>Cursos VIP</h3>
-              <p className="text-[14px] md:text-[15px] font-light text-white/80" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Atendimento exclusivo com apenas <strong className="text-white">3 alunos por curso</strong> para garantir aprendizado personalizado e prática intensiva.
-              </p>
-            </div>
-            <div className="mt-8 grid md:grid-cols-12 gap-8">
-              <div className="md:col-span-7">
-                <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: '2rem', marginBottom: '1.25rem' }}>Cursos Disponíveis</h3>
-                <div className="bg-white/70 rounded-[22px] p-6 md:p-7 border border-[#b5ac9d]/40">
-                  <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2.5 text-[13px] md:text-[14px] text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                    {['Limpeza de pele','Prime shape (ganho de massa)','Harmonização glútea','Peeling','Microagulhamento','Jato de plasma','Hidrolipoclasia','Carboxiterapia','Peim','Intradermoterapia','Toxina botulínica','Preenchimento','Bioestimulador','Ozônio terapia','Fios de PDO'].map((c) => (
-                      <li key={c} className="flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[#8f876f] flex-shrink-0" />{c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-5 bg-gradient-to-r from-[#d8d1c2] to-[#cfc8b8] p-5 rounded-[18px] border border-[#b5ac9d]/60">
-                  <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontSize: '1.3rem', marginBottom: '0.75rem' }}>Formas de Pagamento</h4>
-                  <div className="space-y-1.5 text-[13px] md:text-[14px] text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                    <p>✓ Até <strong>6x sem juros</strong></p>
-                    <p>✓ Até <strong>10x com juros</strong></p>
-                  </div>
-                </div>
-              </div>
-              <div className="md:col-span-5">
-                <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: '2rem', marginBottom: '1.25rem' }}>Itens Inclusos</h3>
-                <div className="space-y-2.5">
-                  {['💁🏻 Modelos','💉 Descartáveis','☕ Coffee break','🗒 Apostila','📝 Caderno e caneta','📜 Certificado','📞 Suporte pós-curso ilimitado'].map((item) => (
-                    <div key={item} className="bg-white/70 p-4 rounded-[14px] border border-[#b5ac9d]/40 text-[13px] md:text-[14px] text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
-              <a href={whatsappCursos} target="_blank" rel="noopener noreferrer"
-                className="bg-[#3c2922] px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-white rounded-full hover:bg-[#5a3d33] hover:shadow-md transition-all duration-300 active:scale-[0.98] text-center">
-                Falar sobre cursos
-              </a>
-              <a href={`${whatsappAgendamento} Seria de um curso profissionalizante na Suleima.`} target="_blank" rel="noopener noreferrer"
-                className="border border-[#3c2922]/45 px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-[#3c2922] rounded-full hover:bg-[#CDCDCD] hover:shadow-md transition-all duration-300 active:scale-[0.98] text-center">
-                Agendar Curso
-              </a>
-            </div>
-          </div>
-        </section>
 
-        {/* FOOTER */}
-        {/* INSTAGRAM PREVIEW */}
-        <section className="ig-section fade-in">
-          <div className="ig-header">
-            <h2>@SULEIMAESTETICA</h2>
-            <a href={instagramProfileUrl} target="_blank" rel="noopener noreferrer" className="text-[#2f2321] underline">Ver Perfil</a>
-          </div>
-          <div className="ig-grid">
-            {instagramPosts.map((p,i) => (
-              <div key={i} className="ig-cell">
-                <a href={p.url} target="_blank" rel="noopener noreferrer">
-                  <img src={p.image} alt="" />
+          <div className="relative z-10 mx-auto max-w-6xl fade-in">
+
+            {/* FRAME */}
+            <div className="bg-white/70 backdrop-blur-sm border border-[#b5ac9d]/40 rounded-[28px] shadow-[0_25px_60px_rgba(0,0,0,0.12)] p-6 md:p-10">
+
+              <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
+                Capacitação Profissional
+              </p>
+
+              <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 0.95 }}>
+                Cursos para Profissionais<br />da Saúde
+              </h2>
+
+              <p className="mt-4 max-w-3xl text-[14px] md:text-[15px] leading-relaxed text-[#4a3d37] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
+                Quer se aperfeiçoar, não ter medo de atender, aprender novas técnicas, se aprimorar para fazer a diferença em sua clínica? Nos procure, somos uma clínica escola!
+              </p>
+
+              <div className="mt-8 bg-gradient-to-r from-[#3c2922] to-[#4f3b30] text-white p-6 md:p-8 rounded-[22px]">
+                <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2rem,3.5vw,3rem)', marginBottom: '0.5rem' }}>
+                  Cursos VIP
+                </h3>
+
+                <p className="text-[14px] md:text-[15px] font-light text-white/80" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Atendimento exclusivo com apenas <strong className="text-white">3 alunos por curso</strong> para garantir aprendizado personalizado e prática intensiva.
+                </p>
+              </div>
+
+              <div className="mt-8 grid md:grid-cols-12 gap-8">
+
+                <div className="md:col-span-7">
+
+                  <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: '2rem', marginBottom: '1.25rem' }}>
+                    Cursos Disponíveis
+                  </h3>
+
+                  <div className="bg-white/70 rounded-[22px] p-6 md:p-7 border border-[#b5ac9d]/40">
+                    <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2.5 text-[13px] md:text-[14px] text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      {['Limpeza de pele', 'Prime shape (ganho de massa)', 'Harmonização glútea', 'Peeling', 'Microagulhamento', 'Jato de plasma', 'Hidrolipoclasia', 'Carboxiterapia', 'Peim', 'Intradermoterapia', 'Toxina botulínica', 'Preenchimento', 'Bioestimulador', 'Ozônio terapia', 'Fios de PDO'].map((c) => (
+                        <li key={c} className="flex items-center gap-2">
+                          <span className="w-1 h-1 rounded-full bg-[#8f876f] flex-shrink-0" />
+                          {c}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-5 bg-gradient-to-r from-[#d8d1c2] to-[#cfc8b8] p-5 rounded-[18px] border border-[#b5ac9d]/60">
+                    <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontSize: '1.3rem', marginBottom: '0.75rem' }}>
+                      Formas de Pagamento
+                    </h4>
+
+                    <div className="space-y-1.5 text-[13px] md:text-[14px] text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      <p>✓ Até <strong>6x sem juros</strong></p>
+                      <p>✓ Até <strong>10x com juros</strong></p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div className="md:col-span-5">
+                  <img
+                    src={imagemCurso}
+                    alt="Profissinal Ensinando Técnica de Estética"
+                    className="rounded-[18px] shadow-md"
+                  />
+                </div>
+
+              </div>
+
+              <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+                <a
+                  href={whatsappCursos}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#3c2922] px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-white rounded-full hover:bg-[#5a3d33] hover:shadow-md transition-all duration-300 active:scale-[0.98] text-center"
+                >
+                  Falar sobre cursos
+                </a>
+
+                <a
+                  href={`${whatsappAgendamento} Seria de um curso profissionalizante na Suleima.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-[#3c2922]/45 px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-[#3c2922] rounded-full hover:bg-[#CDCDCD] hover:shadow-md transition-all duration-300 active:scale-[0.98] text-center"
+                >
+                  Agendar Curso
                 </a>
               </div>
-            ))}
+
+            </div>
+
           </div>
+
+        </section>
+
+        {/* INSTAGRAM PREVIEW */}
+        <section className="fade-in py-20 px-6 bg-[#f4f2ee]">
+
+          <div className="max-w-6xl mx-auto">
+
+            {/* HEADER */}
+            <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
+
+              <div className="flex items-center gap-3">
+
+                {/* Instagram Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-7 h-7 text-[#2f2321]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                  <circle cx="12" cy="12" r="3.5"></circle>
+                  <circle cx="17.5" cy="6.5" r="1"></circle>
+                </svg>
+
+                <h2
+                  className="text-2xl md:text-3xl font-light tracking-wide"
+                  style={{ fontFamily: 'Cormorant Garamond, serif' }}
+                >
+                  @SULEIMAESTETICA
+                </h2>
+
+              </div>
+
+              <a
+                href={instagramProfileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2f2321] text-sm uppercase tracking-wider border-b border-[#2f2321]/40 hover:border-[#2f2321] transition"
+              >
+                Ver Perfil
+              </a>
+
+            </div>
+
+            {/* GRID */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+
+              {instagramPosts.map((p, i) => (
+                <div
+                  key={i}
+                  className="group relative overflow-hidden rounded-lg"
+                >
+                  <a href={p.url} target="_blank" rel="noopener noreferrer">
+
+                    <img
+                      src={p.image}
+                      alt=""
+                      className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                    />
+
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-[#2f2321]/0 group-hover:bg-[#2f2321]/25 transition"></div>
+
+                  </a>
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
         </section>
 
         <footer id="contacts" className="relative rounded-t-[32px] md:rounded-t-[40px] overflow-hidden bg-[#8f876f] text-white px-6 md:px-16 py-14">
@@ -698,15 +784,15 @@ export default function LandingPage() {
             <div className="lx-footer-col">
               <p className="lx-footer-label">Contato</p>
               <div className="lx-footer-contact-row">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z"/></svg>
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z" /></svg>
                 <a href="tel:+5511958671658">+55 (11) 95867-1658</a>
               </div>
               <div className="lx-footer-contact-row">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="4" width="18" height="16" rx="2"/><path strokeLinecap="round" d="M3 6l9 7 9-7"/></svg>
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="4" width="18" height="16" rx="2" /><path strokeLinecap="round" d="M3 6l9 7 9-7" /></svg>
                 <a href="mailto:suleimaestetica@icloud.com">suleimaestetica@icloud.com</a>
               </div>
               <div className="lx-footer-contact-row">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>
                 <a href={instagramProfileUrl} target="_blank" rel="noopener noreferrer">@suleimaestetica</a>
               </div>
             </div>
