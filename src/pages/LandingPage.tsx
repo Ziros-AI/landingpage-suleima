@@ -489,6 +489,8 @@ export default function LandingPage() {
             </a>
 
           </div>
+
+
         </section>
 
         {/* SERVICES PREVIEW */}
@@ -641,49 +643,108 @@ export default function LandingPage() {
         </section>
 
 
-        {/* THELMA ARCURI — antes de Serviços */}
-        <section className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
-          <div className="absolute left-1/2 top-[6%] h-[88%] w-[108%] -translate-x-1/2 rounded-full bg-[#e4e0d9]" />
-          <svg className="absolute inset-0 w-full h-full opacity-50 pointer-events-none" viewBox="0 0 1200 900" fill="none">
-            <path d="M-100 380C140 220 300 310 500 480C690 650 910 600 1250 680" stroke="#c5bfb1" strokeWidth="1.1" />
-          </svg>
-          <div className="relative z-10 mx-auto max-w-6xl fade-in">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif', textAlign: 'center' }}>Terapias Complementares</p>
-            <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 0.95, textAlign: 'center' }}>Thelma Arcuri</h2>
-            <p className="mt-2 text-base md:text-lg text-[#4a3d37] font-light mb-10" style={{ fontFamily: 'Inter, sans-serif', textAlign: 'center' }}>Massoterapeuta e Fisioterapeuta</p>
+        {/* THELMA ARCURI */}
+        <section className="relative overflow-hidden bg-[#ececea] px-6 md:px-16 py-20">
 
-            <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-center">
-              <div className="md:col-span-4 scroll-reveal">
-                <div className="overflow-hidden rounded-[120px] md:rounded-[160px] photo-hover" style={{ height: '420px' }}>
-                  <img src={imagemT1} alt="Thelma Arcuri - Massoterapeuta e Fisioterapeuta" className="h-full w-full object-cover object-[50%_30%]" />
-                </div>
-              </div>
-              <div className="md:col-span-8 space-y-5">
-                <div className="bg-gradient-to-br from-[#d8d1c2] to-[#cfc8b8] p-6 md:p-8 rounded-[22px] border border-[#b5ac9d]/60">
-                  <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400, fontSize: '1.8rem', marginBottom: '1rem' }}>Microfisioterapia</h3>
-                  <div className="space-y-3 text-[14px] md:text-[15px] leading-relaxed text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                    <p>A microfisioterapia é uma técnica manual terapêutica que utiliza toques sutis e precisos para identificar e tratar marcas deixadas por traumas físicos, emocionais ou infecciosos no organismo.</p>
-                    <p>Baseada na embriologia e na anatomia palpatória, ela estimula o próprio corpo a reconhecer e eliminar essas memórias celulares, favorecendo o equilíbrio e a autorregulação.</p>
-                    <p>É um método complementar, indicado para dores crônicas, alterações emocionais, distúrbios funcionais e para promover bem-estar integral.</p>
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="bg-white/60 p-5 rounded-[18px] border border-[#b5ac9d]/50">
-                    <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Barra de Access</h4>
-                    <p className="text-[13px] text-[#4a3d37] font-light leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>Técnica energética que promove relaxamento profundo e liberação de bloqueios mentais.</p>
-                  </div>
-                  <div className="bg-white/60 p-5 rounded-[18px] border border-[#b5ac9d]/50">
-                    <h4 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Reiki</h4>
-                    <p className="text-[13px] text-[#4a3d37] font-light leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>Terapia energética que equilibra corpo, mente e espírito através da canalização de energia vital.</p>
-                  </div>
-                </div>
-                <div className="thelma-quote">
-                  <p className="italic text-[#4a3d37] leading-relaxed" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: '1.15rem' }}>
-                    "A verdadeira beleza começa no equilíbrio interior. Cuidamos de você de dentro para fora"
-                  </p>
-                </div>
+          {/* fundo decorativo */}
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
+            <svg viewBox="0 0 1200 900" className="w-full h-full">
+              <path d="M-100 380C140 220 300 310 500 480C690 650 910 600 1250 680"
+                stroke="#b8a999"
+                strokeWidth="1.2"
+                fill="none"
+              />
+            </svg>
+          </div>
+
+          <div className="relative z-10 max-w-4xl mx-auto text-center ">
+
+            <p className="uppercase tracking-[0.25em] text-[11px] text-[#6f625a] mb-3">
+              Terapias Complementares
+            </p>
+
+            <h2
+              className="text-[clamp(3rem,6vw,4.5rem)] leading-none mb-3"
+              style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
+            >
+              Thelma Arcuri
+            </h2>
+
+            <p className="text-[#4a3d37] text-lg mb-10">
+              Massoterapeuta e Fisioterapeuta
+            </p>
+
+            {/* FOTO */}
+            <div className="flex justify-center mb-12">
+              <div className="w-[260px] h-[340px] md:w-[320px] md:h-[420px] overflow-hidden rounded-[160px] shadow-xl">
+                <img
+                  src={imagemT1}
+                  alt="Thelma Arcuri"
+                  className="w-full h-full object-cover object-[50%_30%]"
+                />
               </div>
             </div>
+
+            {/* TEXTO */}
+            <div className="max-w-2xl mx-auto mb-14 
+                            bg-[#dddacf]/30 
+                            backdrop-blur-sm 
+                            border border-[#c9c2b5]/40 
+                            rounded-3xl 
+                            px-6 py-5">
+
+              <p className="text-[#4a3d37] text-[15px] leading-relaxed">
+                A microfisioterapia é uma técnica manual terapêutica que utiliza toques
+                sutis e precisos para identificar e tratar marcas deixadas por traumas
+                físicos, emocionais ou infecciosos no organismo.
+
+                Baseada na embriologia e na anatomia palpatória, ela estimula o próprio
+                corpo a reconhecer e eliminar essas memórias celulares, favorecendo o
+                equilíbrio e a autorregulação.
+              </p>
+
+            </div>
+
+            {/* CARDS */}
+            {/* CARDS */}
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
+
+              <div className="bg-[#dddacf] p-4 md:p-6 rounded-2xl border border-[#c9c2b5]">
+                <h4
+                  className="text-lg md:text-xl mb-2"
+                  style={{ fontFamily: "Cormorant Garamond, serif" }}
+                >
+                  Barra de Access
+                </h4>
+                <p className="text-xs md:text-sm text-[#4a3d37] leading-relaxed">
+                  Técnica energética que promove relaxamento profundo e liberação
+                  de bloqueios mentais.
+                </p>
+              </div>
+
+              <div className="bg-[#dddacf] p-4 md:p-6 rounded-2xl border border-[#c9c2b5]">
+                <h4
+                  className="text-lg md:text-xl mb-2"
+                  style={{ fontFamily: "Cormorant Garamond, serif" }}
+                >
+                  Reiki
+                </h4>
+                <p className="text-xs md:text-sm text-[#4a3d37] leading-relaxed">
+                  Terapia energética que equilibra corpo, mente e espírito através
+                  da canalização da energia vital.
+                </p>
+              </div>
+
+            </div>
+
+            {/* FRASE */}
+            <p
+              className="italic mt-14 text-[#4a3d37] text-lg"
+              style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
+            >
+              "A verdadeira beleza começa no equilíbrio interior."
+            </p>
+
           </div>
         </section>
 
