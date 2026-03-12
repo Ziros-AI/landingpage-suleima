@@ -548,7 +548,7 @@ export default function LandingPage() {
         </section>
 
         {/* MOBILE SERVICES */}
-        <div className="md:hidden mt-8">
+        <div className="md:hidden mt-8 fade-in">
 
           <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
 
@@ -565,6 +565,7 @@ export default function LandingPage() {
                 cursor-pointer
                 transition
                 border
+                stagger-item
                 ${activeServiceTab === idx
                     ? "border-[#2f2321] shadow-lg"
                     : "border-[#e5e0d9]"
@@ -604,9 +605,10 @@ export default function LandingPage() {
 
         </div>
         {/* MOBILE SERVICE DETAIL */}
-        <div className="md:hidden mt-8 px-2">
+        <div className="md:hidden mt-8 px-2 scroll-reveal">
 
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-[#e7e1da]">
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-[#e7e1da]
+          ">
 
             <h3
               className="text-[26px] mb-3 text-[#2f2321] leading-tight"
@@ -644,7 +646,7 @@ export default function LandingPage() {
 
 
         {/* THELMA ARCURI */}
-        <section className="relative overflow-hidden bg-[#ececea] px-6 md:px-16 py-20">
+        <section className="relative overflow-hidden bg-[#ececea] px-6 md:px-16 py-20 fade-in">
 
           {/* fundo decorativo */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
@@ -675,7 +677,7 @@ export default function LandingPage() {
             </p>
 
             {/* FOTO */}
-            <div className="flex justify-center mb-12">
+            <div className="flex justify-center mb-12 scroll-reveal">
               <div className="w-[260px] h-[340px] md:w-[320px] md:h-[420px] overflow-hidden rounded-[160px] shadow-xl">
                 <img
                   src={imagemT1}
@@ -709,7 +711,7 @@ export default function LandingPage() {
             {/* CARDS */}
             <div className="grid grid-cols-2 gap-4 md:gap-6">
 
-              <div className="bg-[#dddacf] p-4 md:p-6 rounded-2xl border border-[#c9c2b5]">
+              <div className="bg-[#dddacf] p-4 md:p-6 rounded-2xl border border-[#c9c2b5] stagger-item">
                 <h4
                   className="text-lg md:text-xl mb-2"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -722,7 +724,7 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div className="bg-[#dddacf] p-4 md:p-6 rounded-2xl border border-[#c9c2b5]">
+              <div className="bg-[#dddacf] p-4 md:p-6 rounded-2xl border border-[#c9c2b5] stagger-item">
                 <h4
                   className="text-lg md:text-xl mb-2"
                   style={{ fontFamily: "Cormorant Garamond, serif" }}
@@ -739,7 +741,7 @@ export default function LandingPage() {
 
             {/* FRASE */}
             <p
-              className="italic mt-14 text-[#4a3d37] text-lg"
+              className="italic mt-14 text-[#4a3d37] text-lg scroll-reveal"
               style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
             >
               "A verdadeira beleza começa no equilíbrio interior."
@@ -817,10 +819,21 @@ export default function LandingPage() {
                       ].map((c) => (
                         <li
                           key={c}
-                          className="flex items-center gap-3 px-3 py-2 rounded-xl bg-[#f3f1ea] border border-[#e1dbcf] transition-colors duration-300 hover:bg-[#e9e5db]"
+                          className="group flex items-center gap-3 px-3 py-2 rounded-xl 
+                          bg-[#f3f1ea] border border-[#e1dbcf]
+                          transition-all duration-300 ease-out
+                          hover:bg-[#ece7dc]
+                          hover:scale-[1.04]
+                          hover:-translate-y-[2px]
+                          hover:shadow-md"
                         >
-                          <span className="text-[#8f876f] text-sm">✦</span>
-                          <span>{c}</span>
+                          <span className="text-[#8f876f] text-sm transition-transform duration-300 group-hover:scale-125">
+                            ✦
+                          </span>
+
+                          <span className="transition-colors duration-300 group-hover:text-[#5c5147]">
+                            {c}
+                          </span>
                         </li>
                       ))}
                     </ul>
