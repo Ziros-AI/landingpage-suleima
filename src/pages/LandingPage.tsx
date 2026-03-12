@@ -73,7 +73,7 @@ export default function LandingPage() {
     },
     {
       label: 'BRONZEAMENTO ARTIFICAL',
-      image: imagemG4,
+      image: imagem9,
       description: 'O bronzeamento artificial é um procedimento estético desenvolvido para proporcionar à pele um tom dourado, uniforme e saudável, sem a necessidade de exposição prolongada ao sol. A técnica utiliza produtos específicos que reagem com a camada superficial da pele, promovendo um efeito de bronzeado natural e temporário.'
     },
   ];
@@ -380,7 +380,7 @@ export default function LandingPage() {
         <section className="relative h-screen min-h-[600px] flex flex-col overflow-hidden">
           <img src={imagemSu3} alt="Suleima com equipamento"
             className="hero-parallax absolute inset-0 w-full h-full object-cover object-[62%_18%] md:object-[84%_20%] lg:object-[87%_20%]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_75%,rgba(0,0,0,0.75)_0%,rgba(0,0,0,0.55)_25%,rgba(0,0,0,0.25)_45%,transparent_65%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_120%,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.55)_18%,rgba(0,0,0,0.28)_34%,transparent_50%)]" />
           <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 1400 760" fill="none">
             <path d="M120 550C380 410 620 620 910 510C1100 440 1280 450 1460 520" stroke="#d3c9b8" strokeWidth="1.2" />
             <path d="M70 620C300 500 520 670 820 640C1060 620 1270 660 1490 740" stroke="#d3c9b8" strokeWidth="1.2" />
@@ -394,7 +394,6 @@ export default function LandingPage() {
               style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2.8rem,7.5vw,5.8rem)' }}>
               ESTÉTICA AVANÇADA
             </h1>
-            {/* hero buttons removed */}
           </div>
 
           <div className="absolute bottom-6 right-6 z-10 flex flex-col items-center gap-2">
@@ -405,17 +404,41 @@ export default function LandingPage() {
         </section>
 
         {/* STATS BAR */}
-        <div className="stats-bar flex w-full text-center items-center justify-center w-full auto-rows-fr">
+        <div className="w-full grid grid-cols-3 text-center bg-[#2f2321] text-white">
+
           {[
             { num: '10+', label: 'Anos de experiência' },
             { num: '500+', label: 'Clientes atendidas' },
             { num: '100%', label: 'Atendimento personalizado' },
-          ].map((s) => (
-            <div key={s.label} className="stat-item">
-              <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(1.8rem,2.8vw,2.5rem)', fontWeight: 300, lineHeight: 1 }}>{s.num}</div>
-              <div className="text-[10px] uppercase tracking-[0.15em] text-white/50 mt-1" style={{ fontFamily: 'Inter, sans-serif' }}>{s.label}</div>
+          ].map((s, i) => (
+
+            <div
+              key={s.label}
+              className={`py-6 px-2 flex flex-col items-center justify-center ${i !== 2 ? "border-r border-white/10" : ""}`}
+            >
+
+              <div
+                style={{
+                  fontFamily: 'Cormorant Garamond, serif',
+                  fontSize: 'clamp(1.8rem,2.8vw,2.5rem)',
+                  fontWeight: 300,
+                  lineHeight: 1
+                }}
+              >
+                {s.num}
+              </div>
+
+              <div
+                className="text-[10px] uppercase tracking-[0.15em] text-white/60 mt-1"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                {s.label}
+              </div>
+
             </div>
+
           ))}
+
         </div>
 
         {/* ABOUT */}
@@ -426,15 +449,50 @@ export default function LandingPage() {
             <path d="M-20 930C200 760 390 850 620 980C840 1110 1030 1050 1210 1140" stroke="#bdb4a6" strokeWidth="1.1" opacity="0.6" />
           </svg>
           <div className="relative z-10 mx-auto max-w-6xl fade-in text-center">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>Sobre a Suleima e a clínica<br /><br /></p>
-            <h2 className="mb-10 md:mb-12" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2rem,4.5vw,4.3rem)', lineHeight: 1.05 }}>
-              "Nós ajudamos a <br />criar momentos de beleza<br />para você e seu brilho."
+
+            <p
+              className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              Sobre a Suleima e a clínica
+            </p>
+
+            <h2
+              className="mb-8 md:mb-10"
+              style={{
+                fontFamily: 'Cormorant Garamond, serif',
+                fontWeight: 300,
+                fontSize: 'clamp(2rem,4.5vw,4.3rem)',
+                lineHeight: 1.05
+              }}
+            >
+              Nós ajudamos a <br />
+              criar momentos de beleza <br />
+              para você e seu brilho
             </h2>
+
+            <p
+              className="mx-auto max-w-[520px] text-[14px] md:text-[15px] leading-relaxed text-[#6f625a]/90 mb-6"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              A Suleima é uma clínica premium de estética para mulheres, oferecendo
+              cuidados especializados para pele, corpo e bem-estar. Atendimento
+              personalizado para cada cliente.
+            </p>
+
+            <a
+              href="#services"
+              className="inline-block text-[13px] underline underline-offset-4 text-[#3e342e] hover:text-[#2a221d] transition"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              Saiba mais
+            </a>
+
           </div>
         </section>
 
         {/* SERVICES PREVIEW */}
-        <section className="lx-services-section fade-in relative overflow-hidden">
+        <section className="lx-services-section fade-in relative overflow-hidden hidden md:block">
 
           {/* Background shapes */}
           <div className="absolute -top-40 -left-40 w-[520px] h-[520px] bg-[#5a3e36]/30 rounded-full blur-[140px]"></div>
@@ -486,6 +544,92 @@ export default function LandingPage() {
           </div>
 
         </section>
+
+        {/* MOBILE SERVICES */}
+        <div className="md:hidden mt-8">
+
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
+
+            {serviceDetails.map((service, idx) => (
+
+              <div
+                key={idx}
+                onClick={() => setActiveServiceTab(idx)}
+                className={`
+                min-w-[220px]
+                rounded-xl
+                overflow-hidden
+                snap-start
+                cursor-pointer
+                transition
+                border
+                ${activeServiceTab === idx
+                    ? "border-[#2f2321] shadow-lg"
+                    : "border-[#e5e0d9]"
+                  }
+        `}
+              >
+
+                <div className="relative h-[110px]">
+
+                  <img
+                    src={service.image}
+                    alt={service.label}
+                    className="w-full h-full object-cover"
+                  />
+
+                  <div className="absolute inset-0 bg-black/25"></div>
+
+                  <div className="absolute bottom-2 left-3 text-white">
+
+                    <div className="text-sm font-semibold">
+                      {service.label.split(' ')[0]}
+                    </div>
+
+                    <div className="text-[11px] opacity-80">
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+        {/* MOBILE SERVICE DETAIL */}
+        <div className="md:hidden mt-8 px-2">
+
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 shadow-sm border border-[#e7e1da]">
+
+            <h3
+              className="text-[26px] mb-3 text-[#2f2321] leading-tight"
+              style={{ fontFamily: "Cormorant Garamond, serif" }}
+            >
+              {serviceDetails[activeServiceTab].label}
+            </h3>
+
+            <p className="text-[14px] text-[#3b2d2a]/80 mb-5 leading-relaxed">
+              {serviceDetails[activeServiceTab].description}
+            </p>
+
+            <div className="overflow-hidden rounded-xl">
+
+              <img
+                src={serviceDetails[activeServiceTab].image}
+                alt={serviceDetails[activeServiceTab].label}
+                className="w-full h-[220px] object-cover transition duration-500 hover:scale-105"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
 
         {/* FEATURES */}
         <section className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
@@ -540,48 +684,6 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* SERVICES */}
-        <section id="services" className="overflow-hidden bg-[#dddacf]">
-          <div className="pt-10 md:pt-14 pb-4 px-4 md:px-16">
-            <div className="mx-auto max-w-6xl flex items-end justify-between fade-in">
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-2" style={{ fontFamily: 'Inter, sans-serif' }}>O que oferecemos</p>
-                <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(3rem,7vw,6rem)', lineHeight: 0.95 }}>Serviços.</h2>
-              </div>
-              <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer"
-                className="hidden md:block bg-[#3c2922] text-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-[#5a3d33] transition-all duration-300 mb-2">
-                Agendar avaliação
-              </a>
-            </div>
-          </div>
-          <div className="mt-6 fade-in">
-            {[
-              { title: 'Corporal', desc: 'Modelagem, definição e contorno com protocolos de alta performance.', image: imagemSu4, position: 'object-[52%_40%] md:object-[50%_38%]' },
-              { title: 'Facial', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada.', image: imagem7, position: 'object-[48%_36%] md:object-[52%_32%]' },
-              { title: 'Experiência', desc: 'Ambiente reservado, estrutura premium e acolhimento em cada etapa.', image: imagem3, position: 'object-[50%_32%] md:object-[50%_30%]' },
-            ].map((item, i) => (
-              <article key={item.title} className="service-row">
-                <img src={item.image} alt={item.title} className={`service-bg service-img-animate ${i === 0 ? '' : i === 1 ? 'delay-1' : 'delay-2'} ${item.position}`} />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/10" />
-                <div className="relative z-10 h-full flex items-center gap-6 md:gap-10 px-6 md:px-16">
-                  <span className="text-white/35 text-sm hidden md:block" style={{ fontFamily: 'Cormorant Garamond, serif' }}>0{i + 1}</span>
-                  <h3 className="text-white leading-none" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5.5vw,4.5rem)' }}>{item.title}</h3>
-                  <p className="hidden md:block text-white/55 text-[13px] font-light max-w-[280px] ml-4" style={{ fontFamily: 'Inter, sans-serif' }}>{item.desc}</p>
-                  <div className="ml-auto flex gap-2">
-                    <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer"
-                      className="bg-white text-[#2f2321] px-4 py-2 text-[10px] uppercase tracking-[0.1em] rounded-full hover:bg-white/90 transition-all duration-300 active:scale-[0.97]">
-                      Agendar
-                    </a>
-                    <a href="#about" className="hidden md:block border border-white/60 text-white px-4 py-2 text-[10px] uppercase tracking-[0.1em] rounded-full hover:bg-white/10 transition-all duration-300">
-                      Saiba mais
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
           </div>
         </section>
 
@@ -718,7 +820,7 @@ export default function LandingPage() {
                   className="text-2xl md:text-3xl font-light tracking-wide"
                   style={{ fontFamily: 'Cormorant Garamond, serif' }}
                 >
-                  @SULEIMAESTETICA
+                  SULEIMAESTETICA
                 </h2>
 
               </div>
@@ -772,14 +874,13 @@ export default function LandingPage() {
             <div className="lx-footer-col">
               <div className="lx-footer-logo">SULEIMA</div>
               <p className="lx-footer-tagline">Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.</p>
-              <a href={whatsappAgendamento} target="_blank" rel="noopener noreferrer" className="lx-btn-white" style={{ textDecoration: 'none', display: 'inline-block' }}>Agendar Agora</a>
             </div>
 
             <div className="lx-footer-col">
               <p className="lx-footer-label">Endereço</p>
               <div className="lx-footer-address-big">Rua América<br />1321</div>
               <p className="lx-footer-city">Salto — SP</p>
-              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="lx-btn-ghost-white" style={{ textDecoration: 'none', display: 'inline-block' }}>Ver no Google Maps</a>
+              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="hidden md:block bg-[#3c292] text-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-[#5a3d33] transition-all duration-300 mb-2" style={{ textDecoration: 'none', display: 'inline-block' }}>Ver no Google Maps</a>
             </div>
             <div className="lx-footer-col">
               <p className="lx-footer-label">Contato</p>
