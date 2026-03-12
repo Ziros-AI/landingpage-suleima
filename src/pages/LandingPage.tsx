@@ -20,6 +20,10 @@ import imagemT1 from '../assets/ImagensThelma/ImagemTh1.jpeg';
 import imagem8 from '../assets/ImagensBronzeamento/imagem8.jpeg';
 import imagem9 from '../assets/ImagensBronzeamento/imagem9.jpeg';
 import imagemCurso from '../assets/ImagensCurso/imagemCurso.jpeg';
+import imagemCurso2 from '../assets/ImagensCurso/imagemCurso2.jpeg';
+import imagemCurso3 from '../assets/ImagensCurso/imagemCurso3.jpeg';
+import imagemCurso5 from '../assets/ImagensCurso/imagemCurso5.jpeg';
+
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
