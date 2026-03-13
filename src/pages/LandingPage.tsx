@@ -752,19 +752,38 @@ export default function LandingPage() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[200] bg-[#2f2321] text-white flex flex-col items-center justify-center gap-7">
-          <button onClick={() => setMenuOpen(false)} className="absolute top-5 right-5 text-2xl text-white/70 hover:text-white">✕</button>
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
-              className="text-2xl tracking-[0.15em] uppercase"
-              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}>
-              {link.label}
+        <div
+          className="fixed inset-0 z-[200] bg-black/45 backdrop-blur-[2px] flex items-start justify-center px-5 pt-20"
+          onClick={() => setMenuOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-[290px] rounded-[20px] border border-white/10 bg-[#2a1f1d]/95 text-white px-6 py-6 shadow-[0_24px_60px_rgba(0,0,0,0.45)] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button onClick={() => setMenuOpen(false)} className="absolute top-3 right-4 text-[1.7rem] leading-none text-white/70 hover:text-white">✕</button>
+            <div className="mt-8 flex flex-col items-center gap-5">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-[1.7rem] tracking-[0.13em] uppercase leading-none"
+                  style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+            <a
+              href={whatsappAvaliacao}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              className="mt-7 mx-auto border border-white/60 px-5 py-2.5 rounded-full uppercase text-[12px] tracking-[0.13em]"
+            >
+              Agendar avaliação
             </a>
-          ))}
-          <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}
-            className="mt-4 border border-white/60 px-6 py-3 rounded-full uppercase text-sm tracking-widest">
-            Agendar avaliação
-          </a>
+          </div>
         </div>
       )}
 
