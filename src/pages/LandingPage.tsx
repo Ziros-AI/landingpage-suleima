@@ -74,7 +74,7 @@ export default function LandingPage() {
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
 
   const serviceCategories = [
-    { id: 'all', label: 'ALL', count: 'Catálogo completo', image: imagemSu3 },
+    { id: 'all', label: 'ALL', count: 'Seleção de tratamentos', image: imagemSu3 },
     { id: 'corporal', label: 'CORPORAL', count: 'Vários tratamentos', image: imagemSu4 },
     { id: 'facial', label: 'FACIAL', count: 'Vários tratamentos', image: imagem7 },
     { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG4 },
