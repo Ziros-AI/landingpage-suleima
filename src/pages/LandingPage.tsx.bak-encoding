@@ -28,17 +28,17 @@ import imagemCurso5 from '../assets/ImagensCurso/imagemCurso5.jpeg';
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
 const instagramPosts = [
-  { url: 'https://www.instagram.com/suleimaestetica/reel/DPaRforjTnO/', image: imagemSu3, label: 'Reel de estética avançada' },
-  { url: 'https://www.instagram.com/suleimaestetica/p/DP6OMaWDa1A/', image: imagem3, label: 'Post de rotina na clínica' },
+  { url: 'https://www.instagram.com/suleimaestetica/reel/DPaRforjTnO/', image: imagemSu3, label: 'Reel de estÃ©tica avanÃ§ada' },
+  { url: 'https://www.instagram.com/suleimaestetica/p/DP6OMaWDa1A/', image: imagem3, label: 'Post de rotina na clÃ­nica' },
   { url: 'https://www.instagram.com/suleimaestetica/reel/DU_IOOOkeEA/', image: imagem5, label: 'Reel de procedimento corporal' },
   { url: 'https://www.instagram.com/suleimaestetica/p/DLxQT2fxFtz/', image: imagem7, label: 'Post de cuidado facial' },
-  { url: 'https://www.instagram.com/suleimaestetica/reel/DVZbr2MEopr/', image: imagemG4, label: 'Reel Método Glúteos CONTOUR' },
-  { url: 'https://www.instagram.com/suleimaestetica/reel/DU53r6rDS8D/', image: imagemG5, label: 'Reel de harmonização glútea' },
+  { url: 'https://www.instagram.com/suleimaestetica/reel/DVZbr2MEopr/', image: imagemG4, label: 'Reel MÃ©todo GlÃºteos CONTOUR' },
+  { url: 'https://www.instagram.com/suleimaestetica/reel/DU53r6rDS8D/', image: imagemG5, label: 'Reel de harmonizaÃ§Ã£o glÃºtea' },
 ];
 
 const navLinks = [
   { href: '#about', label: 'Sobre' },
-  { href: '#services', label: 'Serviços' },
+  { href: '#services', label: 'ServiÃ§os' },
   { href: '#cursos', label: 'Cursos' },
   { href: '#contacts', label: 'Contato' },
 ];
@@ -451,7 +451,7 @@ export default function LandingPage() {
       {/* MOBILE MENU */}
       {menuOpen && (
         <div className="fixed inset-0 z-[200] bg-[#2f2321] text-white flex flex-col items-center justify-center gap-7">
-          <button onClick={() => setMenuOpen(false)} className="absolute top-5 right-5 text-2xl text-white/70 hover:text-white">✕</button>
+          <button onClick={() => setMenuOpen(false)} className="absolute top-5 right-5 text-2xl text-white/70 hover:text-white">âœ•</button>
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
               className="text-2xl tracking-[0.15em] uppercase"
@@ -461,7 +461,7 @@ export default function LandingPage() {
           ))}
           <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}
             className="mt-4 border border-white/60 px-6 py-3 rounded-full uppercase text-sm tracking-widest">
-            Agendar avaliação
+            Agendar avaliaÃ§Ã£o
           </a>
         </div>
       )}
@@ -475,7 +475,7 @@ export default function LandingPage() {
           <div className="lp-logo text-[10px] md:text-[11px] tracking-[0.25em] leading-[1.6] font-medium uppercase"
             style={{ color: scrolled ? '#2f2321' : 'white' }}>
             <span className="block">SULEIMA</span>
-            <span className="block">ESTÉTICA</span>
+            <span className="block">ESTÃ‰TICA</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-7 text-[10.5px] tracking-[0.12em] uppercase font-light"
@@ -513,11 +513,11 @@ export default function LandingPage() {
 
           <div className="relative z-10 flex-1 flex flex-col justify-end px-5 md:px-10 pb-10 md:pb-14 text-white">
             <p className="text-[10px] uppercase tracking-[0.25em] text-white/55 mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Seu brilho começa aqui. Bem-vinda à Suleima.
+              Seu brilho comeÃ§a aqui. Bem-vinda Ã  Suleima.
             </p>
             <h1 className="leading-[0.96] font-light max-w-[680px]"
               style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2.8rem,7.5vw,5.8rem)' }}>
-              ESTÉTICA AVANÇADA
+              ESTÃ‰TICA AVANÃ‡ADA
             </h1>
           </div>
 
@@ -532,7 +532,7 @@ export default function LandingPage() {
         <div className="w-full grid grid-cols-3 text-center bg-[#2f2321] text-white">
 
           {[
-            { num: '10+', label: 'Anos de experiência' },
+            { num: '10+', label: 'Anos de experiÃªncia' },
             { num: '500+', label: 'Clientes atendidas' },
             { num: '100%', label: 'Atendimento personalizado' },
           ].map((s, i) => (
@@ -579,7 +579,7 @@ export default function LandingPage() {
               className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              Sobre a Suleima e a clínica
+              Sobre a Suleima e a clÃ­nica
             </p>
 
             <h2
@@ -591,16 +591,16 @@ export default function LandingPage() {
                 lineHeight: 1.05
               }}
             >
-              Nós ajudamos a <br />
+              NÃ³s ajudamos a <br />
               criar momentos de beleza <br />
-              para você e seu brilho
+              para vocÃª e seu brilho
             </h2>
 
             <p
               className="mx-auto max-w-[520px] text-[14px] md:text-[15px] leading-relaxed text-[#6f625a]/90 mb-6"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
-              A Suleima é uma clínica premium de estética para mulheres, oferecendo
+              A Suleima Ã© uma clÃ­nica premium de estÃ©tica para mulheres, oferecendo
               cuidados especializados para pele, corpo e bem-estar. Atendimento
               personalizado para cada cliente.
             </p>
@@ -638,7 +638,7 @@ export default function LandingPage() {
               >
                 <img src={cat.image} alt={cat.label} className="lx-tab-bg" />
                 <div className="lx-tab-content">
-                  <div className="lx-tab-name">{cat.label}<span></span></div>
+                  <div className="lx-tab-name">{cat.label}<span>✕</span></div>
                   <div className="lx-tab-count">{cat.count}</div>
                 </div>
               </div>
@@ -731,13 +731,13 @@ export default function LandingPage() {
                             px-6 py-5">
 
               <p className="text-[#4a3d37] text-[15px] leading-relaxed">
-                A microfisioterapia é uma técnica manual terapêutica que utiliza toques
+                A microfisioterapia Ã© uma tÃ©cnica manual terapÃªutica que utiliza toques
                 sutis e precisos para identificar e tratar marcas deixadas por traumas
-                físicos, emocionais ou infecciosos no organismo.
+                fÃ­sicos, emocionais ou infecciosos no organismo.
 
-                Baseada na embriologia e na anatomia palpatória, ela estimula o próprio
-                corpo a reconhecer e eliminar essas memórias celulares, favorecendo o
-                equilíbrio e a autorregulação.
+                Baseada na embriologia e na anatomia palpatÃ³ria, ela estimula o prÃ³prio
+                corpo a reconhecer e eliminar essas memÃ³rias celulares, favorecendo o
+                equilÃ­brio e a autorregulaÃ§Ã£o.
               </p>
 
             </div>
@@ -754,7 +754,7 @@ export default function LandingPage() {
                   Barra de Access
                 </h4>
                 <p className="text-xs md:text-sm text-[#4a3d37] leading-relaxed">
-                  Técnica energética que promove relaxamento profundo e liberação
+                  TÃ©cnica energÃ©tica que promove relaxamento profundo e liberaÃ§Ã£o
                   de bloqueios mentais.
                 </p>
               </div>
@@ -767,8 +767,8 @@ export default function LandingPage() {
                   Reiki
                 </h4>
                 <p className="text-xs md:text-sm text-[#4a3d37] leading-relaxed">
-                  Terapia energética que equilibra corpo, mente e espírito através
-                  da canalização da energia vital.
+                  Terapia energÃ©tica que equilibra corpo, mente e espÃ­rito atravÃ©s
+                  da canalizaÃ§Ã£o da energia vital.
                 </p>
               </div>
 
@@ -779,7 +779,7 @@ export default function LandingPage() {
               className="italic mt-14 text-[#4a3d37] text-lg scroll-reveal"
               style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 300 }}
             >
-              "A verdadeira beleza começa no equilíbrio interior."
+              "A verdadeira beleza comeÃ§a no equilÃ­brio interior."
             </p>
 
           </div>
@@ -801,15 +801,15 @@ export default function LandingPage() {
             <div className="bg-white/70 backdrop-blur-sm border border-[#b5ac9d]/40 rounded-[28px] shadow-[0_25px_60px_rgba(0,0,0,0.12)] p-6 md:p-10">
 
               <p className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Capacitação Profissional
+                CapacitaÃ§Ã£o Profissional
               </p>
 
               <h2 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 0.95 }}>
-                Cursos para Profissionais<br />da Saúde
+                Cursos para Profissionais<br />da SaÃºde
               </h2>
 
               <p className="mt-4 max-w-3xl text-[14px] md:text-[15px] leading-relaxed text-[#4a3d37] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                Quer se aperfeiçoar, não ter medo de atender, aprender novas técnicas, se aprimorar para fazer a diferença em sua clínica? Nos procure, somos uma clínica escola!
+                Quer se aperfeiÃ§oar, nÃ£o ter medo de atender, aprender novas tÃ©cnicas, se aprimorar para fazer a diferenÃ§a em sua clÃ­nica? Nos procure, somos uma clÃ­nica escola!
               </p>
 
               <div className="mt-8 bg-gradient-to-r from-[#3c2922] to-[#4f3b30] text-white p-6 md:p-8 rounded-[22px]">
@@ -818,7 +818,7 @@ export default function LandingPage() {
                 </h3>
 
                 <p className="text-[14px] md:text-[15px] font-light text-white/80" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  Atendimento exclusivo com apenas <strong className="text-white">3 alunos por curso</strong> para garantir aprendizado personalizado e prática intensiva.
+                  Atendimento exclusivo com apenas <strong className="text-white">3 alunos por curso</strong> para garantir aprendizado personalizado e prÃ¡tica intensiva.
                 </p>
               </div>
 
@@ -827,7 +827,7 @@ export default function LandingPage() {
                 <div className="md:col-span-7">
 
                   <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: '2rem', marginBottom: '1.25rem' }}>
-                    Cursos Disponíveis
+                    Cursos DisponÃ­veis
                   </h3>
 
                   <div className="bg-white/70 rounded-[22px] p-6 md:p-7 border border-[#b5ac9d]/40">
@@ -838,7 +838,7 @@ export default function LandingPage() {
                       {[
                         "Limpeza de pele",
                         "Prime shape (ganho de massa)",
-                        "Harmonização glútea",
+                        "HarmonizaÃ§Ã£o glÃºtea",
                         "Peeling",
                         "Microagulhamento",
                         "Jato de plasma",
@@ -846,10 +846,10 @@ export default function LandingPage() {
                         "Carboxiterapia",
                         "Peim",
                         "Intradermoterapia",
-                        "Toxina botulínica",
+                        "Toxina botulÃ­nica",
                         "Preenchimento",
                         "Bioestimulador",
-                        "Ozônio terapia",
+                        "OzÃ´nio terapia",
                         "Fios de PDO",
                       ].map((c) => (
                         <li
@@ -863,7 +863,7 @@ export default function LandingPage() {
                           hover:shadow-md"
                         >
                           <span className="text-[#8f876f] text-sm transition-transform duration-300 group-hover:scale-125">
-                            ✦
+                            âœ¦
                           </span>
 
                           <span className="transition-colors duration-300 group-hover:text-[#5c5147]">
@@ -880,8 +880,8 @@ export default function LandingPage() {
                     </h4>
 
                     <div className="space-y-1.5 text-[13px] md:text-[14px] text-[#2f2321] font-light" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      <p>✓ Até <strong>6x sem juros</strong></p>
-                      <p>✓ Até <strong>10x com juros</strong></p>
+                      <p>âœ“ AtÃ© <strong>6x sem juros</strong></p>
+                      <p>âœ“ AtÃ© <strong>10x com juros</strong></p>
                     </div>
                   </div>
 
@@ -890,7 +890,7 @@ export default function LandingPage() {
                 <div className="md:col-span-5">
                   <img
                     src={imagemCurso}
-                    alt="Profissinal Ensinando Técnica de Estética"
+                    alt="Profissinal Ensinando TÃ©cnica de EstÃ©tica"
                     className="rounded-[18px] shadow-md"
                   />
                 </div>
@@ -1004,13 +1004,13 @@ export default function LandingPage() {
           <div className="lx-footer-top">
             <div className="lx-footer-col">
               <div className="lx-footer-logo">SULEIMA</div>
-              <p className="lx-footer-tagline">Agende sua avaliação personalizada e descubra o protocolo ideal para sua transformação.</p>
+              <p className="lx-footer-tagline">Agende sua avaliaÃ§Ã£o personalizada e descubra o protocolo ideal para sua transformaÃ§Ã£o.</p>
             </div>
 
             <div className="lx-footer-col">
-              <p className="lx-footer-label">Endereço</p>
-              <div className="lx-footer-address-big">Rua América<br />1321</div>
-              <p className="lx-footer-city">Salto — SP</p>
+              <p className="lx-footer-label">EndereÃ§o</p>
+              <div className="lx-footer-address-big">Rua AmÃ©rica<br />1321</div>
+              <p className="lx-footer-city">Salto â€” SP</p>
               <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="hidden md:block bg-[#3c292] text-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-[#5a3d33] transition-all duration-300 mb-2" style={{ textDecoration: 'none', display: 'inline-block' }}>Ver no Google Maps</a>
             </div>
             <div className="lx-footer-col">
@@ -1030,8 +1030,8 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="lx-footer-bottom mt-6">
-            <p className="lx-footer-copy">© 2025 SULEIMA ESTÉTICA · TODOS OS DIREITOS RESERVADOS</p>
-            <p className="lx-footer-copy">SALTO, SÃO PAULO · BRASIL</p>
+            <p className="lx-footer-copy">Â© 2025 SULEIMA ESTÃ‰TICA Â· TODOS OS DIREITOS RESERVADOS</p>
+            <p className="lx-footer-copy">SALTO, SÃƒO PAULO Â· BRASIL</p>
           </div>
         </footer>
 
