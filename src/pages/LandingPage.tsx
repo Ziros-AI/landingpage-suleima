@@ -68,6 +68,7 @@ interface Treatment {
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const [activeCat, setActiveCat] = useState<string>('all');
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
   const [modalAnimIn, setModalAnimIn] = useState(false);
