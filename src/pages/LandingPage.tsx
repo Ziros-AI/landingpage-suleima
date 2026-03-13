@@ -826,7 +826,7 @@ export default function LandingPage() {
       <main>
 
         {/* HERO */}
-        <section className="relative h-screen min-h-[600px] flex flex-col overflow-hidden">
+        <section className="relative h-[100svh] min-h-[600px] flex flex-col overflow-hidden">
           <img src={imagemSu3} alt="Suleima com equipamento"
             className="hero-parallax absolute inset-0 w-full h-full object-cover object-[62%_18%] md:object-[84%_20%] lg:object-[87%_20%]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_120%,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.55)_18%,rgba(0,0,0,0.28)_34%,transparent_50%)]" />
@@ -837,7 +837,7 @@ export default function LandingPage() {
 
           <div className="relative z-10 flex-1 flex flex-col justify-end px-5 md:px-10 pb-10 md:pb-14 text-white">
             <p className="text-[10px] uppercase tracking-[0.25em] text-white/55 mb-4" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Seu brilho começa aqui. Bem-vinda à Suleima.
+              Seu brilho começa aqui. <br /> Bem-vinda à Suleima.
             </p>
             <h1 className="leading-[0.96] font-light max-w-[680px]"
               style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2.8rem,7.5vw,5.8rem)' }}>
@@ -845,7 +845,7 @@ export default function LandingPage() {
             </h1>
           </div>
 
-          <div className="absolute bottom-6 right-6 z-10 flex flex-col items-center gap-2">
+          <div className="absolute bottom-6 right-6 z-10 hidden md:flex flex-col items-center gap-2">
             <div className="scroll-line" />
             <span className="text-[9px] uppercase tracking-[0.2em] text-white/40 [writing-mode:vertical-rl]"
               style={{ fontFamily: 'Inter, sans-serif' }}>Scroll</span>
