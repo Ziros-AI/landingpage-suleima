@@ -53,41 +53,231 @@ const whatsappAgendamento =
   'https://api.whatsapp.com/send/?phone=5511958671658&text=Ol%C3%A1,%20gostaria%20de%20realizar%20um%20agendamento.';
 const googleMapsUrl = 'https://maps.app.goo.gl/5ACdHhu2EvLqRs1k7';
 
+interface Treatment {
+  id: string;
+  cat: string;
+  name: string;
+  duration: string;
+  desc: string;
+  idealFor: string;
+  steps: { title: string; desc: string }[];
+  image1: string;
+  image2: string;
+}
+
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeCat, setActiveCat] = useState<string | null>(null);
   const [servicesActivated, setServicesActivated] = useState(false);
+  const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
+  const [modalAnimIn, setModalAnimIn] = useState(false);
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
 
   const serviceCategories = [
-    { id: 'all', label: 'ALL', count: '8 tratamentos', image: imagemSu3 },
-    { id: 'corporal', label: 'CORPORAL', count: '3 tratamentos', image: imagemSu4 },
-    { id: 'facial', label: 'FACIAL', count: '3 tratamentos', image: imagem7 },
-    { id: 'gluteo', label: 'GLUTEOS', count: '2 protocolos', image: imagemG4 },
+    { id: 'all', label: 'ALL', count: '29 tratamentos', image: imagemSu3 },
+    { id: 'corporal', label: 'CORPORAL', count: '8 tratamentos', image: imagemSu4 },
+    { id: 'facial', label: 'FACIAL', count: '12 tratamentos', image: imagem7 },
+    { id: 'gluteo', label: 'GLÚTEOS', count: '5 protocolos', image: imagemG4 },
   ];
 
-  const treatments = [
-    { id: 't1', cat: 'facial', name: 'LIMPEZA DE PELE', duration: '60min', desc: 'Remove impurezas e cravos, devolvendo luminosidade e textura uniforme.', image: imagem7 },
-    { id: 't2', cat: 'facial', name: 'MICROAGULHAMENTO', duration: '45min', desc: 'Estimula colageno e melhora marcas, poros e rugas finas.', image: imagemSu1 },
-    { id: 't3', cat: 'facial', name: 'PEELING QUIMICO', duration: '30min', desc: 'Renovacao celular para uniformizar tom e textura da pele.', image: imagemSu2 },
-    { id: 't4', cat: 'corporal', name: 'CRIOLIPOLISE', duration: '60min', desc: 'Reducao de gordura localizada sem cirurgia.', image: imagemSu4 },
-    { id: 't5', cat: 'corporal', name: 'RADIOFREQUENCIA', duration: '50min', desc: 'Estimulo de colageno para firmeza e melhora da flacidez.', image: imagem4 },
-    { id: 't6', cat: 'corporal', name: 'CARBOXITERAPIA', duration: '30min', desc: 'Melhora circulacao e auxilia no tratamento de celulite.', image: imagem5 },
-    { id: 't7', cat: 'gluteo', name: 'METODO CONTOUR', duration: '90min', desc: 'Protocolo exclusivo para contorno, firmeza e proporcao glutea.', image: imagemG4 },
-    { id: 't8', cat: 'gluteo', name: 'HARMONIZACAO GLUTEA', duration: '75min', desc: 'Modelagem nao invasiva com resultado natural e progressivo.', image: imagemG5 },
+  const treatments: Treatment[] = [
+    {
+      id: 't1',
+      cat: 'facial',
+      name: 'LIMPEZA DE PELE',
+      duration: '60min',
+      desc: 'A limpeza de pele profissional remove impurezas, células mortas e cravos, devolvendo luminosidade e textura uniforme à pele.',
+      idealFor: 'Manutenção mensal e controle de oleosidade',
+      steps: [
+        { title: 'Higienização', desc: 'Remoção de maquiagem, suor e impurezas superficiais.' },
+        { title: 'Esfoliação', desc: 'Remoção de células mortas para melhor absorção.' },
+        { title: 'Extração', desc: 'Extração manual ou com aparelho dos cravos.' },
+        { title: 'Máscara calmante', desc: 'Finalização com máscara hidratante.' },
+      ],
+      image1: imagemSu1,
+      image2: imagem3,
+    },
+    {
+      id: 't2',
+      cat: 'facial',
+      name: 'MICROAGULHAMENTO',
+      duration: '45min',
+      desc: 'Técnica que estimula a produção de colágeno através de micro perfurações, reduzindo marcas, poros e rugas finas.',
+      idealFor: 'Rejuvenescimento e tratamento de cicatrizes',
+      steps: [
+        { title: 'Anestesia tópica', desc: 'Aplicação de creme anestésico para conforto.' },
+        { title: 'Microagulhamento', desc: 'Passagem do dermaroller com agulhas calibradas.' },
+        { title: 'Sérum ativo', desc: 'Aplicação de ativos para potencializar resultado.' },
+        { title: 'Protetor solar', desc: 'Finalização com proteção solar de alto fator.' },
+      ],
+      image1: imagem4,
+      image2: imagem7,
+    },
+    {
+      id: 't3',
+      cat: 'facial',
+      name: 'PEELING QUÍMICO',
+      duration: '30min',
+      desc: 'Renovação celular acelerada com ácidos que promovem descamação controlada, uniformizando tom e textura da pele.',
+      idealFor: 'Manchas, oleosidade e envelhecimento precoce',
+      steps: [
+        { title: 'Limpeza', desc: 'Remoção de oleosidade e preparo da pele.' },
+        { title: 'Aplicação do ácido', desc: 'Peeling com ácidos como glicólico, mandélico ou TCA.' },
+        { title: 'Neutralização', desc: 'Interrupção da ação do ácido no momento certo.' },
+        { title: 'Hidratação', desc: 'Aplicação de sérum reparador e hidratante.' },
+      ],
+      image1: imagemSu2,
+      image2: imagem5,
+    },
+    {
+      id: 't4',
+      cat: 'facial',
+      name: 'JATO DE PLASMA',
+      duration: '40min',
+      desc: 'Tecnologia de plasma para estimulação intensa do colágeno, efeito lifting sem cirurgia com resultados visíveis e duradouros.',
+      idealFor: 'Flacidez facial e rejuvenescimento sem bisturi',
+      steps: [
+        { title: 'Avaliação', desc: 'Análise das áreas a serem tratadas.' },
+        { title: 'Anestesia tópica', desc: 'Creme anestésico para conforto durante o procedimento.' },
+        { title: 'Aplicação do plasma', desc: 'Descarga de plasma sobre a pele com precisão.' },
+        { title: 'Cuidados pós', desc: 'Orientação sobre cuidados nos dias seguintes.' },
+      ],
+      image1: imagemSu3,
+      image2: imagemSu4,
+    },
+    {
+      id: 't5',
+      cat: 'corporal',
+      name: 'CRIOLIPÓLISE',
+      duration: '60min',
+      desc: 'Eliminação de gordura localizada por congelamento, reduzindo células de gordura sem dor e sem cirurgia.',
+      idealFor: 'Gordura localizada resistente à dieta e exercício',
+      steps: [
+        { title: 'Mapeamento', desc: 'Avaliação das áreas com gordura localizada.' },
+        { title: 'Gel protetor', desc: 'Proteção da pele antes da aplicação do frio.' },
+        { title: 'Criolipólise', desc: 'Aplicação do aparelho que congela as células de gordura.' },
+        { title: 'Massagem', desc: 'Massagem para ativar a eliminação das células tratadas.' },
+      ],
+      image1: imagemSu4,
+      image2: imagem5,
+    },
+    {
+      id: 't6',
+      cat: 'corporal',
+      name: 'RADIOFREQUÊNCIA',
+      duration: '50min',
+      desc: 'Ondas de radiofrequência que aquecem as camadas profundas da pele estimulando colágeno e melhorando flacidez.',
+      idealFor: 'Flacidez corporal e facial após emagrecimento',
+      steps: [
+        { title: 'Limpeza', desc: 'Preparação e limpeza da área a ser tratada.' },
+        { title: 'Gel condutor', desc: 'Aplicação de gel para condução das ondas.' },
+        { title: 'Radiofrequência', desc: 'Movimentos circulares com o aparelho aquecendo as camadas.' },
+        { title: 'Finalização', desc: 'Hidratação e proteção da área tratada.' },
+      ],
+      image1: imagem3,
+      image2: imagem4,
+    },
+    {
+      id: 't7',
+      cat: 'corporal',
+      name: 'CARBOXITERAPIA',
+      duration: '30min',
+      desc: 'Infusão de CO₂ medicinal que melhora circulação, reduz celulite, gordura localizada e estimula colágeno.',
+      idealFor: 'Celulite, olheiras e gordura localizada',
+      steps: [
+        { title: 'Avaliação', desc: 'Mapeamento das áreas de aplicação.' },
+        { title: 'Infusão de CO₂', desc: 'Injeção do gás medicinal com agulha fina.' },
+        { title: 'Massagem', desc: 'Distribuição do gás pela área tratada.' },
+        { title: 'Resultado progressivo', desc: 'Resultados melhores a cada sessão realizada.' },
+      ],
+      image1: imagemSu1,
+      image2: imagemSu2,
+    },
+    {
+      id: 't8',
+      cat: 'corporal',
+      name: 'HIDROLIPOCLASIA',
+      duration: '45min',
+      desc: 'Técnica de ultrassom associada à infiltração de solução fisiológica para redução de gordura localizada.',
+      idealFor: 'Gordura localizada abdominal e flancos',
+      steps: [
+        { title: 'Infiltração', desc: 'Aplicação de solução fisiológica na área.' },
+        { title: 'Ultrassom', desc: 'Aplicação de ultrassom focado para romper as células.' },
+        { title: 'Drenagem', desc: 'Massagem linfática para eliminar os resíduos.' },
+        { title: 'Repouso', desc: 'Orientações de repouso e cuidados pós-procedimento.' },
+      ],
+      image1: imagem5,
+      image2: imagem7,
+    },
+    {
+      id: 't9',
+      cat: 'gluteo',
+      name: 'MÉTODO CONTOUR',
+      duration: '90min',
+      desc: 'Protocolo exclusivo de harmonização glútea que combina técnicas avançadas para contorno, firmeza e proporção perfeita.',
+      idealFor: 'Modelagem e contorno glúteo personalizado',
+      steps: [
+        { title: 'Avaliação corporal', desc: 'Análise da estrutura corporal e definição do protocolo ideal.' },
+        { title: 'Ativação muscular', desc: 'Eletroestimulação para ativar a musculatura glútea.' },
+        { title: 'Harmonização', desc: 'Técnicas combinadas para contorno e volume.' },
+        { title: 'Finalização', desc: 'Hidratação intensa e orientações de manutenção.' },
+      ],
+      image1: imagemG4,
+      image2: imagemG5,
+    },
+    {
+      id: 't10',
+      cat: 'gluteo',
+      name: 'PRIME SHAPE',
+      duration: '60min',
+      desc: 'Protocolo de ganho de massa e definição glútea com eletroestimulação de alta intensidade para resultados expressivos.',
+      idealFor: 'Ganho de volume e definição muscular',
+      steps: [
+        { title: 'Avaliação', desc: 'Análise da composição corporal e objetivo da cliente.' },
+        { title: 'Eletroestimulação', desc: '30 minutos equivalentes a 20.000 contrações musculares.' },
+        { title: 'Massagem modeladora', desc: 'Técnicas para potencializar o resultado.' },
+        { title: 'Nutrição pós', desc: 'Orientações nutricionais para maximizar ganhos.' },
+      ],
+      image1: imagemG3,
+      image2: imagemG2,
+    },
+    {
+      id: 't11',
+      cat: 'gluteo',
+      name: 'HARMONIZAÇÃO GLÚTEA',
+      duration: '75min',
+      desc: 'Combinação de técnicas não invasivas para modelar, levantar e definir o contorno glúteo com resultados naturais.',
+      idealFor: 'Volume, levantamento e definição glútea',
+      steps: [
+        { title: 'Diagnóstico', desc: 'Avaliação postural e corporal detalhada.' },
+        { title: 'Protocolo combinado', desc: 'Associação de técnicas para resultado superior.' },
+        { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
+        { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
+      ],
+      image1: imagemG,
+      image2: imagemG2,
+    },
   ];
 
   const catInfo: Record<string, { title: string; desc: string; img: string }> = {
-    all: { title: 'TODOS OS SERVICOS', desc: 'Protocolos personalizados para corpo e rosto, com tecnologia e atendimento exclusivo.', img: imagemSu3 },
-    corporal: { title: 'CORPORAL', desc: 'Modelagem e definicao com protocolos de alta performance.', img: imagemSu4 },
-    facial: { title: 'FACIAL', desc: 'Rejuvenescimento e luminosidade para diferentes tipos de pele.', img: imagem7 },
-    gluteo: { title: 'GLUTEOS', desc: 'Harmonizacao e contorno gluteo com protocolo exclusivo.', img: imagemG4 },
+    all: { title: 'TODOS OS SERVIÇOS', desc: 'Protocolos personalizados para corpo e rosto, com tecnologia e atendimento exclusivo.', img: imagemSu3 },
+    corporal: { title: 'CORPORAL', desc: 'Modelagem, definição e contorno com protocolos de alta performance para cada objetivo.', img: imagemSu4 },
+    facial: { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
+    gluteo: { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG4 },
   };
 
   const activateServices = () => {
     setServicesActivated(true);
     setActiveCat((prev) => prev ?? 'all');
+  };
+  const openModal = (t: Treatment) => {
+    setSelectedTreatment(t);
+    setTimeout(() => setModalAnimIn(true), 10);
+  };
+  const closeModal = () => {
+    setModalAnimIn(false);
+    setTimeout(() => setSelectedTreatment(null), 350);
   };
 
   const visibleTreatments = !activeCat
@@ -276,7 +466,10 @@ export default function LandingPage() {
         display: flex;
         flex-direction: column;
         gap: 0.45rem;
+        cursor: pointer;
+        transition: background 0.2s;
       }
+      .lx-treatment-card:hover { background: #f8f8f8; }
       .lx-tc-name {
         font-family: 'Barlow Condensed', sans-serif;
         font-weight: 800;
@@ -293,6 +486,120 @@ export default function LandingPage() {
         color: #555;
         line-height: 1.55;
       }
+      .lx-tc-btns {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .lx-treatment-card:hover .lx-tc-btns { opacity: 1; }
+      .lx-tc-book {
+        background: #111;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.45rem 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: background 0.2s;
+      }
+      .lx-tc-book:hover { background: #333; }
+      .lx-tc-learn {
+        background: none;
+        color: #111;
+        border: none;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: opacity 0.2s;
+      }
+      .lx-tc-learn:hover { opacity: 0.5; }
+      .lx-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 500;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+      .lx-modal-backdrop.open { opacity: 1; }
+      .lx-modal {
+        background: #fff;
+        width: 100%;
+        max-width: 900px;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 2px;
+        transform: translateY(40px) scale(0.97);
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.35s;
+        position: relative;
+      }
+      .lx-modal-backdrop.open .lx-modal { transform: translateY(0) scale(1); opacity: 1; }
+      .lx-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #888;
+        width: 32px;
+        height: 32px;
+      }
+      .lx-modal-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .lx-modal-imgs { display: flex; flex-direction: column; gap: 2px; }
+      .lx-modal-imgs img { width: 100%; object-fit: cover; flex: 1; display: block; }
+      .lx-modal-imgs img:first-child { aspect-ratio: 4/3; }
+      .lx-modal-imgs img:last-child  { aspect-ratio: 4/3; }
+      .lx-modal-info { padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+      .lx-modal-stars { font-size: 0.85rem; color: #111; display: flex; align-items: center; gap: 0.4rem; }
+      .lx-modal-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.2rem; text-transform: uppercase; line-height: 0.95; }
+      .lx-modal-meta { display: flex; align-items: center; gap: 1rem; }
+      .lx-modal-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; }
+      .lx-modal-dur { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 0.3rem; }
+      .lx-modal-desc { font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.7; color: #555; }
+      .lx-modal-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.5rem; }
+      .lx-modal-ideal { font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #555; }
+      .lx-modal-steps { display: flex; flex-direction: column; gap: 0.6rem; }
+      .lx-modal-step { display: flex; gap: 0.6rem; }
+      .lx-modal-step-dot { width: 6px; height: 6px; border-radius: 50%; background: #111; flex-shrink: 0; margin-top: 0.4rem; }
+      .lx-modal-step-text { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #333; }
+      .lx-modal-step-text strong { font-weight: 700; color: #111; }
+      .lx-modal-book {
+        margin-top: auto;
+        background: #111;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.9rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background 0.2s;
+      }
+      .lx-modal-book:hover { background: #333; }
       @media (max-width: 900px) {
         .lx-tabs { grid-template-columns: repeat(2, 1fr); }
         .lx-cat-header { grid-template-columns: 1fr; }
@@ -303,6 +610,8 @@ export default function LandingPage() {
         .lx-tabs { display: flex; overflow-x: auto; }
         .lx-tab { min-width: 170px; border-right: 1px solid #e0e0e0 !important; }
         .lx-treatments-cards { grid-template-columns: 1fr; }
+        .lx-modal-inner { grid-template-columns: 1fr; }
+        .lx-modal-info { padding: 1.5rem; }
       }
 
       /* INSTAGRAM */
@@ -657,11 +966,30 @@ export default function LandingPage() {
                   <img src={catInfo[activeCat].img} alt={catInfo[activeCat].title} />
                 </div>
                 <div className="lx-treatments-cards">
-                  {visibleTreatments.slice(0, 8).map((t) => (
-                    <div key={t.id} className="lx-treatment-card">
+                  {visibleTreatments.map((t) => (
+                    <div key={t.id} className="lx-treatment-card" onClick={() => openModal(t)}>
                       <div className="lx-tc-name">{t.name}</div>
-                      <div className="lx-tc-duration">{t.duration}</div>
+                      <div className="lx-tc-duration">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+                        {t.duration}
+                      </div>
                       <p className="lx-tc-desc">{t.desc}</p>
+                      <div className="lx-tc-btns">
+                        <a
+                          href={whatsappAvaliacao}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="lx-tc-book"
+                          onClick={(e) => e.stopPropagation()}
+                          style={{ textDecoration: 'none' }}
+                        >
+                          Agendar
+                          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                        </a>
+                        <button className="lx-tc-learn" onClick={(e) => { e.stopPropagation(); openModal(t); }}>
+                          Saiba mais
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1011,6 +1339,47 @@ export default function LandingPage() {
         </footer>
 
       </main>
+
+      {selectedTreatment && (
+        <div className={`lx-modal-backdrop${modalAnimIn ? ' open' : ''}`} onClick={closeModal}>
+          <div className="lx-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="lx-modal-close" onClick={closeModal}>✕</button>
+            <div className="lx-modal-inner">
+              <div className="lx-modal-imgs">
+                <img src={selectedTreatment.image1} alt={selectedTreatment.name} />
+                <img src={selectedTreatment.image2} alt={selectedTreatment.name} />
+              </div>
+              <div className="lx-modal-info">
+                <div className="lx-modal-stars">★★★★★ <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>4.9</span></div>
+                <div className="lx-modal-name">{selectedTreatment.name}</div>
+                <div className="lx-modal-meta">
+                  <div className="lx-modal-price">Consultar</div>
+                  <div className="lx-modal-dur">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+                    {selectedTreatment.duration}
+                  </div>
+                </div>
+                <p className="lx-modal-desc">{selectedTreatment.desc}</p>
+                <p className="lx-modal-label">IDEAL PARA:</p>
+                <p className="lx-modal-ideal">{selectedTreatment.idealFor}</p>
+                <p className="lx-modal-label">O QUE ENVOLVE:</p>
+                <div className="lx-modal-steps">
+                  {selectedTreatment.steps.map((s, i) => (
+                    <div key={i} className="lx-modal-step">
+                      <div className="lx-modal-step-dot" />
+                      <p className="lx-modal-step-text"><strong>{s.title}</strong><br />{s.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <a href={whatsappAvaliacao} target="_blank" rel="noopener noreferrer" className="lx-modal-book" style={{ textDecoration: 'none' }}>
+                  Agendar Agora
+                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
