@@ -966,7 +966,7 @@ export default function LandingPage() {
                   <img src={catInfo[activeCat].img} alt={catInfo[activeCat].title} />
                 </div>
                 <div className="lx-treatments-cards">
-                  {visibleTreatments.map((t) => (
+                  {visibleTreatments.slice(0, 6).map((t) => (
                     <div key={t.id} className="lx-treatment-card" onClick={() => openModal(t)}>
                       <div className="lx-tc-name">{t.name}</div>
                       <div className="lx-tc-duration">
@@ -996,6 +996,60 @@ export default function LandingPage() {
               </div>
             </>
           )}
+        </section>
+
+        {/* MÉTODO GLÚTEO */}
+        <section id="gluteo-contour" className="relative overflow-hidden bg-[#111] px-4 md:px-16 py-14 md:py-20 fade-in">
+          <div className="relative z-10 mx-auto max-w-6xl">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-end mb-8">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-white/55 mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Destaque exclusivo
+                </p>
+                <h2
+                  className="text-white leading-[0.95]"
+                  style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontSize: 'clamp(2.2rem,5vw,4rem)' }}
+                >
+                  Método Glúteo Contour
+                </h2>
+              </div>
+
+              <div>
+                <p className="text-white/80 text-[14px] md:text-[15px] leading-relaxed mb-5" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Protocolo exclusivo de harmonização glútea que combina técnicas avançadas para contorno,
+                  firmeza e proporção. O atendimento é personalizado para a estrutura corporal de cada cliente.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={whatsappAvaliacao}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-[#111] rounded-full hover:bg-white/85 transition-all duration-300"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Agendar avaliação
+                  </a>
+                  <a
+                    href={whatsappClinica}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-white/45 px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] text-white rounded-full hover:bg-white/10 transition-all duration-300"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Falar com a clínica
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+              {[imagemG4, imagemG5, imagemG3, imagemG2, imagemG].map((img, i) => (
+                <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
+                  <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* FEATURES */}
