@@ -68,6 +68,7 @@ interface Treatment {
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const [activeCat, setActiveCat] = useState<string>('all');
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
   const [modalAnimIn, setModalAnimIn] = useState(false);
@@ -672,6 +673,7 @@ export default function LandingPage() {
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      setShowBackToTop(window.scrollY > 400);
 
       // Parallax effect on hero image
       const hero = document.querySelector('.hero-parallax');
@@ -726,6 +728,7 @@ export default function LandingPage() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
 
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => {
@@ -1408,6 +1411,18 @@ export default function LandingPage() {
         </footer>
 
       </main>
+
+      {showBackToTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-[90] w-12 h-12 rounded-full bg-[#8f876f] text-white shadow-lg hover:bg-[#5a4f3d] transition-all duration-300 flex items-center justify-center hover:scale-105"
+          aria-label="Voltar ao topo"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" className="rotate-180">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
+      )}
 
       {selectedTreatment && (
         <div className={`lx-modal-backdrop${modalAnimIn ? ' open' : ''}`} onClick={closeModal}>
