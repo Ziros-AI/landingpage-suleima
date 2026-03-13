@@ -68,17 +68,16 @@ interface Treatment {
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeCat, setActiveCat] = useState<string | null>(null);
-  const [servicesActivated, setServicesActivated] = useState(false);
+  const [activeCat, setActiveCat] = useState<string>('all');
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
   const [modalAnimIn, setModalAnimIn] = useState(false);
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
 
   const serviceCategories = [
-    { id: 'all', label: 'ALL', count: '29 tratamentos', image: imagemSu3 },
-    { id: 'corporal', label: 'CORPORAL', count: '8 tratamentos', image: imagemSu4 },
-    { id: 'facial', label: 'FACIAL', count: '12 tratamentos', image: imagem7 },
-    { id: 'gluteo', label: 'GLÚTEOS', count: '5 protocolos', image: imagemG4 },
+    { id: 'all', label: 'ALL', count: 'Catálogo completo', image: imagemSu3 },
+    { id: 'corporal', label: 'CORPORAL', count: 'Vários tratamentos', image: imagemSu4 },
+    { id: 'facial', label: 'FACIAL', count: 'Vários tratamentos', image: imagem7 },
+    { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG4 },
   ];
 
   const treatments: Treatment[] = [
@@ -267,10 +266,6 @@ export default function LandingPage() {
     gluteo: { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG4 },
   };
 
-  const activateServices = () => {
-    setServicesActivated(true);
-    setActiveCat((prev) => prev ?? 'all');
-  };
   const openModal = (t: Treatment) => {
     setSelectedTreatment(t);
     setTimeout(() => setModalAnimIn(true), 10);
@@ -280,11 +275,9 @@ export default function LandingPage() {
     setTimeout(() => setSelectedTreatment(null), 350);
   };
 
-  const visibleTreatments = !activeCat
-    ? []
-    : activeCat === 'all'
-      ? treatments
-      : treatments.filter((t) => t.cat === activeCat);
+  const visibleTreatments = activeCat === 'all'
+    ? treatments
+    : treatments.filter((t) => t.cat === activeCat);
 
   useEffect(() => {
     const link = document.createElement('link');
@@ -935,15 +928,12 @@ export default function LandingPage() {
             </h2>
           </div>
 
-          <div className="lx-tabs" onMouseEnter={activateServices} onTouchStart={activateServices}>
-            {(servicesActivated ? serviceCategories : serviceCategories.filter((cat) => cat.id !== 'all')).map((cat) => (
+          <div className="lx-tabs">
+            {serviceCategories.map((cat) => (
               <div
                 key={cat.id}
                 className={`lx-tab${activeCat === cat.id ? ' active' : ''}`}
-                onClick={() => {
-                  activateServices();
-                  setActiveCat(cat.id);
-                }}
+                onClick={() => setActiveCat(cat.id)}
               >
                 <img src={cat.image} alt={cat.label} className="lx-tab-bg" />
                 <div className="lx-tab-content">
