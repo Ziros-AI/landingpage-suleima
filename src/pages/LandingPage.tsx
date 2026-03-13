@@ -958,7 +958,13 @@ export default function LandingPage() {
             <>
               <div className="lx-cat-header">
                 <h3 className="lx-cat-title">{catInfo[activeCat].title}</h3>
-                <p className="lx-cat-desc">{catInfo[activeCat].desc}</p>
+                <p className="lx-cat-desc">
+                  {catInfo[activeCat].desc}
+                  <br />
+                  <span style={{ fontSize: '0.82rem', opacity: 0.8 }}>
+                    Mostrando 6 procedimentos por categoria.
+                  </span>
+                </p>
               </div>
 
               <div className="lx-treatments-layout">
