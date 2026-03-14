@@ -1486,15 +1486,15 @@ export default function LandingPage() {
             </div>
             <div className="lx-footer-col">
               <p className="lx-footer-label">Contato</p>
-              <div className="lx-footer-contact-row">
+              <div className="lx-footer-contact-row flex justify-start items-center gap-2">
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z" /></svg>
                 <a href="tel:+5511958671658">+55 (11) 95867-1658</a>
               </div>
-              <div className="lx-footer-contact-row">
+              <div className="lx-footer-contact-row flex justify-start items-center gap-2">
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="4" width="18" height="16" rx="2" /><path strokeLinecap="round" d="M3 6l9 7 9-7" /></svg>
                 <a href="mailto:suleimaestetica@icloud.com">suleimaestetica@icloud.com</a>
               </div>
-              <div className="lx-footer-contact-row">
+              <div className="lx-footer-contact-row flex justify-start items-center gap-2">
                 <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>
                 <a href={instagramProfileUrl} target="_blank" rel="noopener noreferrer">@suleimaestetica</a>
               </div>
