@@ -78,7 +78,7 @@ export default function LandingPage() {
     { id: 'all', label: 'ALL', count: 'Seleção de tratamentos', image: imagemSu3 },
     { id: 'corporal', label: 'CORPORAL', count: 'Vários tratamentos', image: imagemSu4 },
     { id: 'facial', label: 'FACIAL', count: 'Vários tratamentos', image: imagem7 },
-    { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG4 },
+    { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG5 },
   ];
 
   const treatments: Treatment[] = [
@@ -223,7 +223,7 @@ export default function LandingPage() {
         { title: 'Harmonização', desc: 'Técnicas combinadas para contorno e volume.' },
         { title: 'Finalização', desc: 'Hidratação intensa e orientações de manutenção.' },
       ],
-      image1: imagemG4,
+      image1: imagemG5,
       image2: imagemG5,
     },
     {
@@ -264,7 +264,7 @@ export default function LandingPage() {
     all: { title: 'TODOS OS SERVIÇOS', desc: 'Protocolos personalizados para corpo e rosto, com tecnologia e atendimento exclusivo.', img: imagemSu3 },
     corporal: { title: 'CORPORAL', desc: 'Modelagem, definição e contorno com protocolos de alta performance para cada objetivo.', img: imagemSu4 },
     facial: { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
-    gluteo: { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG4 },
+    gluteo: { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG5 },
   };
 
   const openModal = (t: Treatment) => {
@@ -943,73 +943,169 @@ export default function LandingPage() {
         </section>
 
         {/* SERVICES */}
-        <section id="services" className="lx-our-services fade-in">
-          <div className="lx-our-services-header">
-            <h2>
-              NOSSOS<span className="lx-h2-tag">SERVICOS</span>SERVICOS
+        <section
+          id="services"
+          className="relative overflow-hidden px-4 md:px-16 py-20 bg-gradient-to-b from-[#2f2321] via-[#2a1f1d] to-[#241a18]"
+        >
+          {/* BACKGROUND DECOR */}
+          <div className="absolute inset-0 pointer-events-none">
+
+            {/* glow esquerda */}
+            <div className="absolute -top-32 -left-32 w-[420px] h-[420px] bg-[#5a423d] rounded-full blur-[140px] opacity-40" />
+
+            {/* glow direita */}
+            <div className="absolute bottom-[-150px] right-[-120px] w-[420px] h-[420px] bg-[#4b3733] rounded-full blur-[140px] opacity-40" />
+
+            {/* linhas orgânicas */}
+            <svg
+              className="absolute inset-0 w-full h-full opacity-30"
+              viewBox="0 0 1400 900"
+              fill="none"
+            >
+              <path
+                d="M-80 400C200 260 400 460 700 420C980 390 1100 420 1500 480"
+                stroke="#6b504a"
+                strokeWidth="1.2"
+              />
+              <path
+                d="M-100 700C220 560 450 720 750 690C1040 660 1240 720 1500 800"
+                stroke="#7a5c56"
+                strokeWidth="1.2"
+              />
+            </svg>
+
+          </div>
+          <div className="mb-14">
+            <h2 className="text-5xl md:text-8xl font-semibold tracking-wide text-white">
+              NOSSOS <br /> SERVIÇOS
             </h2>
           </div>
 
-          <div className="lx-tabs">
+          {/* TABS */}
+          <div className="flex gap-10 overflow-x-auto py-4 snap-x snap-mandatory scroll-smooth scrollbar-hide">
+
             {serviceCategories.map((cat) => (
               <div
                 key={cat.id}
-                className={`lx-tab${activeCat === cat.id ? ' active' : ''}`}
+                className={`relative flex-shrink-0 snap-start w-[200px] h-[130px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${activeCat === cat.id
+                  ? "ring-2 ring-black scale-105"
+                  : "hover:scale-105"
+                  }`}
                 onClick={() => setActiveCat(cat.id)}
               >
-                <img src={cat.image} alt={cat.label} className="lx-tab-bg" />
-                <div className="lx-tab-content">
-                  <div className="lx-tab-name">{cat.label}<span></span></div>
-                  <div className="lx-tab-count">{cat.count}</div>
+
+                <img
+                  src={cat.image}
+                  alt={cat.label}
+                  className="absolute inset-0 w-full h-full object-cover brightness-75"
+                />
+
+                <div className="relative z-10 h-full flex flex-col justify-end p-4 text-white">
+                  <div className="font-semibold text-sm tracking-wide">
+                    {cat.label}
+                  </div>
+
+                  <div className="text-xs opacity-80">
+                    {cat.count}
+                  </div>
                 </div>
+
               </div>
             ))}
+
           </div>
 
           {activeCat && (
             <>
-              <div className="lx-cat-header">
-                <h3 className="lx-cat-title">{catInfo[activeCat].title}</h3>
-                <p className="lx-cat-desc">
+              {/* HEADER DA CATEGORIA */}
+              <div className="mt-12 mb-10 max-w-xl text-white">
+                <h3 className="text-2xl font-semibold">
+                  {catInfo[activeCat].title}
+                </h3>
+
+                <p className="text-sm opacity-70 mt-2">
                   {catInfo[activeCat].desc}
                   <br />
-                  <span style={{ fontSize: '0.82rem', opacity: 0.8 }}>
+                  <span className="text-xs opacity-60">
                     Mostrando 6 procedimentos por categoria.
                   </span>
                 </p>
               </div>
 
-              <div className="lx-treatments-layout">
-                <div className="lx-treatments-img">
-                  <img src={catInfo[activeCat].img} alt={catInfo[activeCat].title} />
+              {/* LAYOUT */}
+              <div className="flex flex-col lg:flex-row gap-12">
+
+                {/* IMAGEM */}
+                <div className="lg:w-[420px] w-full">
+                  <img
+                    src={catInfo[activeCat].img}
+                    alt={catInfo[activeCat].title}
+                    className="w-full h-[420px] object-cover rounded-2xl shadow-md"
+                  />
                 </div>
-                <div className="lx-treatments-cards">
+
+                {/* CARDS */}
+                <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory">
+
                   {visibleTreatments.slice(0, 6).map((t) => (
-                    <div key={t.id} className="lx-treatment-card" onClick={() => openModal(t)}>
-                      <div className="lx-tc-name">{t.name}</div>
-                      <div className="lx-tc-duration">
-                        <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+                    <div
+                      key={t.id}
+                      onClick={() => openModal(t)}
+                      className="snap-start min-w-[280px] max-w-[280px] bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition cursor-pointer"
+                    >
+                      <div className="text-lg font-semibold mb-2">
+                        {t.name}
+                      </div>
+
+                      <div className="flex items-center gap-2 text-xs opacity-70 mb-3">
+                        <svg
+                          width="12"
+                          height="12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" />
+                        </svg>
                         {t.duration}
                       </div>
-                      <p className="lx-tc-desc">{t.desc}</p>
-                      <div className="lx-tc-btns">
+
+                      <p className="text-sm opacity-80 leading-relaxed">
+                        {t.desc}
+                      </p>
+
+                      {/* BOTÕES */}
+                      <div className="flex gap-3 mt-6">
+
                         <a
                           href={whatsappAvaliacao}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="lx-tc-book"
                           onClick={(e) => e.stopPropagation()}
-                          style={{ textDecoration: 'none' }}
+                          className="flex items-center gap-2 text-xs bg-[#3a2b23] text-white px-4 py-2 rounded-full"
                         >
                           Agendar
-                          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
                         </a>
-                        <button className="lx-tc-learn" onClick={(e) => { e.stopPropagation(); openModal(t); }}>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openModal(t);
+                          }}
+                          className="text-xs border border-black px-4 py-2 rounded-full"
+                        >
                           Saiba mais
                         </button>
+
                       </div>
                     </div>
                   ))}
+
                 </div>
               </div>
             </>
