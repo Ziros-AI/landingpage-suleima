@@ -79,6 +79,7 @@ export default function LandingPage() {
     { id: 'corporal', label: 'CORPORAL', count: 'Vários tratamentos', image: imagemSu4 },
     { id: 'facial', label: 'FACIAL', count: 'Vários tratamentos', image: imagem7 },
     { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG5 },
+    { id: 'bronze', label: 'BRONZEAMENTO', count: 'Vários protocolos', image: imagem9 },
   ];
 
   const treatments: Treatment[] = [
@@ -258,13 +259,30 @@ export default function LandingPage() {
       image1: imagemG,
       image2: imagemG2,
     },
+    {
+      id: 't12',
+      cat: 'bronze',
+      name: 'BRONZEAMENTO',
+      duration: '[OPTIONAL]',
+      desc: '[OPTIONAL]',
+      idealFor: 'Volume, levantamento e definição glútea',
+      steps: [
+        { title: 'Diagnóstico', desc: 'Avaliação postural e corporal detalhada.' },
+        { title: 'Protocolo combinado', desc: 'Associação de técnicas para resultado superior.' },
+        { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
+        { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
+      ],
+      image1: imagemG,
+      image2: imagemG2,
+    },
   ];
 
   const catInfo: Record<string, { title: string; desc: string; img: string }> = {
     all: { title: 'TODOS OS SERVIÇOS', desc: 'Protocolos personalizados para corpo e rosto, com tecnologia e atendimento exclusivo.', img: imagemSu3 },
     corporal: { title: 'CORPORAL', desc: 'Modelagem, definição e contorno com protocolos de alta performance para cada objetivo.', img: imagemSu4 },
-    facial: { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
-    gluteo: { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG5 },
+    facial:   { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
+    gluteo:   { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG5 },
+    bronze:   { title: 'BRONZE', desc: '[OPTIONAL]', img: imagem9 },
   };
 
   const openModal = (t: Treatment) => {
@@ -367,46 +385,65 @@ export default function LandingPage() {
         vertical-align: middle;
       }
       .lx-tabs {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        border: 1px solid #e0e0e0;
-        border-radius: 2px;
-        max-width: 1100px;
-        margin: 0 auto 2rem;
-      }
+      display: flex;
+      gap: 12px; /* Reduzido de 12px para 6px */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px 20px; /* Padding lateral ligeiramente menor para alinhar com o gap menor */
+      overflow-x: auto;
+      scroll-snap-type: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
       .lx-tab {
-        position: relative;
-        overflow: hidden;
-        padding: 1.1rem 1.25rem;
-        min-height: 90px;
-        border-right: 1px solid #e0e0e0;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
+      position: relative;
+      flex: 0 0 calc(30% - 10px);
+      min-height: 380px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      scroll-snap-align: start;
+      border: none !important;
+    }
       .lx-tab:last-child { border-right: none; }
       .lx-tab-bg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        filter: brightness(0.45);
-        transition: opacity 0.3s;
-      }
-      .lx-tab:hover .lx-tab-bg, .lx-tab.active .lx-tab-bg { opacity: 1; }
-      .lx-tab-content { position: relative; z-index: 1; }
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1 !important;
+      filter: brightness(0.8);
+      transition: transform 0.5s ease;
+    }
+      .lx-tab:hover .lx-tab-bg { transform: scale(1.05); }
+      .lx-tab-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      z-index: 2;
+    }
       .lx-tab-name {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-weight: 800;
-        font-size: 0.92rem;
-        letter-spacing: 0.05em;
-        color: #111;
-        display: flex;
-        justify-content: space-between;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+      @media (max-width: 768px) {
+      .lx-tab {
+        flex: 0 0 75%;
+        min-height: 220px;
       }
+      .lx-tabs {
+        gap: 8px;
+        padding: 0 16px 16px;
+      }
+    }
       .lx-tab:hover .lx-tab-name, .lx-tab.active .lx-tab-name { color: #fff; }
       .lx-tab-count {
         font-family: 'Inter', sans-serif;
@@ -982,12 +1019,12 @@ export default function LandingPage() {
           </div>
 
           {/* TABS */}
-          <div className="flex gap-10 overflow-x-auto py-4 snap-x snap-mandatory scroll-smooth scrollbar-hide">
+          <div className="flex gap-10 overflow-x-auto py-4 snap-x snap-mandatory justify-between">
 
             {serviceCategories.map((cat) => (
               <div
                 key={cat.id}
-                className={`relative flex-shrink-0 snap-start w-[200px] h-[130px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${activeCat === cat.id
+                className={`relative flex-shrink-0 snap-start w-[200px] h-[350px] rounded-3xl overflow-hidden transition-all duration-300 ${activeCat === cat.id
                   ? "ring-2 ring-black scale-105"
                   : "hover:scale-105"
                   }`}
