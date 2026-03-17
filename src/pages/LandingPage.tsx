@@ -903,6 +903,7 @@ export default function LandingPage() {
               </div>
 
               <div
+                id="about"
                 className="text-[10px] uppercase tracking-[0.15em] text-white/60 mt-1"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
@@ -916,7 +917,7 @@ export default function LandingPage() {
         </div>
 
         {/* ABOUT */}
-        <section id="about" className="relative overflow-hidden bg-[#dddacf] px-4 py-14 md:px-16 md:py-20">
+        <section className="relative overflow-hidden bg-[#dddacf] px-4 py-14 md:px-16 md:py-20">
           <div className="absolute left-1/2 top-[6.8%] h-[87%] w-[108%] -translate-x-1/2 rounded-full bg-[#d2cec2]" />
           <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1200 1200" fill="none">
             <path d="M-80 470C160 300 320 390 520 560C710 730 930 680 1230 760" stroke="#b5ac9d" strokeWidth="1.1" opacity="0.6" />
@@ -1181,8 +1182,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="flex gap-6">
-              {[imagemG4, imagemG5, imagemG3].map((img, i) => (
+            <div className="flex lg:flex-row gap-10 justify-between">
+              {[imagemG6, imagemG6, imagemG6].map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
                   <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
                 </div>
