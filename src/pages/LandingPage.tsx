@@ -62,7 +62,6 @@ interface Treatment {
   idealFor: string;
   steps: { title: string; desc: string }[];
   image1: string;
-  image2: string;
 }
 
 export default function LandingPage() {
@@ -96,8 +95,7 @@ export default function LandingPage() {
         { title: 'Extração', desc: 'Extração manual ou com aparelho dos cravos.' },
         { title: 'Máscara calmante', desc: 'Finalização com máscara hidratante.' },
       ],
-      image1: imagemSu1,
-      image2: imagem3,
+      image1: imagemSu1
     },
     {
       id: 't2',
@@ -112,8 +110,7 @@ export default function LandingPage() {
         { title: 'Sérum ativo', desc: 'Aplicação de ativos para potencializar resultado.' },
         { title: 'Protetor solar', desc: 'Finalização com proteção solar de alto fator.' },
       ],
-      image1: imagem4,
-      image2: imagem7,
+      image1: imagem4
     },
     {
       id: 't3',
@@ -128,8 +125,7 @@ export default function LandingPage() {
         { title: 'Neutralização', desc: 'Interrupção da ação do ácido no momento certo.' },
         { title: 'Hidratação', desc: 'Aplicação de sérum reparador e hidratante.' },
       ],
-      image1: imagemSu2,
-      image2: imagem5,
+      image1: imagemSu2
     },
     {
       id: 't4',
@@ -144,8 +140,7 @@ export default function LandingPage() {
         { title: 'Aplicação do plasma', desc: 'Descarga de plasma sobre a pele com precisão.' },
         { title: 'Cuidados pós', desc: 'Orientação sobre cuidados nos dias seguintes.' },
       ],
-      image1: imagemSu3,
-      image2: imagemSu4,
+      image1: imagemSu3
     },
     {
       id: 't5',
@@ -160,8 +155,7 @@ export default function LandingPage() {
         { title: 'Criolipólise', desc: 'Aplicação do aparelho que congela as células de gordura.' },
         { title: 'Massagem', desc: 'Massagem para ativar a eliminação das células tratadas.' },
       ],
-      image1: imagemSu4,
-      image2: imagem5,
+      image1: imagemSu4
     },
     {
       id: 't6',
@@ -176,8 +170,7 @@ export default function LandingPage() {
         { title: 'Radiofrequência', desc: 'Movimentos circulares com o aparelho aquecendo as camadas.' },
         { title: 'Finalização', desc: 'Hidratação e proteção da área tratada.' },
       ],
-      image1: imagem3,
-      image2: imagem4,
+      image1: imagem3
     },
     {
       id: 't7',
@@ -192,8 +185,7 @@ export default function LandingPage() {
         { title: 'Massagem', desc: 'Distribuição do gás pela área tratada.' },
         { title: 'Resultado progressivo', desc: 'Resultados melhores a cada sessão realizada.' },
       ],
-      image1: imagemSu1,
-      image2: imagemSu2,
+      image1: imagemSu1
     },
     {
       id: 't8',
@@ -208,8 +200,7 @@ export default function LandingPage() {
         { title: 'Drenagem', desc: 'Massagem linfática para eliminar os resíduos.' },
         { title: 'Repouso', desc: 'Orientações de repouso e cuidados pós-procedimento.' },
       ],
-      image1: imagem5,
-      image2: imagem7,
+      image1: imagem5
     },
     {
       id: 't9',
@@ -224,8 +215,7 @@ export default function LandingPage() {
         { title: 'Harmonização', desc: 'Técnicas combinadas para contorno e volume.' },
         { title: 'Finalização', desc: 'Hidratação intensa e orientações de manutenção.' },
       ],
-      image1: imagemG5,
-      image2: imagemG5,
+      image1: imagemG5
     },
     {
       id: 't10',
@@ -240,8 +230,7 @@ export default function LandingPage() {
         { title: 'Massagem modeladora', desc: 'Técnicas para potencializar o resultado.' },
         { title: 'Nutrição pós', desc: 'Orientações nutricionais para maximizar ganhos.' },
       ],
-      image1: imagemG3,
-      image2: imagemG2,
+      image1: imagemG3
     },
     {
       id: 't11',
@@ -256,8 +245,7 @@ export default function LandingPage() {
         { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
         { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
       ],
-      image1: imagemG,
-      image2: imagemG2,
+      image1: imagemG
     },
     {
       id: 't12',
@@ -272,8 +260,7 @@ export default function LandingPage() {
         { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
         { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
       ],
-      image1: imagemG,
-      image2: imagemG2,
+      image1: imagem9
     },
   ];
 
@@ -1564,7 +1551,6 @@ export default function LandingPage() {
             <div className="lx-modal-inner">
               <div className="lx-modal-imgs">
                 <img src={selectedTreatment.image1} alt={selectedTreatment.name} />
-                <img src={selectedTreatment.image2} alt={selectedTreatment.name} />
               </div>
               <div className="lx-modal-info">
                 <div className="lx-modal-stars">★★★★★ <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>4.9</span></div>
