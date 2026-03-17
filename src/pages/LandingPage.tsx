@@ -562,6 +562,7 @@ export default function LandingPage() {
         max-width: 900px;
         max-height: 90vh;
         overflow-y: auto;
+        overflow-x: hidden;
         border-radius: 2px;
         transform: translateY(40px) scale(0.97);
         opacity: 0;
@@ -582,14 +583,22 @@ export default function LandingPage() {
         width: 32px;
         height: 32px;
       }
-      .lx-modal-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .lx-modal-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-width: 0; }
       .lx-modal-imgs { display: flex; flex-direction: column; gap: 2px; }
       .lx-modal-imgs img { width: 100%; object-fit: cover; flex: 1; display: block; }
       .lx-modal-imgs img:first-child { aspect-ratio: 4/3; }
       .lx-modal-imgs img:last-child  { aspect-ratio: 4/3; }
-      .lx-modal-info { padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+      .lx-modal-info { padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
       .lx-modal-stars { font-size: 0.85rem; color: #111; display: flex; align-items: center; gap: 0.4rem; }
-      .lx-modal-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.2rem; text-transform: uppercase; line-height: 0.95; }
+      .lx-modal-name {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        line-height: 0.95;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
       .lx-modal-meta { display: flex; align-items: center; gap: 1rem; }
       .lx-modal-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; }
       .lx-modal-dur { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 0.3rem; }
@@ -917,55 +926,138 @@ export default function LandingPage() {
         </div>
 
         {/* ABOUT */}
-        <section className="relative overflow-hidden bg-[#dddacf] px-4 py-14 md:px-16 md:py-20">
-          <div className="absolute left-1/2 top-[6.8%] h-[87%] w-[108%] -translate-x-1/2 rounded-full bg-[#d2cec2]" />
-          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1200 1200" fill="none">
-            <path d="M-80 470C160 300 320 390 520 560C710 730 930 680 1230 760" stroke="#b5ac9d" strokeWidth="1.1" opacity="0.6" />
-            <path d="M-20 930C200 760 390 850 620 980C840 1110 1030 1050 1210 1140" stroke="#bdb4a6" strokeWidth="1.1" opacity="0.6" />
-          </svg>
-          <div className="relative z-10 mx-auto max-w-6xl fade-in text-center">
+        <section id="about" className="relative overflow-hidden bg-[#f5f5f3] pt-16 md:pt-24">
+          <div className="mx-auto max-w-[1280px] px-4 md:px-20 fade-in">
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+              <div className="relative flex justify-center md:justify-start">
+                <div className="relative w-full max-w-[500px] rounded-[28px] border border-[#e5e1d8] bg-white p-4 shadow-[0_20px_52px_rgba(0,0,0,0.09)]">
+                  <img
+                    src={imagemSu2}
+                    alt="Profissional da clínica Suleima"
+                    className="h-[420px] w-full rounded-[20px] object-cover object-center md:h-[560px]"
+                  />
+                </div>
 
-            <p
-              className="text-[10px] uppercase tracking-[0.22em] text-[#6f625a] mb-3"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
-              Sobre a Suleima e a clínica
-            </p>
+                <div className="absolute -bottom-6 left-2 rounded-2xl border border-[#e5e1d8] bg-white px-5 py-3 shadow-[0_16px_30px_rgba(0,0,0,0.1)] md:left-[-10px]">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-[#8f876f]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    10+ anos
+                  </p>
+                  <p className="text-[12px] text-[#4a3d37]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    de experiência
+                  </p>
+                </div>
+              </div>
 
-            <h2
-              className="mb-8 md:mb-10"
-              style={{
-                fontFamily: 'Cormorant Garamond, serif',
-                fontWeight: 300,
-                fontSize: 'clamp(2rem,4.5vw,4.3rem)',
-                lineHeight: 1.05
-              }}
-            >
-              Nós ajudamos a <br />
-              criar momentos de beleza <br />
-              para você e seu brilho
-            </h2>
+              <div className="pt-6 md:pt-0 md:max-w-[620px]">
+                <p className="mb-4 text-[11px] uppercase tracking-[0.26em] text-[#b29b55]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Sofisticação & Cuidado
+                </p>
 
-            <p
-              className="mx-auto max-w-[520px] text-[14px] md:text-[15px] leading-relaxed text-[#6f625a]/90 mb-6"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
-              A Suleima é uma clínica premium de estética para mulheres, oferecendo
-              cuidados especializados para pele, corpo e bem-estar. Atendimento
-              personalizado para cada cliente.
-            </p>
+                <h2
+                  className="mb-6 leading-none text-[#2f2321]"
+                  style={{
+                    fontFamily: 'Cormorant Garamond, serif',
+                    fontWeight: 300,
+                    fontSize: 'clamp(2.9rem,4.9vw,5rem)'
+                  }}
+                >
+                  Nossa <span className="text-[#b29b55] italic">Essência</span>
+                </h2>
 
-            <a
-              href="#services"
-              className="inline-block text-[13px] underline underline-offset-4 text-[#3e342e] hover:text-[#2a221d] transition"
-              style={{ fontFamily: 'Inter, sans-serif' }}
-            >
-              Saiba mais
-            </a>
+                <p className="mb-4 text-[14px] leading-relaxed text-[#4a3d37] md:text-[19px]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Na Clínica Suleima Estética, acreditamos que a verdadeira beleza nasce do equilíbrio entre saúde,
+                  ciência e bem-estar individualizado.
+                </p>
 
+                <p className="mb-4 text-[14px] leading-relaxed text-[#5f524c] md:text-[19px]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Há mais de uma década, transformamos vidas com protocolos personalizados, tecnologia de ponta e
+                  atendimento humano, respeitando a singularidade de cada pele.
+                </p>
+
+                <p className="mb-7 text-[14px] leading-relaxed text-[#5f524c] md:text-[19px]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Cada plano é construído com acompanhamento próximo e objetivo claro: resultados naturais, progressivos
+                  e sustentáveis para a sua rotina.
+                </p>
+
+                <div className="mb-8 grid grid-cols-3 gap-3 border-y border-[#e1ddd3] py-5">
+                  <div className="text-center">
+                    <p className="text-3xl leading-none text-[#2f2321] md:text-5xl" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 600 }}>
+                      4
+                    </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-[#6f625a] md:text-[11px] md:tracking-[0.13em]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Áreas
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-3xl leading-none text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 600 }}>
+                      30+
+                    </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-[#6f625a] md:text-[11px] md:tracking-[0.13em]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Protocolos
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-3xl leading-none text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 600 }}>
+                      1:1
+                    </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-[#6f625a] md:text-[11px] md:tracking-[0.13em]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Plano 1:1
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                  <a
+                    href="#services"
+                    className="inline-flex items-center justify-center rounded-full bg-[#d5ac23] px-8 py-3 text-[12px] font-semibold uppercase tracking-[0.08em] text-[#2f2321] transition hover:bg-[#c79f1f]"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    Conheça nossa história
+                  </a>
+                  <a
+                    href={instagramProfileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-[13px] text-[#2f2321] transition hover:text-[#1e1714]"
+                    style={{ fontFamily: 'Inter, sans-serif' }}
+                  >
+                    <span className="text-[11px]">●</span> Assista o vídeo
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
-
+          <div className="mt-16 border-y border-[#e4e0d5] bg-[#ece9df]">
+            <div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-12 text-center md:grid-cols-3 md:px-20">
+              <div>
+                <p className="mb-2 text-sm font-semibold text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2rem' }}>
+                  Certificação Premium
+                </p>
+                <p className="text-[14px] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Protocolos exclusivos validados para máxima segurança e performance.
+                </p>
+              </div>
+              <div>
+                <p className="mb-2 text-sm font-semibold text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2rem' }}>
+                  Alta Tecnologia
+                </p>
+                <p className="text-[14px] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Equipamentos de última geração para resultados precisos e duradouros.
+                </p>
+              </div>
+              <div>
+                <p className="mb-2 text-sm font-semibold text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2rem' }}>
+                  Foco no Paciente
+                </p>
+                <p className="text-[14px] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Avaliação personalizada e plano de cuidado pensado para cada objetivo.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* SERVICES */}
