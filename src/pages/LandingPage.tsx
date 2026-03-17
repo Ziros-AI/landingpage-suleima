@@ -16,6 +16,8 @@ import imagemG2 from '../assets/imagensGluteo/imagemG2.jpg';
 import imagemG3 from '../assets/imagensGluteo/imagemG3.jpg';
 import imagemG4 from '../assets/imagensGluteo/imagemG4.jpg';
 import imagemG5 from '../assets/imagensGluteo/imagemG5.jpg';
+import imagemG6 from '../assets/imagensGluteo/imagemG6.jpg';
+import imagemG7 from '../assets/imagensGluteo/imagemG7.jpeg';
 import imagemT1 from '../assets/ImagensThelma/ImagemTh1.jpeg';
 import imagem8 from '../assets/ImagensBronzeamento/imagem8.jpeg';
 import imagem9 from '../assets/ImagensBronzeamento/imagem9.jpeg';
@@ -23,7 +25,6 @@ import imagemCurso from '../assets/ImagensCurso/imagemCurso.jpeg';
 import imagemCurso2 from '../assets/ImagensCurso/imagemCurso2.jpeg';
 import imagemCurso3 from '../assets/ImagensCurso/imagemCurso3.jpeg';
 import imagemCurso5 from '../assets/ImagensCurso/imagemCurso5.jpeg';
-
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -62,7 +63,6 @@ interface Treatment {
   idealFor: string;
   steps: { title: string; desc: string }[];
   image1: string;
-  image2: string;
 }
 
 export default function LandingPage() {
@@ -78,7 +78,8 @@ export default function LandingPage() {
     { id: 'all', label: 'ALL', count: 'Seleção de tratamentos', image: imagemSu3 },
     { id: 'corporal', label: 'CORPORAL', count: 'Vários tratamentos', image: imagemSu4 },
     { id: 'facial', label: 'FACIAL', count: 'Vários tratamentos', image: imagem7 },
-    { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG4 },
+    { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG5 },
+    { id: 'bronze', label: 'BRONZEAMENTO', count: 'Vários protocolos', image: imagem9 },
   ];
 
   const treatments: Treatment[] = [
@@ -95,8 +96,7 @@ export default function LandingPage() {
         { title: 'Extração', desc: 'Extração manual ou com aparelho dos cravos.' },
         { title: 'Máscara calmante', desc: 'Finalização com máscara hidratante.' },
       ],
-      image1: imagemSu1,
-      image2: imagem3,
+      image1: imagem4
     },
     {
       id: 't2',
@@ -111,8 +111,7 @@ export default function LandingPage() {
         { title: 'Sérum ativo', desc: 'Aplicação de ativos para potencializar resultado.' },
         { title: 'Protetor solar', desc: 'Finalização com proteção solar de alto fator.' },
       ],
-      image1: imagem4,
-      image2: imagem7,
+      image1: imagemCurso5
     },
     {
       id: 't3',
@@ -127,8 +126,7 @@ export default function LandingPage() {
         { title: 'Neutralização', desc: 'Interrupção da ação do ácido no momento certo.' },
         { title: 'Hidratação', desc: 'Aplicação de sérum reparador e hidratante.' },
       ],
-      image1: imagemSu2,
-      image2: imagem5,
+      image1: imagemSu2
     },
     {
       id: 't4',
@@ -143,8 +141,7 @@ export default function LandingPage() {
         { title: 'Aplicação do plasma', desc: 'Descarga de plasma sobre a pele com precisão.' },
         { title: 'Cuidados pós', desc: 'Orientação sobre cuidados nos dias seguintes.' },
       ],
-      image1: imagemSu3,
-      image2: imagemSu4,
+      image1: imagemSu3
     },
     {
       id: 't5',
@@ -159,8 +156,7 @@ export default function LandingPage() {
         { title: 'Criolipólise', desc: 'Aplicação do aparelho que congela as células de gordura.' },
         { title: 'Massagem', desc: 'Massagem para ativar a eliminação das células tratadas.' },
       ],
-      image1: imagemSu4,
-      image2: imagem5,
+      image1: imagemSu4
     },
     {
       id: 't6',
@@ -175,8 +171,7 @@ export default function LandingPage() {
         { title: 'Radiofrequência', desc: 'Movimentos circulares com o aparelho aquecendo as camadas.' },
         { title: 'Finalização', desc: 'Hidratação e proteção da área tratada.' },
       ],
-      image1: imagem3,
-      image2: imagem4,
+      image1: imagem5
     },
     {
       id: 't7',
@@ -191,8 +186,7 @@ export default function LandingPage() {
         { title: 'Massagem', desc: 'Distribuição do gás pela área tratada.' },
         { title: 'Resultado progressivo', desc: 'Resultados melhores a cada sessão realizada.' },
       ],
-      image1: imagemSu1,
-      image2: imagemSu2,
+      image1: imagem6
     },
     {
       id: 't8',
@@ -207,8 +201,7 @@ export default function LandingPage() {
         { title: 'Drenagem', desc: 'Massagem linfática para eliminar os resíduos.' },
         { title: 'Repouso', desc: 'Orientações de repouso e cuidados pós-procedimento.' },
       ],
-      image1: imagem5,
-      image2: imagem7,
+      image1: imagemCurso
     },
     {
       id: 't9',
@@ -223,8 +216,7 @@ export default function LandingPage() {
         { title: 'Harmonização', desc: 'Técnicas combinadas para contorno e volume.' },
         { title: 'Finalização', desc: 'Hidratação intensa e orientações de manutenção.' },
       ],
-      image1: imagemG4,
-      image2: imagemG5,
+      image1: imagemG6
     },
     {
       id: 't10',
@@ -239,8 +231,7 @@ export default function LandingPage() {
         { title: 'Massagem modeladora', desc: 'Técnicas para potencializar o resultado.' },
         { title: 'Nutrição pós', desc: 'Orientações nutricionais para maximizar ganhos.' },
       ],
-      image1: imagemG3,
-      image2: imagemG2,
+      image1: imagemG3
     },
     {
       id: 't11',
@@ -255,16 +246,31 @@ export default function LandingPage() {
         { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
         { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
       ],
-      image1: imagemG,
-      image2: imagemG2,
+      image1: imagemG7
+    },
+    {
+      id: 't12',
+      cat: 'bronze',
+      name: 'BRONZEAMENTO',
+      duration: '60min',
+      desc: 'Bronzeamento artificial com tecnologia avançada para um tom dourado, uniforme e saudável, sem exposição ao sol, realçando sua beleza de forma natural e temporária.',
+      idealFor: 'Pele radiante sem sol, com bronzeado saudável realçando a beleza natural',
+      steps: [
+        { title: 'Diagnóstico Personalizado', desc: 'Análise detalhada da pele e do corpo para definir o melhor protocolo.' },
+        { title: 'Protocolo exclusivo', desc: 'Combinação de técnicas avançadas para potencializar resultados.' },
+        { title: 'Drenagem revitalizante', desc: 'Elimina toxinas, reduz inchaços e melhora a circulação.' },
+        { title: 'Resultado visível', desc: 'Pele com tom dourado uniforme e glúteos mais firmes e definidos.' },
+      ],
+      image1: imagem9
     },
   ];
 
   const catInfo: Record<string, { title: string; desc: string; img: string }> = {
     all: { title: 'TODOS OS SERVIÇOS', desc: 'Protocolos personalizados para corpo e rosto, com tecnologia e atendimento exclusivo.', img: imagemSu3 },
     corporal: { title: 'CORPORAL', desc: 'Modelagem, definição e contorno com protocolos de alta performance para cada objetivo.', img: imagemSu4 },
-    facial: { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
-    gluteo: { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG4 },
+    facial:   { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
+    gluteo:   { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG5 },
+    bronze:   { title: 'BRONZEAMENTO ARTIFICIAL', desc: 'Bronzeado dourado e uniforme sem sol.', img: imagem9 },
   };
 
   const openModal = (t: Treatment) => {
@@ -367,46 +373,65 @@ export default function LandingPage() {
         vertical-align: middle;
       }
       .lx-tabs {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        border: 1px solid #e0e0e0;
-        border-radius: 2px;
-        max-width: 1100px;
-        margin: 0 auto 2rem;
-      }
+      display: flex;
+      gap: 12px; /* Reduzido de 12px para 6px */
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px 20px; /* Padding lateral ligeiramente menor para alinhar com o gap menor */
+      overflow-x: auto;
+      scroll-snap-type: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
       .lx-tab {
-        position: relative;
-        overflow: hidden;
-        padding: 1.1rem 1.25rem;
-        min-height: 90px;
-        border-right: 1px solid #e0e0e0;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
+      position: relative;
+      flex: 0 0 calc(30% - 10px);
+      min-height: 380px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      scroll-snap-align: start;
+      border: none !important;
+    }
       .lx-tab:last-child { border-right: none; }
       .lx-tab-bg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        filter: brightness(0.45);
-        transition: opacity 0.3s;
-      }
-      .lx-tab:hover .lx-tab-bg, .lx-tab.active .lx-tab-bg { opacity: 1; }
-      .lx-tab-content { position: relative; z-index: 1; }
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1 !important;
+      filter: brightness(0.8);
+      transition: transform 0.5s ease;
+    }
+      .lx-tab:hover .lx-tab-bg { transform: scale(1.05); }
+      .lx-tab-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      z-index: 2;
+    }
       .lx-tab-name {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-weight: 800;
-        font-size: 0.92rem;
-        letter-spacing: 0.05em;
-        color: #111;
-        display: flex;
-        justify-content: space-between;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+      @media (max-width: 768px) {
+      .lx-tab {
+        flex: 0 0 75%;
+        min-height: 220px;
       }
+      .lx-tabs {
+        gap: 8px;
+        padding: 0 16px 16px;
+      }
+    }
       .lx-tab:hover .lx-tab-name, .lx-tab.active .lx-tab-name { color: #fff; }
       .lx-tab-count {
         font-family: 'Inter', sans-serif;
@@ -943,73 +968,169 @@ export default function LandingPage() {
         </section>
 
         {/* SERVICES */}
-        <section id="services" className="lx-our-services fade-in">
-          <div className="lx-our-services-header">
-            <h2>
-              NOSSOS<span className="lx-h2-tag">SERVICOS</span>SERVICOS
+        <section
+          id="services"
+          className="relative overflow-hidden px-4 md:px-16 py-20 bg-gradient-to-b from-[#2f2321] via-[#2a1f1d] to-[#241a18]"
+        >
+          {/* BACKGROUND DECOR */}
+          <div className="absolute inset-0 pointer-events-none">
+
+            {/* glow esquerda */}
+            <div className="absolute -top-32 -left-32 w-[420px] h-[420px] bg-[#5a423d] rounded-full blur-[140px] opacity-40" />
+
+            {/* glow direita */}
+            <div className="absolute bottom-[-150px] right-[-120px] w-[420px] h-[420px] bg-[#4b3733] rounded-full blur-[140px] opacity-40" />
+
+            {/* linhas orgânicas */}
+            <svg
+              className="absolute inset-0 w-full h-full opacity-30"
+              viewBox="0 0 1400 900"
+              fill="none"
+            >
+              <path
+                d="M-80 400C200 260 400 460 700 420C980 390 1100 420 1500 480"
+                stroke="#6b504a"
+                strokeWidth="1.2"
+              />
+              <path
+                d="M-100 700C220 560 450 720 750 690C1040 660 1240 720 1500 800"
+                stroke="#7a5c56"
+                strokeWidth="1.2"
+              />
+            </svg>
+
+          </div>
+          <div className="mb-14">
+            <h2 className="text-5xl md:text-8xl font-semibold tracking-wide text-white">
+              NOSSOS <br /> SERVIÇOS
             </h2>
           </div>
 
-          <div className="lx-tabs">
+          {/* TABS */}
+          <div className="flex w-full gap-10 overflow-x-auto py-4 px-4 snap-x snap-mandatory justify-between">
+
             {serviceCategories.map((cat) => (
               <div
                 key={cat.id}
-                className={`lx-tab${activeCat === cat.id ? ' active' : ''}`}
+                className={`relative flex-shrink-0 snap-start w-[200px] h-[350px] rounded-3xl overflow-hidden transition-all duration-300 ${activeCat === cat.id
+                  ? "ring-2 ring-black scale-105"
+                  : "hover:scale-105"
+                  }`}
                 onClick={() => setActiveCat(cat.id)}
               >
-                <img src={cat.image} alt={cat.label} className="lx-tab-bg" />
-                <div className="lx-tab-content">
-                  <div className="lx-tab-name">{cat.label}<span></span></div>
-                  <div className="lx-tab-count">{cat.count}</div>
+
+                <img
+                  src={cat.image}
+                  alt={cat.label}
+                  className="absolute inset-0 w-full h-full object-cover brightness-75"
+                />
+
+                <div className="relative z-10 h-full flex flex-col justify-end p-4 text-white">
+                  <div className="font-semibold text-sm tracking-wide">
+                    {cat.label}
+                  </div>
+
+                  <div className="text-xs opacity-80">
+                    {cat.count}
+                  </div>
                 </div>
+
               </div>
             ))}
+
           </div>
 
           {activeCat && (
             <>
-              <div className="lx-cat-header">
-                <h3 className="lx-cat-title">{catInfo[activeCat].title}</h3>
-                <p className="lx-cat-desc">
+              {/* HEADER DA CATEGORIA */}
+              <div className="mt-12 mb-12 max-w-xl text-white">
+                <h3 className="text-2xl font-semibold">
+                  {catInfo[activeCat].title}
+                </h3>
+
+                <p className="text-sm opacity-70 mt-2">
                   {catInfo[activeCat].desc}
                   <br />
-                  <span style={{ fontSize: '0.82rem', opacity: 0.8 }}>
+                  <span className="text-xs opacity-60">
                     Mostrando 6 procedimentos por categoria.
                   </span>
                 </p>
               </div>
 
-              <div className="lx-treatments-layout">
-                <div className="lx-treatments-img">
-                  <img src={catInfo[activeCat].img} alt={catInfo[activeCat].title} />
+              {/* LAYOUT */}
+              <div className="flex flex-col lg:flex-row gap-12">
+
+                {/* IMAGEM */}
+                <div className="lg:w-[420px] w-full">
+                  <img
+                    src={catInfo[activeCat].img}
+                    alt={catInfo[activeCat].title}
+                    className="w-full h-[420px] object-cover rounded-2xl shadow-md"
+                  />
                 </div>
-                <div className="lx-treatments-cards">
+
+                {/* CARDS */}
+                <div className="flex gap-8 overflow-x-auto pb-6 snap-x snap-mandatory">
+
                   {visibleTreatments.slice(0, 6).map((t) => (
-                    <div key={t.id} className="lx-treatment-card" onClick={() => openModal(t)}>
-                      <div className="lx-tc-name">{t.name}</div>
-                      <div className="lx-tc-duration">
-                        <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+                    <div
+                      key={t.id}
+                      onClick={() => openModal(t)}
+                      className="snap-start min-w-[280px] max-w-[280px] bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition cursor-pointer"
+                    >
+                      <div className="text-lg font-semibold mb-2">
+                        {t.name}
+                      </div>
+
+                      <div className="flex items-center gap-2 text-xs opacity-70 mb-3">
+                        <svg
+                          width="12"
+                          height="12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 6v6l4 2" />
+                        </svg>
                         {t.duration}
                       </div>
-                      <p className="lx-tc-desc">{t.desc}</p>
-                      <div className="lx-tc-btns">
+
+                      <p className="text-sm opacity-80 leading-relaxed">
+                        {t.desc}
+                      </p>
+
+                      {/* BOTÕES */}
+                      <div className="flex gap-3 mt-6">
+
                         <a
                           href={whatsappAvaliacao}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="lx-tc-book"
                           onClick={(e) => e.stopPropagation()}
-                          style={{ textDecoration: 'none' }}
+                          className="flex items-center gap-2 text-xs bg-[#3a2b23] text-white px-4 py-2 rounded-full"
                         >
                           Agendar
-                          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                          <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
                         </a>
-                        <button className="lx-tc-learn" onClick={(e) => { e.stopPropagation(); openModal(t); }}>
+
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openModal(t);
+                          }}
+                          className="text-xs border border-black px-4 py-2 rounded-full"
+                        >
                           Saiba mais
                         </button>
+
                       </div>
                     </div>
                   ))}
+
                 </div>
               </div>
             </>
@@ -1060,12 +1181,12 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-              {[imagemG4, imagemG5, imagemG3, imagemG2, imagemG].map((img, i) => (
+            <div className="flex gap-6">
+              {[imagemG4, imagemG5, imagemG3].map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
                   <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
                 </div>
-              ))}
+              ))}s
             </div>
           </div>
         </section>
@@ -1431,7 +1552,6 @@ export default function LandingPage() {
             <div className="lx-modal-inner">
               <div className="lx-modal-imgs">
                 <img src={selectedTreatment.image1} alt={selectedTreatment.name} />
-                <img src={selectedTreatment.image2} alt={selectedTreatment.name} />
               </div>
               <div className="lx-modal-info">
                 <div className="lx-modal-stars">★★★★★ <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400 }}>4.9</span></div>
