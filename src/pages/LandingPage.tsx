@@ -973,22 +973,31 @@ export default function LandingPage() {
                   atendimento humano, respeitando a singularidade de cada pele.
                 </p>
 
-                <div className="mb-7 grid grid-cols-2 gap-4 border-y border-[#e1ddd3] py-4">
-                  <div>
+                <div className="mb-7 grid grid-cols-3 gap-3 border-y border-[#e1ddd3] py-4">
+                  <div className="text-center">
                     <p className="text-3xl leading-none text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 600 }}>
-                      500+
+                      4
                     </p>
-                    <p className="mt-1 text-[11px] uppercase tracking-[0.13em] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Clientes satisfeitos
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-[#6f625a] md:text-[11px] md:tracking-[0.13em]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Áreas
                     </p>
                   </div>
 
-                  <div>
+                  <div className="text-center">
                     <p className="text-3xl leading-none text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 600 }}>
-                      Estética
+                      30+
                     </p>
-                    <p className="mt-1 text-[11px] uppercase tracking-[0.13em] text-[#6f625a]" style={{ fontFamily: 'Inter, sans-serif' }}>
-                      Avançada & personalizada
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-[#6f625a] md:text-[11px] md:tracking-[0.13em]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Protocolos
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-3xl leading-none text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 600 }}>
+                      1:1
+                    </p>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.1em] text-[#6f625a] md:text-[11px] md:tracking-[0.13em]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      Plano 1:1
                     </p>
                   </div>
                 </div>
