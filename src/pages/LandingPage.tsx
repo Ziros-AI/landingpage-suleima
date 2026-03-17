@@ -562,6 +562,7 @@ export default function LandingPage() {
         max-width: 900px;
         max-height: 90vh;
         overflow-y: auto;
+        overflow-x: hidden;
         border-radius: 2px;
         transform: translateY(40px) scale(0.97);
         opacity: 0;
@@ -582,14 +583,22 @@ export default function LandingPage() {
         width: 32px;
         height: 32px;
       }
-      .lx-modal-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .lx-modal-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-width: 0; }
       .lx-modal-imgs { display: flex; flex-direction: column; gap: 2px; }
       .lx-modal-imgs img { width: 100%; object-fit: cover; flex: 1; display: block; }
       .lx-modal-imgs img:first-child { aspect-ratio: 4/3; }
       .lx-modal-imgs img:last-child  { aspect-ratio: 4/3; }
-      .lx-modal-info { padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+      .lx-modal-info { padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
       .lx-modal-stars { font-size: 0.85rem; color: #111; display: flex; align-items: center; gap: 0.4rem; }
-      .lx-modal-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 2.2rem; text-transform: uppercase; line-height: 0.95; }
+      .lx-modal-name {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: 2.2rem;
+        text-transform: uppercase;
+        line-height: 0.95;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
       .lx-modal-meta { display: flex; align-items: center; gap: 1rem; }
       .lx-modal-price { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.8rem; }
       .lx-modal-dur { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #888; display: flex; align-items: center; gap: 0.3rem; }
