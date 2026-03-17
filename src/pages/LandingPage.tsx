@@ -16,6 +16,8 @@ import imagemG2 from '../assets/imagensGluteo/imagemG2.jpg';
 import imagemG3 from '../assets/imagensGluteo/imagemG3.jpg';
 import imagemG4 from '../assets/imagensGluteo/imagemG4.jpg';
 import imagemG5 from '../assets/imagensGluteo/imagemG5.jpg';
+import imagemG6 from '../assets/imagensGluteo/imagemG6.jpg';
+import imagemG7 from '../assets/imagensGluteo/imagemG7.jpeg';
 import imagemT1 from '../assets/ImagensThelma/ImagemTh1.jpeg';
 import imagem8 from '../assets/ImagensBronzeamento/imagem8.jpeg';
 import imagem9 from '../assets/ImagensBronzeamento/imagem9.jpeg';
@@ -23,7 +25,6 @@ import imagemCurso from '../assets/ImagensCurso/imagemCurso.jpeg';
 import imagemCurso2 from '../assets/ImagensCurso/imagemCurso2.jpeg';
 import imagemCurso3 from '../assets/ImagensCurso/imagemCurso3.jpeg';
 import imagemCurso5 from '../assets/ImagensCurso/imagemCurso5.jpeg';
-
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -95,7 +96,7 @@ export default function LandingPage() {
         { title: 'Extração', desc: 'Extração manual ou com aparelho dos cravos.' },
         { title: 'Máscara calmante', desc: 'Finalização com máscara hidratante.' },
       ],
-      image1: imagemSu1
+      image1: imagem4
     },
     {
       id: 't2',
@@ -110,7 +111,7 @@ export default function LandingPage() {
         { title: 'Sérum ativo', desc: 'Aplicação de ativos para potencializar resultado.' },
         { title: 'Protetor solar', desc: 'Finalização com proteção solar de alto fator.' },
       ],
-      image1: imagem4
+      image1: imagemCurso5
     },
     {
       id: 't3',
@@ -170,7 +171,7 @@ export default function LandingPage() {
         { title: 'Radiofrequência', desc: 'Movimentos circulares com o aparelho aquecendo as camadas.' },
         { title: 'Finalização', desc: 'Hidratação e proteção da área tratada.' },
       ],
-      image1: imagem3
+      image1: imagem5
     },
     {
       id: 't7',
@@ -200,7 +201,7 @@ export default function LandingPage() {
         { title: 'Drenagem', desc: 'Massagem linfática para eliminar os resíduos.' },
         { title: 'Repouso', desc: 'Orientações de repouso e cuidados pós-procedimento.' },
       ],
-      image1: imagem5
+      image1: imagemCurso
     },
     {
       id: 't9',
@@ -215,7 +216,7 @@ export default function LandingPage() {
         { title: 'Harmonização', desc: 'Técnicas combinadas para contorno e volume.' },
         { title: 'Finalização', desc: 'Hidratação intensa e orientações de manutenção.' },
       ],
-      image1: imagemG5
+      image1: imagemG6
     },
     {
       id: 't10',
@@ -245,7 +246,7 @@ export default function LandingPage() {
         { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
         { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
       ],
-      image1: imagemG5
+      image1: imagemG7
     },
     {
       id: 't12',
