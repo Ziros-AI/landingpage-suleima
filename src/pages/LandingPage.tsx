@@ -185,7 +185,7 @@ export default function LandingPage() {
         { title: 'Massagem', desc: 'Distribuição do gás pela área tratada.' },
         { title: 'Resultado progressivo', desc: 'Resultados melhores a cada sessão realizada.' },
       ],
-      image1: imagemSu1
+      image1: imagem6
     },
     {
       id: 't8',
@@ -245,20 +245,20 @@ export default function LandingPage() {
         { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
         { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
       ],
-      image1: imagemG
+      image1: imagemG5
     },
     {
       id: 't12',
       cat: 'bronze',
       name: 'BRONZEAMENTO',
-      duration: '[OPTIONAL]',
-      desc: '[OPTIONAL]',
-      idealFor: 'Volume, levantamento e definição glútea',
+      duration: '60min',
+      desc: 'Bronzeamento artificial com tecnologia avançada para um tom dourado, uniforme e saudável, sem exposição ao sol, realçando sua beleza de forma natural e temporária.',
+      idealFor: 'Pele radiante sem sol, com bronzeado saudável realçando a beleza natural',
       steps: [
-        { title: 'Diagnóstico', desc: 'Avaliação postural e corporal detalhada.' },
-        { title: 'Protocolo combinado', desc: 'Associação de técnicas para resultado superior.' },
-        { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
-        { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
+        { title: 'Diagnóstico Personalizado', desc: 'Análise detalhada da pele e do corpo para definir o melhor protocolo.' },
+        { title: 'Protocolo exclusivo', desc: 'Combinação de técnicas avançadas para potencializar resultados.' },
+        { title: 'Drenagem revitalizante', desc: 'Elimina toxinas, reduz inchaços e melhora a circulação.' },
+        { title: 'Resultado visível', desc: 'Pele com tom dourado uniforme e glúteos mais firmes e definidos.' },
       ],
       image1: imagem9
     },
@@ -269,7 +269,7 @@ export default function LandingPage() {
     corporal: { title: 'CORPORAL', desc: 'Modelagem, definição e contorno com protocolos de alta performance para cada objetivo.', img: imagemSu4 },
     facial:   { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
     gluteo:   { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG5 },
-    bronze:   { title: 'BRONZE', desc: '[OPTIONAL]', img: imagem9 },
+    bronze:   { title: 'BRONZEAMENTO ARTIFICIAL', desc: 'Bronzeado dourado e uniforme sem sol.', img: imagem9 },
   };
 
   const openModal = (t: Treatment) => {
@@ -1006,7 +1006,7 @@ export default function LandingPage() {
           </div>
 
           {/* TABS */}
-          <div className="flex gap-10 overflow-x-auto py-4 snap-x snap-mandatory justify-between">
+          <div className="flex w-full gap-10 overflow-x-auto py-4 px-4 snap-x snap-mandatory justify-between">
 
             {serviceCategories.map((cat) => (
               <div
@@ -1042,7 +1042,7 @@ export default function LandingPage() {
           {activeCat && (
             <>
               {/* HEADER DA CATEGORIA */}
-              <div className="mt-12 mb-10 max-w-xl text-white">
+              <div className="mt-12 mb-12 max-w-xl text-white">
                 <h3 className="text-2xl font-semibold">
                   {catInfo[activeCat].title}
                 </h3>
@@ -1180,12 +1180,12 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-              {[imagemG4, imagemG5, imagemG3, imagemG2, imagemG].map((img, i) => (
+            <div className="flex gap-6">
+              {[imagemG4, imagemG5, imagemG3].map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
                   <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
                 </div>
-              ))}
+              ))}s
             </div>
           </div>
         </section>
