@@ -28,6 +28,8 @@ import imagemCurso5 from '../assets/ImagensCurso/imagemCurso5.jpeg';
 import imagemG7Cortada from '../assets/imagensGluteo/ImagemG7Cortada.jpeg';
 import imagemG8Depois from '../assets/imagensGluteo/ImagemG8Depois.jpeg';
 import imagemG9 from '../assets/imagensGluteo/ImagemG9.jpeg';
+import imagemPeeling from '../assets/ImagensClinica/ImagemPeeling.jpeg';
+import imagemJatoDePlasma from '../assets/ImagensClinica/ImagemJatoDePlasma.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -129,7 +131,7 @@ export default function LandingPage() {
         { title: 'Neutralização', desc: 'Interrupção da ação do ácido no momento certo.' },
         { title: 'Hidratação', desc: 'Aplicação de sérum reparador e hidratante.' },
       ],
-      image1: imagemSu2
+      image1: imagemPeeling
     },
     {
       id: 't4',
@@ -144,7 +146,7 @@ export default function LandingPage() {
         { title: 'Aplicação do plasma', desc: 'Descarga de plasma sobre a pele com precisão.' },
         { title: 'Cuidados pós', desc: 'Orientação sobre cuidados nos dias seguintes.' },
       ],
-      image1: imagemSu3
+      image1: imagemJatoDePlasma
     },
     {
       id: 't5',
