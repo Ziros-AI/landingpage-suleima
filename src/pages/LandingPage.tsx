@@ -30,6 +30,7 @@ import imagemG8Depois from '../assets/imagensGluteo/ImagemG8Depois.jpeg';
 import imagemG9 from '../assets/imagensGluteo/ImagemG9.jpeg';
 import imagemPeeling from '../assets/ImagensClinica/ImagemPeeling.jpeg';
 import imagemJatoDePlasma from '../assets/ImagensClinica/ImagemJatoDePlasma.jpeg';
+import imagemG4Cortada from '../assets/imagensGluteo/ImagemG4Cortada.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -1279,8 +1280,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="flex lg:flex-row gap-10 justify-between">
-              {[imagemG6, imagemG6, imagemG6].map((img, i) => (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              {[imagemG8Depois, imagemG7Cortada, imagemG4Cortada].map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
                   <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
                 </div>
