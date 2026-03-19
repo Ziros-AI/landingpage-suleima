@@ -11,13 +11,14 @@ import imagemSu1 from '../assets/imagensSuleima/imagemSu1.jpg';
 import imagemSu2 from '../assets/imagensSuleima/imagemSu2.jpg';
 import imagemSu3 from '../assets/imagensSuleima/imagemSu3.jpg';
 import imagemSu4 from '../assets/imagensSuleima/imagemSu4.jpg';
-import imagemG from '../assets/imagensGluteo/imagemG.jpg';
-import imagemG2 from '../assets/imagensGluteo/imagemG2.jpg';
-import imagemG3 from '../assets/imagensGluteo/imagemG3.jpg';
 import imagemG4 from '../assets/imagensGluteo/imagemG4.jpg';
+import imagemG4CD from '../assets/imagensGluteo/imagemG4Cards.jpg';
 import imagemG5 from '../assets/imagensGluteo/imagemG5.jpg';
+import imagemG5MC from '../assets/imagensGluteo/imagemG5_MetodoContour.jpg';
 import imagemG6 from '../assets/imagensGluteo/imagemG6.jpg';
 import imagemG7 from '../assets/imagensGluteo/imagemG7.jpeg';
+import imagemG7R from '../assets/imagensGluteo/imagemG7_resized.jpeg';
+import imagemG8 from '../assets/imagensGluteo/imagemG8Cards.jpeg';
 import imagemT1 from '../assets/ImagensThelma/ImagemTh1.jpeg';
 import imagem8 from '../assets/ImagensBronzeamento/imagem8.jpeg';
 import imagem9 from '../assets/ImagensBronzeamento/imagem9.jpeg';
@@ -25,6 +26,7 @@ import imagemCurso from '../assets/ImagensCurso/imagemCurso.jpeg';
 import imagemCurso2 from '../assets/ImagensCurso/imagemCurso2.jpeg';
 import imagemCurso3 from '../assets/ImagensCurso/imagemCurso3.jpeg';
 import imagemCurso5 from '../assets/ImagensCurso/imagemCurso5.jpeg';
+import imagemAeD from '../assets/antesdepois/antes e depois8.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -126,7 +128,7 @@ export default function LandingPage() {
         { title: 'Neutralização', desc: 'Interrupção da ação do ácido no momento certo.' },
         { title: 'Hidratação', desc: 'Aplicação de sérum reparador e hidratante.' },
       ],
-      image1: imagemSu2
+      image1: imagemAeD
     },
     {
       id: 't4',
@@ -231,7 +233,7 @@ export default function LandingPage() {
         { title: 'Massagem modeladora', desc: 'Técnicas para potencializar o resultado.' },
         { title: 'Nutrição pós', desc: 'Orientações nutricionais para maximizar ganhos.' },
       ],
-      image1: imagemG3
+      image1: imagemG8
     },
     {
       id: 't11',
@@ -246,7 +248,7 @@ export default function LandingPage() {
         { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
         { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
       ],
-      image1: imagemG7
+      image1: imagemG4CD
     },
     {
       id: 't12',
@@ -261,7 +263,7 @@ export default function LandingPage() {
         { title: 'Drenagem revitalizante', desc: 'Elimina toxinas, reduz inchaços e melhora a circulação.' },
         { title: 'Resultado visível', desc: 'Pele com tom dourado uniforme e glúteos mais firmes e definidos.' },
       ],
-      image1: imagem9
+      image1: imagem8
     },
   ];
 
@@ -592,7 +594,7 @@ export default function LandingPage() {
       .lx-modal-stars { font-size: 0.85rem; color: #111; display: flex; align-items: center; gap: 0.4rem; }
       .lx-modal-name {
         font-family: 'Barlow Condensed', sans-serif;
-        font-weight: 900;
+        font-weight: 850;
         font-size: 2.2rem;
         text-transform: uppercase;
         line-height: 0.95;
@@ -1275,11 +1277,11 @@ export default function LandingPage() {
             </div>
 
             <div className="flex lg:flex-row gap-10 justify-between">
-              {[imagemG6, imagemG6, imagemG6].map((img, i) => (
+              {[imagemG5MC, imagemG6, imagemG7R].map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
                   <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
                 </div>
-              ))}s
+              ))}
             </div>
           </div>
         </section>
