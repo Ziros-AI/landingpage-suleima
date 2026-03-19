@@ -1280,12 +1280,20 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {/* Container de Grid que vira Carousel no Mobile */}
+            <div className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scrollbar-hide pb-4">
               {[imagemG8Depois, imagemG7Cortada, imagemG4Cortada].map((img, i) => (
-                <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
-                  <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
+                <div 
+                  key={i} 
+                  className="flex-shrink-0 w-[85%] lg:w-full snap-center overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]"
+                >
+                  <img 
+                    src={img} 
+                    alt={`Resultado glúteo ${i + 1}`} 
+                    className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" 
+                  />
                 </div>
-              ))}s
+              ))}
             </div>
           </div>
         </section>
@@ -1298,7 +1306,6 @@ export default function LandingPage() {
           </svg>
 
         </section>
-
 
         {/* THELMA ARCURI */}
         <section className="relative overflow-hidden bg-[#ececea] px-6 md:px-16 py-14 md:py-16 fade-in">
