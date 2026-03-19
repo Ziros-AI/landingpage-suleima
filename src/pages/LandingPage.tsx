@@ -16,9 +16,7 @@ import imagemG4CD from '../assets/imagensGluteo/imagemG4Cards.jpg';
 import imagemG5 from '../assets/imagensGluteo/imagemG5.jpg';
 import imagemG5MC from '../assets/imagensGluteo/imagemG5_MetodoContour.jpg';
 import imagemG6 from '../assets/imagensGluteo/imagemG6.jpg';
-import imagemG7 from '../assets/imagensGluteo/imagemG7.jpeg';
-import imagemG7R from '../assets/imagensGluteo/imagemG7_resized.jpeg';
-import imagemG8 from '../assets/imagensGluteo/imagemG8Cards.jpeg';
+import imagemG7 from '../assets/imagensGluteo/ImagemG7.jpeg';
 import imagemT1 from '../assets/ImagensThelma/ImagemTh1.jpeg';
 import imagem8 from '../assets/ImagensBronzeamento/imagem8.jpeg';
 import imagem9 from '../assets/ImagensBronzeamento/imagem9.jpeg';
@@ -26,7 +24,12 @@ import imagemCurso from '../assets/ImagensCurso/imagemCurso.jpeg';
 import imagemCurso2 from '../assets/ImagensCurso/imagemCurso2.jpeg';
 import imagemCurso3 from '../assets/ImagensCurso/imagemCurso3.jpeg';
 import imagemCurso5 from '../assets/ImagensCurso/imagemCurso5.jpeg';
-import imagemAeD from '../assets/antesdepois/antes e depois8.jpeg';
+import imagemG7Cortada from '../assets/imagensGluteo/ImagemG7Cortada.jpeg';
+import imagemG8Depois from '../assets/imagensGluteo/ImagemG8Depois.jpeg';
+import imagemG9 from '../assets/imagensGluteo/ImagemG9.jpeg';
+import imagemPeeling from '../assets/ImagensClinica/ImagemPeeling.jpeg';
+import imagemJatoDePlasma from '../assets/ImagensClinica/ImagemJatoDePlasma.jpeg';
+import imagemG4Cortada from '../assets/imagensGluteo/ImagemG4Cortada.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -80,7 +83,7 @@ export default function LandingPage() {
     { id: 'all', label: 'ALL', count: 'Seleção de tratamentos', image: imagemSu3 },
     { id: 'corporal', label: 'CORPORAL', count: 'Vários tratamentos', image: imagemSu4 },
     { id: 'facial', label: 'FACIAL', count: 'Vários tratamentos', image: imagem7 },
-    { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG5 },
+    { id: 'gluteo', label: 'GLÚTEOS', count: 'Vários protocolos', image: imagemG7Cortada },
     { id: 'bronze', label: 'BRONZEAMENTO', count: 'Vários protocolos', image: imagem9 },
   ];
 
@@ -128,7 +131,7 @@ export default function LandingPage() {
         { title: 'Neutralização', desc: 'Interrupção da ação do ácido no momento certo.' },
         { title: 'Hidratação', desc: 'Aplicação de sérum reparador e hidratante.' },
       ],
-      image1: imagemAeD
+      image1: imagemPeeling
     },
     {
       id: 't4',
@@ -143,7 +146,7 @@ export default function LandingPage() {
         { title: 'Aplicação do plasma', desc: 'Descarga de plasma sobre a pele com precisão.' },
         { title: 'Cuidados pós', desc: 'Orientação sobre cuidados nos dias seguintes.' },
       ],
-      image1: imagemSu3
+      image1: imagemJatoDePlasma
     },
     {
       id: 't5',
@@ -218,7 +221,7 @@ export default function LandingPage() {
         { title: 'Harmonização', desc: 'Técnicas combinadas para contorno e volume.' },
         { title: 'Finalização', desc: 'Hidratação intensa e orientações de manutenção.' },
       ],
-      image1: imagemG6
+      image1: imagemG7Cortada
     },
     {
       id: 't10',
@@ -233,7 +236,7 @@ export default function LandingPage() {
         { title: 'Massagem modeladora', desc: 'Técnicas para potencializar o resultado.' },
         { title: 'Nutrição pós', desc: 'Orientações nutricionais para maximizar ganhos.' },
       ],
-      image1: imagemG8
+      image1: imagemG9
     },
     {
       id: 't11',
@@ -248,7 +251,7 @@ export default function LandingPage() {
         { title: 'Drenagem linfática', desc: 'Drenagem para eliminar toxinas e reduzir edemas.' },
         { title: 'Resultado final', desc: 'Glúteos com melhor formato, firmeza e projeção.' },
       ],
-      image1: imagemG4CD
+      image1: imagemG8Depois
     },
     {
       id: 't12',
@@ -271,7 +274,7 @@ export default function LandingPage() {
     all: { title: 'TODOS OS SERVIÇOS', desc: 'Protocolos personalizados para corpo e rosto, com tecnologia e atendimento exclusivo.', img: imagemSu3 },
     corporal: { title: 'CORPORAL', desc: 'Modelagem, definição e contorno com protocolos de alta performance para cada objetivo.', img: imagemSu4 },
     facial:   { title: 'FACIAL', desc: 'Rejuvenescimento, firmeza e luminosidade com tecnologia avançada para cada tipo de pele.', img: imagem7 },
-    gluteo:   { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG5 },
+    gluteo:   { title: 'GLÚTEOS', desc: 'Harmonização e contorno glúteo com protocolo exclusivo.', img: imagemG7 },
     bronze:   { title: 'BRONZEAMENTO ARTIFICIAL', desc: 'Bronzeado dourado e uniforme sem sol.', img: imagem9 },
   };
 
@@ -893,7 +896,7 @@ export default function LandingPage() {
 
           {[
             { num: '10+', label: 'Anos de experiência' },
-            { num: '500+', label: 'Clientes atendidas' },
+            { num: '15.000+', label: 'Clientes atendidas' },
             { num: '100%', label: 'Atendimento personalizado' },
           ].map((s, i) => (
 
@@ -1276,8 +1279,8 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="flex lg:flex-row gap-10 justify-between">
-              {[imagemG5MC, imagemG6, imagemG7R].map((img, i) => (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              {[imagemG8Depois, imagemG7Cortada, imagemG4Cortada].map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]">
                   <img src={img} alt={`Resultado glúteo ${i + 1}`} className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" />
                 </div>
