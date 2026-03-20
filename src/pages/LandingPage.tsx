@@ -49,10 +49,10 @@ const instagramPosts = [
 const navLinks = [
   { href: '#', label:'Início'},
   { href: '#about', label: 'Sobre' },
-  { href: '#services', label: 'Serviços' },
-  { href: '#funcionarios', label: 'Funcionarios'},
-  { href: '#cursos', label: 'Cursos' },
+  { href: '#equipe', label: 'Equipe'},
   { href: '#depoimentos', label: 'Depoimentos'},
+  { href: '#services', label: 'Serviços' },
+  { href: '#cursos', label: 'Cursos' },
   { href: '#contacts', label: 'Contato' },
 ];
 
@@ -1591,6 +1591,92 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* FUNCIONARIOS */}
+        <section className="funcionario-section" id="equipe">
+          <div className="funcionario-header">
+            <h2 className="funcionario-title">Nossa Equipe</h2>
+            <p className="funcionario-subtitle">
+              Profissionais altamente qualificados e dedicados a proporcionar os melhores resultados para nossos clientes
+            </p>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="funcionario-grid">
+            {Funcionarios.map((funcionario) => (
+              <FuncionarioCard key={funcionario.id} funcionario={funcionario} />
+            ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="funcionario-carousel">
+            <div className="funcionario-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {Funcionarios.map((funcionario) => (
+                <div key={funcionario.id} className="funcionario-carousel-slide">
+                  <FuncionarioCard funcionario={funcionario} />
+                </div>
+              ))}
+            </div>
+            <div className="funcionario-carousel-dots">
+              {Funcionarios.map((_, index) => (
+                <button
+                  key={index}
+                  className={`funcionario-dot ${index === currentIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Ir para membro ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* DEPOIMENTOS */}
+        <section className="depoimentos-section" id="depoimentos">
+          <div className="depoimentos-header">
+            <h2 className="depoimentos-title">Depoimentos</h2>
+            <p className="depoimentos-subtitle">
+              Veja o que nossos clientes têm a dizer sobre a experiência e os resultados alcançados em nossos tratamentos
+            </p>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="depoimentos-grid">
+            {Depoimentos.map((depoimento) => (
+              <DepoimentoCard key={depoimento.id} depoimento={depoimento} />
+            ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="depoimentos-carousel">
+            <div className="depoimentos-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {Depoimentos.map((depoimento) => (
+                <div key={depoimento.id} className="depoimentos-carousel-slide">
+                  <DepoimentoCard depoimento={depoimento} />
+                </div>
+              ))}
+            </div>
+            <div className="depoimentos-carousel-dots">
+              {Depoimentos.map((_, index) => (
+                <button
+                  key={index}
+                  className={`depoimento-dot ${index === currentIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Ir para depoimento ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="depoimentos-cta">
+            <p className="depoimentos-cta-text">
+              Quer fazer parte da nossa lista de clientes satisfeitos?
+            </p>
+            <a href={whatsappAgendamento} className="depoimentos-cta-btn" target="_blank" rel="noopener noreferrer">
+              Agende Seu Horário
+            </a>
+          </div>
+        </section>
+
         {/* SERVICES */}
         <section
           id="services"
@@ -1832,45 +1918,7 @@ export default function LandingPage() {
 
         </section>
 
-        {/* FUNCIONARIOS */}
-        <section className="funcionario-section" id="funcionarios">
-          <div className="funcionario-header">
-            <h2 className="funcionario-title">Nossa Equipe</h2>
-            <p className="funcionario-subtitle">
-              Profissionais altamente qualificados e dedicados a proporcionar os melhores resultados para nossos clientes
-            </p>
-          </div>
-
-          {/* Desktop Grid */}
-          <div className="funcionario-grid">
-            {Funcionarios.map((funcionario) => (
-              <FuncionarioCard key={funcionario.id} funcionario={funcionario} />
-            ))}
-          </div>
-
-          {/* Mobile Carousel */}
-          <div className="funcionario-carousel">
-            <div className="funcionario-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-              {Funcionarios.map((funcionario) => (
-                <div key={funcionario.id} className="funcionario-carousel-slide">
-                  <FuncionarioCard funcionario={funcionario} />
-                </div>
-              ))}
-            </div>
-            <div className="funcionario-carousel-dots">
-              {Funcionarios.map((_, index) => (
-                <button
-                  key={index}
-                  className={`funcionario-dot ${index === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`Ir para membro ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* THELMA ARCURI */} {/* AVALIAR RETIRADA */} 
+        {/* THELMA ARCURI */} 
         <section className="relative overflow-hidden bg-[#ececea] px-6 md:px-16 py-14 md:py-16 fade-in">
 
           {/* fundo decorativo */}
@@ -2088,55 +2136,7 @@ export default function LandingPage() {
 
         </section>
 
-        {/* DEPOIMENTOS */}
-        <section className="depoimentos-section" id="depoimentos">
-          <div className="depoimentos-header">
-            <h2 className="depoimentos-title">Depoimentos</h2>
-            <p className="depoimentos-subtitle">
-              Veja o que nossos clientes têm a dizer sobre a experiência e os resultados alcançados em nossos tratamentos
-            </p>
-          </div>
-
-          {/* Desktop Grid */}
-          <div className="depoimentos-grid">
-            {Depoimentos.map((depoimento) => (
-              <DepoimentoCard key={depoimento.id} depoimento={depoimento} />
-            ))}
-          </div>
-
-          {/* Mobile Carousel */}
-          <div className="depoimentos-carousel">
-            <div className="depoimentos-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-              {Depoimentos.map((depoimento) => (
-                <div key={depoimento.id} className="depoimentos-carousel-slide">
-                  <DepoimentoCard depoimento={depoimento} />
-                </div>
-              ))}
-            </div>
-            <div className="depoimentos-carousel-dots">
-              {Depoimentos.map((_, index) => (
-                <button
-                  key={index}
-                  className={`depoimento-dot ${index === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`Ir para depoimento ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="depoimentos-cta">
-            <p className="depoimentos-cta-text">
-              Quer fazer parte da nossa lista de clientes satisfeitos?
-            </p>
-            <a href={whatsappAgendamento} className="depoimentos-cta-btn" target="_blank" rel="noopener noreferrer">
-              Agende Seu Horário
-            </a>
-          </div>
-        </section>
-
-        {/* INSTAGRAM PREVIEW */}
+        {/* INSTAGRAM PREVIEW */} {/* AVALIAR RETIRADA */}
         <section className="fade-in py-20 px-6 bg-[#f4f2ee]">
 
           <div className="max-w-6xl mx-auto">
@@ -2243,7 +2243,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="lx-footer-bottom mt-6">
-            <p className="lx-footer-copy">© 2025 SULEIMA ESTÉTICA · TODOS OS DIREITOS RESERVADOS</p>
+            <p className="lx-footer-copy">© SULEIMA ESTÉTICA · TODOS OS DIREITOS RESERVADOS</p>
             <p className="lx-footer-copy">SALTO, SÃO PAULO · BRASIL</p>
           </div>
         </footer>
