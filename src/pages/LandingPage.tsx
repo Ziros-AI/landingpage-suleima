@@ -32,6 +32,8 @@ import imagemG9 from '../assets/imagensGluteo/ImagemG9.jpeg';
 import imagemPeeling from '../assets/ImagensClinica/ImagemPeeling.jpeg';
 import imagemJatoDePlasma from '../assets/ImagensClinica/ImagemJatoDePlasma.jpeg';
 import imagemG4Cortada from '../assets/imagensGluteo/ImagemG4Cortada.jpeg';
+import imagemF1 from '../assets/imagensFuncionarios/FuncionariaAna.jpeg';
+import imagemF2 from '../assets/imagensFuncionarios/FuncionariaLuana.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -337,31 +339,31 @@ export default function LandingPage() {
   const Funcionarios: Funcionario[] = [
     {
       id: 1,
-      name: "Dra. Thelma",
-      role: "Massoterapeuta e Fisioterapeuta",
-      image: imagemT1,
+      name: "Dra. Suleima",
+      role: "Fisioterapeuta Dermato-Funcional",
+      image: imagemSu1,
       bio: "Especialista em tratamentos faciais e harmonização"
     },
     {
       id: 2,
-      name: "Dra. Suleima",
-      role: "Fisioterapeuta Dermato-Funcional",
-      image: imagemSu1,
+      name: "Dra. Thelma",
+      role: "Massoterapeuta e Fisioterapeuta",
+      image: imagemT1,
       bio: "Especialista em drenagem linfática e massoterapia"
     },
     {
       id: 3,
-      name: "Dra. Suleima",
-      role: "Designer de Sobrancelhas",
-      image: imagemSu2,
-      bio: "Micropigmentação e design personalizado"
+      name: "Dra. Ana",
+      role: "Formadora e Mentora",
+      image: imagemF1,
+      bio: "Responsável pela capacitação de profissionais com metodologia prática e estratégica"
     },
     {
       id: 4,
-      name: "Dra. Suleima",
-      role: "Gerente de Atendimento",
-      image: imagemSu3,
-      bio: "Responsável pela experiência do cliente"
+      name: "Dra. Luana",
+      role: "Gestora Comercial",
+      image: imagemF2,
+      bio: "Responsável pela gestão comercial e estagiária na área de estética"
     }
   ];
 
