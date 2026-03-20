@@ -48,6 +48,7 @@ const navLinks = [
   { href: '#', label:'Início'},
   { href: '#about', label: 'Sobre' },
   { href: '#services', label: 'Serviços' },
+  { href: '#funcionarios', label: 'Funcionarios'},
   { href: '#cursos', label: 'Cursos' },
   { href: '#depoimentos', label: 'Depoimentos'},
   { href: '#contacts', label: 'Contato' },
@@ -82,6 +83,14 @@ interface Depoimento {
   text: string;
   treatment: string;
   date: string;
+}
+
+interface Funcionario {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
 }
 
 export default function LandingPage() {
@@ -289,8 +298,8 @@ export default function LandingPage() {
   const Depoimentos: Depoimento[] = [
     {
       id: 1,
-      name: "Camila Rodrigues",
-      image: "https://images.unsplash.com/photo-1758520387682-1ae18d2ebc42?w=200",
+      name: "Pessoa 1",
+      image: imagem3,
       rating: 5,
       text: "Excelente atendimento! Os profissionais são super atenciosos e o resultado dos tratamentos superou minhas expectativas. Ambiente limpo e acolhedor.",
       treatment: "Limpeza de Pele",
@@ -298,30 +307,61 @@ export default function LandingPage() {
     },
     {
       id: 2,
-      name: "Patricia Lima",
-      image: "https://images.unsplash.com/photo-1664106487244-13e13a4b07af?w=200",
+      name: "Pessoa 2",
+      image: imagem2,
       rating: 5,
-      text: "Simplesmente perfeito! A Dra. Ana é uma profissional incrível. Me senti super segura durante todo o procedimento. Recomendo muito!",
+      text: "Simplesmente perfeito! A Dra. [Pessoa] é uma profissional incrível. Me senti super segura durante todo o procedimento. Recomendo muito!",
       treatment: "Harmonização Facial",
       date: "Fevereiro 2026"
     },
     {
       id: 3,
-      name: "Ricardo Alves",
-      image: "https://images.unsplash.com/photo-1703759354715-17fcbeea4b66?w=200",
+      name: "Pessoa 3",
+      image: imagem9,
       rating: 5,
-      text: "Ótima experiência! O Carlos é muito profissional e explicou todo o processo. Já estou vendo resultados significativos.",
+      text: "Ótima experiência! O [Pessoa] é muito profissional e explicou todo o processo. Já estou vendo resultados significativos.",
       treatment: "Drenagem Linfática",
       date: "Janeiro 2026"
     },
     {
       id: 4,
-      name: "Amanda Oliveira",
-      image: "https://images.unsplash.com/photo-1758525224242-cdcf50a54d58?w=200",
+      name: "Pessoa 4",
+      image: imagemSu4,
       rating: 5,
-      text: "A Juliana é uma artista! Minhas sobrancelhas ficaram perfeitas, exatamente como eu queria. Atendimento impecável do início ao fim.",
+      text: "A [Pessoa] é uma artista! Minhas sobrancelhas ficaram perfeitas, exatamente como eu queria. Atendimento impecável do início ao fim.",
       treatment: "Design de Sobrancelhas",
       date: "Março 2026"
+    }
+  ];
+
+  const Funcionarios: Funcionario[] = [
+    {
+      id: 1,
+      name: "Dra. Thelma",
+      role: "Massoterapeuta e Fisioterapeuta",
+      image: imagemT1,
+      bio: "Especialista em tratamentos faciais e harmonização"
+    },
+    {
+      id: 2,
+      name: "Dra. Suleima",
+      role: "Fisioterapeuta Dermato-Funcional",
+      image: imagemSu1,
+      bio: "Especialista em drenagem linfática e massoterapia"
+    },
+    {
+      id: 3,
+      name: "Dra. Suleima",
+      role: "Designer de Sobrancelhas",
+      image: imagemSu2,
+      bio: "Micropigmentação e design personalizado"
+    },
+    {
+      id: 4,
+      name: "Dra. Suleima",
+      role: "Gerente de Atendimento",
+      image: imagemSu3,
+      bio: "Responsável pela experiência do cliente"
     }
   ];
 
@@ -1063,6 +1103,174 @@ export default function LandingPage() {
     return () => style.remove();
   }, []);
 
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .funcionario-section {
+        background: #ececea;
+        padding: 4.5rem 2rem;
+      }
+      .funcionario-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .funcionario-title {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: clamp(2.4rem, 8vw, 4.5rem);
+        text-transform: uppercase;
+        line-height: 1;
+        color: #2f2321;
+        margin-bottom: 1rem;
+      }
+      .funcionario-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .funcionario-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      @media (max-width: 1023px) {
+        .funcionario-grid {
+          display: none;
+        }
+      }
+      .funcionario-carousel {
+        display: none;
+        position: relative;
+        max-width: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      @media (max-width: 1023px) {
+        .funcionario-carousel {
+          display: block;
+        }
+      }
+      .funcionario-carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      .funcionario-carousel-slide {
+        min-width: 100%;
+        padding: 0 1rem;
+      }
+      .funcionario-card {
+        background: #fff;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(47, 35, 33, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .funcionario-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(47, 35, 33, 0.12);
+      }
+      .funcionario-card-img {
+        position: relative;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        background: #ececea;
+      }
+      .funcionario-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .funcionario-card:hover .funcionario-card-img img {
+        transform: scale(1.05);
+      }
+      .funcionario-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(47, 35, 33, 0.6), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .funcionario-card:hover .funcionario-card-overlay {
+        opacity: 1;
+      }
+      .funcionario-card-content {
+        padding: 1.5rem;
+      }
+      .funcionario-card-name {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 800;
+        font-size: 1.3rem;
+        color: #2f2321;
+        margin-bottom: 0.25rem;
+      }
+      .funcionario-card-role {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        color: #8f876f;
+        margin-bottom: 0.75rem;
+      }
+      .funcionario-card-bio {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.82rem;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .funcionario-card-social {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .funcionario-social-link {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #ececea;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease, color 0.2s ease;
+        color: #2f2321;
+      }
+      .funcionario-social-link:hover {
+        background: #3c2922;
+        color: #fff;
+      }
+      .funcionario-social-link svg {
+        width: 16px;
+        height: 16px;
+      }
+      .funcionario-carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+      .funcionario-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(47, 35, 33, 0.2);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+      }
+      .funcionario-dot.active {
+        background: #3c2922;
+        width: 24px;
+        border-radius: 4px;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => style.remove();
+  }, []);
+
   const StarRating = ({ rating }: { rating: number }) => (
     <div className="depoimento-stars">
       {Array.from({ length: 5 }).map((_, index) => (
@@ -1088,6 +1296,20 @@ export default function LandingPage() {
       <StarRating rating={depoimento.rating} />
       <span className="depoimento-treatment">{depoimento.treatment}</span>
       <p className="depoimento-text">"{depoimento.text}"</p>
+    </div>
+  );
+
+  const FuncionarioCard = ({ funcionario }: { funcionario: Funcionario }) => (
+    <div className="funcionario-card">
+      <div className="funcionario-card-img">
+        <img src={funcionario.image} alt={funcionario.name} />
+        <div className="funcionario-card-overlay" />
+      </div>
+      <div className="funcionario-card-content">
+        <h3 className="funcionario-card-name">{funcionario.name}</h3>
+        <p className="funcionario-card-role">{funcionario.role}</p>
+        <p className="funcionario-card-bio">{funcionario.bio}</p>
+      </div>
     </div>
   );
 
@@ -1608,7 +1830,45 @@ export default function LandingPage() {
 
         </section>
 
-        {/* THELMA ARCURI */}
+        {/* FUNCIONARIOS */}
+        <section className="funcionario-section" id="funcionarios">
+          <div className="funcionario-header">
+            <h2 className="funcionario-title">Nossa Equipe</h2>
+            <p className="funcionario-subtitle">
+              Profissionais altamente qualificados e dedicados a proporcionar os melhores resultados para nossos clientes
+            </p>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="funcionario-grid">
+            {Funcionarios.map((funcionario) => (
+              <FuncionarioCard key={funcionario.id} funcionario={funcionario} />
+            ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="funcionario-carousel">
+            <div className="funcionario-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {Funcionarios.map((funcionario) => (
+                <div key={funcionario.id} className="funcionario-carousel-slide">
+                  <FuncionarioCard funcionario={funcionario} />
+                </div>
+              ))}
+            </div>
+            <div className="funcionario-carousel-dots">
+              {Funcionarios.map((_, index) => (
+                <button
+                  key={index}
+                  className={`funcionario-dot ${index === currentIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Ir para membro ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* THELMA ARCURI */} {/* AVALIAR RETIRADA */} 
         <section className="relative overflow-hidden bg-[#ececea] px-6 md:px-16 py-14 md:py-16 fade-in">
 
           {/* fundo decorativo */}
