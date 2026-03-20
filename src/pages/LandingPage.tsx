@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Star } from "lucide-react";
 
 import imagem1 from '../assets/ImagensClinica/imagem1.jpg';
 import imagem2 from '../assets/ImagensClinica/imagem2.jpg';
@@ -44,9 +45,11 @@ const instagramPosts = [
 ];
 
 const navLinks = [
+  { href: '#', label:'Início'},
   { href: '#about', label: 'Sobre' },
   { href: '#services', label: 'Serviços' },
   { href: '#cursos', label: 'Cursos' },
+  { href: '#depoimentos', label: 'Depoimentos'},
   { href: '#contacts', label: 'Contato' },
 ];
 
@@ -71,6 +74,16 @@ interface Treatment {
   image1: string;
 }
 
+interface Depoimento {
+  id: number;
+  name: string;
+  image: string;
+  rating: number;
+  text: string;
+  treatment: string;
+  date: string;
+}
+
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -78,6 +91,8 @@ export default function LandingPage() {
   const [activeCat, setActiveCat] = useState<string>('all');
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
   const [modalAnimIn, setModalAnimIn] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
 
   const serviceCategories = [
@@ -269,6 +284,45 @@ export default function LandingPage() {
       ],
       image1: imagem9
     },
+  ];
+
+  const Depoimentos: Depoimento[] = [
+    {
+      id: 1,
+      name: "Camila Rodrigues",
+      image: "https://images.unsplash.com/photo-1758520387682-1ae18d2ebc42?w=200",
+      rating: 5,
+      text: "Excelente atendimento! Os profissionais são super atenciosos e o resultado dos tratamentos superou minhas expectativas. Ambiente limpo e acolhedor.",
+      treatment: "Limpeza de Pele",
+      date: "Março 2026"
+    },
+    {
+      id: 2,
+      name: "Patricia Lima",
+      image: "https://images.unsplash.com/photo-1664106487244-13e13a4b07af?w=200",
+      rating: 5,
+      text: "Simplesmente perfeito! A Dra. Ana é uma profissional incrível. Me senti super segura durante todo o procedimento. Recomendo muito!",
+      treatment: "Harmonização Facial",
+      date: "Fevereiro 2026"
+    },
+    {
+      id: 3,
+      name: "Ricardo Alves",
+      image: "https://images.unsplash.com/photo-1703759354715-17fcbeea4b66?w=200",
+      rating: 5,
+      text: "Ótima experiência! O Carlos é muito profissional e explicou todo o processo. Já estou vendo resultados significativos.",
+      treatment: "Drenagem Linfática",
+      date: "Janeiro 2026"
+    },
+    {
+      id: 4,
+      name: "Amanda Oliveira",
+      image: "https://images.unsplash.com/photo-1758525224242-cdcf50a54d58?w=200",
+      rating: 5,
+      text: "A Juliana é uma artista! Minhas sobrancelhas ficaram perfeitas, exatamente como eu queria. Atendimento impecável do início ao fim.",
+      treatment: "Design de Sobrancelhas",
+      date: "Março 2026"
+    }
   ];
 
   const catInfo: Record<string, { title: string; desc: string; img: string }> = {
@@ -789,6 +843,253 @@ export default function LandingPage() {
       clearTimeout(t);
     };
   }, []);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % Depoimentos.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isMobile]);
+
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .depoimentos-section {
+        background: #ececea;
+        padding: 4.5rem 2rem;
+      }
+      .depoimentos-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .depoimentos-title {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: clamp(2.4rem, 8vw, 4.5rem);
+        text-transform: uppercase;
+        line-height: 1;
+        color: #2f2321;
+        margin-bottom: 1rem;
+      }
+      .depoimentos-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      .depoimentos-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto 3rem;
+      }
+      @media (max-width: 1023px) {
+        .depoimentos-grid {
+          display: none;
+        }
+      }
+      .depoimentos-carousel {
+        display: none;
+        position: relative;
+        max-width: 400px;
+        margin: 0 auto 3rem;
+        overflow: hidden;
+      }
+      @media (max-width: 1023px) {
+        .depoimentos-carousel {
+          display: block;
+        }
+      }
+      .depoimentos-carousel-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+      .depoimentos-carousel-slide {
+        min-width: 100%;
+        padding: 0 1rem;
+      }
+      .depoimento-card {
+        background: #fff;
+        border-radius: 2px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 12px rgba(47, 35, 33, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .depoimento-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(47, 35, 33, 0.12);
+      }
+      .depoimento-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .depoimento-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: #ececea;
+      }
+      .depoimento-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .depoimento-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .depoimento-name {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: #2f2321;
+        margin-bottom: 0.15rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .depoimento-date {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.75rem;
+        color: #888;
+      }
+      .depoimento-stars {
+        display: flex;
+        gap: 0.25rem;
+        margin-bottom: 0.75rem;
+      }
+      .depoimento-stars svg {
+        width: 16px;
+        height: 16px;
+      }
+      .star-filled {
+        fill: #f59e0b;
+        color: #f59e0b;
+      }
+      .star-empty {
+        fill: #d1d5db;
+        color: #d1d5db;
+      }
+      .depoimento-treatment {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        background: rgba(60, 41, 34, 0.08);
+        color: #3c2922;
+        border-radius: 12px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      .depoimento-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.85rem;
+        color: #555;
+        line-height: 1.65;
+        flex: 1;
+      }
+      .depoimentos-carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+      .depoimento-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(47, 35, 33, 0.2);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+      }
+      .depoimento-dot.active {
+        background: #3c2922;
+        width: 24px;
+        border-radius: 4px;
+      }
+      .depoimentos-cta {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .depoimentos-cta-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 1.25rem;
+        line-height: 1.7;
+      }
+      .depoimentos-cta-btn {
+        background: #3c2922;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 1rem 2.5rem;
+        border-radius: 2px;
+        transition: background 0.2s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .depoimentos-cta-btn:hover {
+        background: #2f2321;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => style.remove();
+  }, []);
+
+  const StarRating = ({ rating }: { rating: number }) => (
+    <div className="depoimento-stars">
+      {Array.from({ length: 5 }).map((_, index) => (
+        <Star
+          key={index}
+          className={index < rating ? 'star-filled' : 'star-empty'}
+        />
+      ))}
+    </div>
+  );
+
+  const DepoimentoCard = ({ depoimento }: { depoimento: Depoimento }) => (
+    <div className="depoimento-card">
+      <div className="depoimento-header">
+        <div className="depoimento-avatar">
+          <img src={depoimento.image} alt={depoimento.name} />
+        </div>
+        <div className="depoimento-info">
+          <h4 className="depoimento-name">{depoimento.name}</h4>
+          <p className="depoimento-date">{depoimento.date}</p>
+        </div>
+      </div>
+      <StarRating rating={depoimento.rating} />
+      <span className="depoimento-treatment">{depoimento.treatment}</span>
+      <p className="depoimento-text">"{depoimento.text}"</p>
+    </div>
+  );
 
   return (
     <div className="bg-[#ececea] min-h-screen text-[#2f2321]">
@@ -1523,6 +1824,54 @@ export default function LandingPage() {
 
           </div>
 
+        </section>
+
+        {/* DEPOIMENTOS */}
+        <section className="depoimentos-section" id="depoimentos">
+          <div className="depoimentos-header">
+            <h2 className="depoimentos-title">Depoimentos</h2>
+            <p className="depoimentos-subtitle">
+              Veja o que nossos clientes têm a dizer sobre a experiência e os resultados alcançados em nossos tratamentos
+            </p>
+          </div>
+
+          {/* Desktop Grid */}
+          <div className="depoimentos-grid">
+            {Depoimentos.map((depoimento) => (
+              <DepoimentoCard key={depoimento.id} depoimento={depoimento} />
+            ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="depoimentos-carousel">
+            <div className="depoimentos-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {Depoimentos.map((depoimento) => (
+                <div key={depoimento.id} className="depoimentos-carousel-slide">
+                  <DepoimentoCard depoimento={depoimento} />
+                </div>
+              ))}
+            </div>
+            <div className="depoimentos-carousel-dots">
+              {Depoimentos.map((_, index) => (
+                <button
+                  key={index}
+                  className={`depoimento-dot ${index === currentIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentIndex(index)}
+                  aria-label={`Ir para depoimento ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="depoimentos-cta">
+            <p className="depoimentos-cta-text">
+              Quer fazer parte da nossa lista de clientes satisfeitos?
+            </p>
+            <a href={whatsappAgendamento} className="depoimentos-cta-btn" target="_blank" rel="noopener noreferrer">
+              Agende Seu Horário
+            </a>
+          </div>
         </section>
 
         {/* INSTAGRAM PREVIEW */}
