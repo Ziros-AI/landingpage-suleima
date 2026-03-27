@@ -34,6 +34,7 @@ import imagemJatoDePlasma from '../assets/ImagensClinica/ImagemJatoDePlasma.jpeg
 import imagemG4Cortada from '../assets/imagensGluteo/ImagemG4Cortada.jpeg';
 import imagemF1 from '../assets/imagensFuncionarios/FuncionariaAna.jpeg';
 import imagemF2 from '../assets/imagensFuncionarios/FuncionariaLuana.jpeg';
+import ImagemMarcia from '../assets/imagensFuncionarios/ImagemMarcia.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -364,6 +365,13 @@ export default function LandingPage() {
       role: "Gestora Comercial",
       image: imagemF2,
       bio: "Responsável pela gestão comercial e estagiária na área de estética"
+    },
+    {
+      id: 5,
+      name: "Marcia Marina",
+      role: "Terapeuta Integrativa e Complementar",
+      image: ImagemMarcia,
+      bio: "Especialista em saúde física e emocional através de terapias manuais e integrativas"
     }
   ];
 
