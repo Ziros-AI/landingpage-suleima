@@ -35,6 +35,12 @@ import imagemG4Cortada from '../assets/imagensGluteo/ImagemG4Cortada.jpeg';
 import imagemF1 from '../assets/imagensFuncionarios/FuncionariaAna.jpeg';
 import imagemF2 from '../assets/imagensFuncionarios/FuncionariaLuana.jpeg';
 import ImagemMarcia from '../assets/imagensFuncionarios/ImagemMarcia.jpeg';
+import depoimentoRaquelMenegazzi from '../assets/ImagensDepoimentos/RaquelMenegazzi.png';
+import depoimentoDenisClasse from '../assets/ImagensDepoimentos/DenisClasse.png';
+import depoimentoAlessandraPereira from '../assets/ImagensDepoimentos/AlessandraPereira.png';
+import depoimentoAlessandraBarbosa from '../assets/ImagensDepoimentos/AlessandraBarbosa.png';
+import depoimentoThaisCominatto from '../assets/ImagensDepoimentos/ThaisCominatto.png';
+import depoimentoEdileneAntunes from '../assets/ImagensDepoimentos/EdileneAntunes.png';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -303,7 +309,7 @@ export default function LandingPage() {
     {
       id: 1,
       name: 'Raquel Menegazzi',
-      image: imagem3,
+      image: depoimentoRaquelMenegazzi,
       rating: 5,
       text: 'Protocolo com a Suleima e a Pamela: atendimento super atencioso. Ainda não terminei e já noto ótimo resultado.',
       treatment: 'Protocolo',
@@ -312,7 +318,7 @@ export default function LandingPage() {
     {
       id: 2,
       name: 'Denis Classe',
-      image: imagem2,
+      image: depoimentoDenisClasse,
       rating: 5,
       text: 'Há 4 anos sou cliente — venho de SP de propósito. Equipe muito técnica, da recepção ao pós. Microagulhamento: menos poros e oleosidade, pele mais uniforme.',
       treatment: 'Microagulhamento',
@@ -321,7 +327,7 @@ export default function LandingPage() {
     {
       id: 3,
       name: 'Alessandra Pereira',
-      image: imagem7,
+      image: depoimentoAlessandraPereira,
       rating: 5,
       text: 'Profissional humanizada e competente. Facial com total confiança; nas estrias, diferença já na 1ª sessão. Gratidão, Su!',
       treatment: 'Facial · estrias',
@@ -330,7 +336,7 @@ export default function LandingPage() {
     {
       id: 4,
       name: 'Alessandra Barbosa',
-      image: imagem9,
+      image: depoimentoAlessandraBarbosa,
       rating: 5,
       text: 'Queda capilar: após uma sessão com enzima, menos queda e cabelo nas falhas. Mão leve da Suleima, sem dor.',
       treatment: 'Capilar',
@@ -339,7 +345,7 @@ export default function LandingPage() {
     {
       id: 5,
       name: 'Thaís Cominatto',
-      image: imagemSu4,
+      image: depoimentoThaisCominatto,
       rating: 5,
       text: 'Carinho, equipe querida e resultados que valem a pena. Meu lugar favorito — recomendo. ♥️',
       treatment: 'Clínica',
@@ -348,7 +354,7 @@ export default function LandingPage() {
     {
       id: 6,
       name: 'Edilene Antunes',
-      image: imagemSu3,
+      image: depoimentoEdileneAntunes,
       rating: 5,
       text: 'Conheço desde 2016 — indico e aprovo. Atendimento que considero dos melhores em SP: equipe que devolve a autoestima, de dentro para fora. A Suleima é maravilhosa. Vale agendar sua avaliação.',
       treatment: 'Indicação',
