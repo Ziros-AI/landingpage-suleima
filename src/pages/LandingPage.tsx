@@ -2096,17 +2096,17 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Container de Grid que vira Carousel no Mobile */}
-            <div className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scrollbar-hide pb-4">
+            {/* Mobile: carrossel horizontal · Tablet+: grid 3 colunas (altura limitada no md-lg) */}
+            <div className="flex md:grid md:grid-cols-3 md:gap-6 lg:gap-10 gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide pb-4">
               {[imagemG8Depois, imagemG7Cortada, imagemG4Cortada].map((img, i) => (
                 <div 
                   key={i} 
-                  className="flex-shrink-0 w-[85%] lg:w-full snap-center overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]"
+                  className="flex-shrink-0 w-[82%] max-w-[320px] sm:w-[78%] md:w-full md:max-w-none snap-center overflow-hidden rounded-xl border border-white/15 bg-[#1a1a1a]"
                 >
                   <img 
                     src={img} 
                     alt={`Resultado glúteo ${i + 1}`} 
-                    className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105" 
+                    className="contour-img w-full aspect-[3/4] object-cover transition duration-500 hover:scale-105 md:aspect-auto md:h-[265px] lg:aspect-[3/4] lg:h-auto" 
                   />
                 </div>
               ))}
