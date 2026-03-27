@@ -105,6 +105,7 @@ export default function LandingPage() {
   const [modalAnimIn, setModalAnimIn] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [depoimentosExpanded, setDepoimentosExpanded] = useState(false);
   const sistemaUrl = import.meta.env.VITE_SISTEMA_URL ?? 'http://localhost:5173/login';
 
   const serviceCategories = [
@@ -301,41 +302,61 @@ export default function LandingPage() {
   const Depoimentos: Depoimento[] = [
     {
       id: 1,
-      name: "Pessoa 1",
+      name: 'Raquel Menegazzi',
       image: imagem3,
       rating: 5,
-      text: "Excelente atendimento! Os profissionais são super atenciosos e o resultado dos tratamentos superou minhas expectativas. Ambiente limpo e acolhedor.",
-      treatment: "Limpeza de Pele",
-      date: "Março 2026"
+      text: 'Protocolo com a Suleima e a Pamela: atendimento super atencioso. Ainda não terminei e já noto ótimo resultado.',
+      treatment: 'Protocolo',
+      date: 'Cliente',
     },
     {
       id: 2,
-      name: "Pessoa 2",
+      name: 'Denis Classe',
       image: imagem2,
       rating: 5,
-      text: "Simplesmente perfeito! A Dra. [Pessoa] é uma profissional incrível. Me senti super segura durante todo o procedimento. Recomendo muito!",
-      treatment: "Harmonização Facial",
-      date: "Fevereiro 2026"
+      text: 'Há 4 anos sou cliente — venho de SP de propósito. Equipe muito técnica, da recepção ao pós. Microagulhamento: menos poros e oleosidade, pele mais uniforme.',
+      treatment: 'Microagulhamento',
+      date: 'Cliente',
     },
     {
       id: 3,
-      name: "Pessoa 3",
-      image: imagem9,
+      name: 'Alessandra Pereira',
+      image: imagem7,
       rating: 5,
-      text: "Ótima experiência! O [Pessoa] é muito profissional e explicou todo o processo. Já estou vendo resultados significativos.",
-      treatment: "Drenagem Linfática",
-      date: "Janeiro 2026"
+      text: 'Profissional humanizada e competente. Facial com total confiança; nas estrias, diferença já na 1ª sessão. Gratidão, Su!',
+      treatment: 'Facial · estrias',
+      date: 'Cliente',
     },
     {
       id: 4,
-      name: "Pessoa 4",
+      name: 'Alessandra Barbosa',
+      image: imagem9,
+      rating: 5,
+      text: 'Queda capilar: após uma sessão com enzima, menos queda e cabelo nas falhas. Mão leve da Suleima, sem dor.',
+      treatment: 'Capilar',
+      date: 'Cliente',
+    },
+    {
+      id: 5,
+      name: 'Thaís Cominatto',
       image: imagemSu4,
       rating: 5,
-      text: "A [Pessoa] é uma artista! Minhas sobrancelhas ficaram perfeitas, exatamente como eu queria. Atendimento impecável do início ao fim.",
-      treatment: "Design de Sobrancelhas",
-      date: "Março 2026"
-    }
+      text: 'Carinho, equipe querida e resultados que valem a pena. Meu lugar favorito — recomendo. ♥️',
+      treatment: 'Clínica',
+      date: 'Cliente',
+    },
+    {
+      id: 6,
+      name: 'Edilene Antunes',
+      image: imagemSu3,
+      rating: 5,
+      text: 'Conheço desde 2016 — indico e aprovo. Atendimento que considero dos melhores em SP: equipe que devolve a autoestima, de dentro para fora. A Suleima é maravilhosa. Vale agendar sua avaliação.',
+      treatment: 'Indicação',
+      date: 'Cliente',
+    },
   ];
+
+  const DEPOIMENTOS_GRID_PREVIEW = 3;
 
   const Funcionarios: Funcionario[] = [
     {
@@ -368,7 +389,7 @@ export default function LandingPage() {
     },
     {
       id: 5,
-      name: "Marcia Marina",
+      name: "Dra. Marcia",
       role: "Terapeuta Integrativa e Complementar",
       image: ImagemMarcia,
       bio: "Especialista em saúde física e emocional através de terapias manuais e integrativas"
@@ -768,8 +789,59 @@ export default function LandingPage() {
       .lx-footer-top { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid rgba(255,255,255,0.12); }
       .lx-footer-col { padding: 3rem 2.5rem; border-right: 1px solid rgba(255,255,255,0.12); }
       .lx-footer-col:last-child { border-right: none; }
+      .lx-footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 0.2em; font-size: 1.35rem; margin-bottom: 1rem; }
+      .lx-footer-tagline { font-family: 'Inter', sans-serif; font-size: 0.85rem; line-height: 1.65; color: rgba(255,255,255,0.88); max-width: 280px; }
+      .lx-footer-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 1rem; }
+      .lx-footer-address-big { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; line-height: 1.2; margin-bottom: 0.35rem; }
+      .lx-footer-city { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-bottom: 0.75rem; }
+      .lx-footer-contact-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        gap: 0.7rem;
+        margin-bottom: 0.85rem;
+      }
+      .lx-footer-contact-row:last-child { margin-bottom: 0; }
+      .lx-footer-contact-row .lx-footer-contact-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 18px;
+        min-height: 1.35em;
+        margin-top: 0.12em;
+        opacity: 0.55;
+      }
+      .lx-footer-contact-row .lx-footer-contact-icon svg {
+        display: block;
+        width: 14px;
+        height: 14px;
+      }
+      .lx-footer-contact-row a {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.88rem;
+        line-height: 1.35;
+        color: rgba(255,255,255,0.95);
+        text-decoration: none;
+        flex: 1;
+        min-width: 0;
+        word-break: break-word;
+      }
+      .lx-footer-contact-row a:hover { text-decoration: underline; text-underline-offset: 3px; }
+      .lx-footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem 1.5rem;
+      }
       .lx-footer-copy { font-family: 'Barlow', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
-      @media (max-width: 768px) { .lx-footer-top { grid-template-columns: 1fr; } .lx-footer-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 2rem 1.25rem; } .lx-footer-bottom { flex-direction: column; gap: 0.5rem; padding: 1.25rem; } }
+      @media (max-width: 768px) {
+        .lx-footer-top { grid-template-columns: 1fr; }
+        .lx-footer-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 2rem 1.25rem; }
+        .lx-footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1.25rem 0 0; }
+      }
 
       /* Scroll Animation Classes */
       .scroll-parallax { will-change: transform; }
@@ -806,7 +878,6 @@ export default function LandingPage() {
         .service-img-animate.delay-2 { animation-delay: 0.65s; }
       }
 
-      Desktop delays
       @media (min-width: 769px) {
         .service-img-animate { animation: slideInLeft 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
         .service-img-animate.delay-1 { animation-delay: 0.1s; }
@@ -913,8 +984,40 @@ export default function LandingPage() {
     const style = document.createElement('style');
     style.textContent = `
       .depoimentos-section {
-        background: #ececea;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(185deg, #f0ebe3 0%, #ebe6dc 42%, #e5dfd3 100%);
+        border-top: 1px solid rgba(228, 224, 213, 0.4);
+        border-bottom: 1px solid rgba(228, 224, 213, 0.75);
         padding: 4.5rem 2rem;
+      }
+      .depoimentos-section::before {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        width: min(72vw, 500px);
+        height: min(72vw, 500px);
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, rgba(213, 172, 35, 0.16) 0%, transparent 68%);
+        top: -14%;
+        left: -10%;
+        z-index: 0;
+      }
+      .depoimentos-section::after {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        width: min(58vw, 400px);
+        height: min(58vw, 400px);
+        border-radius: 50%;
+        background: radial-gradient(circle at 65% 45%, rgba(90, 66, 61, 0.11) 0%, transparent 68%);
+        bottom: -12%;
+        right: -8%;
+        z-index: 0;
+      }
+      .depoimentos-section-inner {
+        position: relative;
+        z-index: 1;
       }
       .depoimentos-header {
         text-align: center;
@@ -932,27 +1035,55 @@ export default function LandingPage() {
       .depoimentos-subtitle {
         font-family: 'Inter', sans-serif;
         font-size: 0.95rem;
-        color: #666;
+        color: #6f625a;
         max-width: 600px;
         margin: 0 auto;
         line-height: 1.7;
       }
+      .depoimentos-desktop-wrap {
+        max-width: 940px;
+        margin: 0 auto 2.5rem;
+        padding-inline: 0.35rem;
+      }
       .depoimentos-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-        max-width: 1200px;
-        margin: 0 auto 3rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+        margin: 0;
       }
       @media (max-width: 1023px) {
-        .depoimentos-grid {
+        .depoimentos-desktop-wrap {
           display: none;
         }
+      }
+      .depoimentos-ver-mais-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.35rem;
+        padding-bottom: 0.25rem;
+      }
+      .depoimentos-ver-mais-btn {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.85rem 2.25rem;
+        border-radius: 999px;
+        border: 2px solid #3c2922;
+        background: transparent;
+        color: #3c2922;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      .depoimentos-ver-mais-btn:hover {
+        background: #3c2922;
+        color: #fff;
       }
       .depoimentos-carousel {
         display: none;
         position: relative;
-        max-width: 400px;
+        max-width: 440px;
         margin: 0 auto 3rem;
         overflow: hidden;
       }
@@ -970,28 +1101,29 @@ export default function LandingPage() {
         padding: 0 1rem;
       }
       .depoimento-card {
-        background: #fff;
-        border-radius: 2px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 12px rgba(47, 35, 33, 0.08);
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(229, 225, 216, 0.85);
+        border-radius: 14px;
+        padding: 1.2rem 1.3rem;
+        box-shadow: 0 8px 28px rgba(47, 35, 33, 0.06), 0 2px 6px rgba(47, 35, 33, 0.04);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
         height: 100%;
       }
       .depoimento-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(47, 35, 33, 0.12);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 36px rgba(47, 35, 33, 0.09), 0 4px 10px rgba(47, 35, 33, 0.05);
       }
       .depoimento-header {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
+        gap: 0.75rem;
+        margin-bottom: 0.72rem;
       }
       .depoimento-avatar {
-        width: 56px;
-        height: 56px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         overflow: hidden;
         flex-shrink: 0;
@@ -1009,26 +1141,26 @@ export default function LandingPage() {
       .depoimento-name {
         font-family: 'Barlow Condensed', sans-serif;
         font-weight: 800;
-        font-size: 1.1rem;
+        font-size: 1.06rem;
         color: #2f2321;
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.1rem;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
       .depoimento-date {
         font-family: 'Inter', sans-serif;
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         color: #888;
       }
       .depoimento-stars {
         display: flex;
-        gap: 0.25rem;
-        margin-bottom: 0.75rem;
+        gap: 0.22rem;
+        margin-bottom: 0.55rem;
       }
       .depoimento-stars svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
       }
       .star-filled {
         fill: #f59e0b;
@@ -1039,22 +1171,29 @@ export default function LandingPage() {
         color: #d1d5db;
       }
       .depoimento-treatment {
-        display: inline-block;
-        padding: 0.35rem 0.75rem;
+        display: block;
+        align-self: flex-start;
+        width: fit-content;
+        max-width: 100%;
+        padding: 0.26rem 0.6rem;
         background: rgba(60, 41, 34, 0.08);
         color: #3c2922;
-        border-radius: 12px;
+        border-radius: 8px;
         font-family: 'Inter', sans-serif;
-        font-size: 0.7rem;
+        font-size: 0.66rem;
         font-weight: 600;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
       }
       .depoimento-text {
         font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
+        font-size: 0.84rem;
         color: #555;
-        line-height: 1.65;
+        line-height: 1.56;
         flex: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        overflow: hidden;
       }
       .depoimentos-carousel-dots {
         display: flex;
@@ -1085,13 +1224,13 @@ export default function LandingPage() {
       .depoimentos-cta-text {
         font-family: 'Inter', sans-serif;
         font-size: 0.95rem;
-        color: #666;
+        color: #6f625a;
         margin-bottom: 1.25rem;
         line-height: 1.7;
       }
       .depoimentos-cta-btn {
-        background: #3c2922;
-        color: #fff;
+        background: linear-gradient(135deg, #d5ac23 0%, #c79f1f 100%);
+        color: #2f2321;
         border: none;
         cursor: pointer;
         font-family: 'Barlow Condensed', sans-serif;
@@ -1100,13 +1239,14 @@ export default function LandingPage() {
         letter-spacing: 0.1em;
         text-transform: uppercase;
         padding: 1rem 2.5rem;
-        border-radius: 2px;
-        transition: background 0.2s ease;
+        border-radius: 999px;
+        transition: filter 0.2s ease, transform 0.2s ease;
         text-decoration: none;
         display: inline-block;
       }
       .depoimentos-cta-btn:hover {
-        background: #2f2321;
+        filter: brightness(1.05);
+        transform: translateY(-1px);
       }
     `;
     document.head.appendChild(style);
@@ -1117,8 +1257,40 @@ export default function LandingPage() {
     const style = document.createElement('style');
     style.textContent = `
       .funcionario-section {
-        background: #ececea;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(170deg, #faf8f5 0%, #f4efe7 48%, #ede8df 100%);
+        border-top: 1px solid rgba(228, 224, 213, 0.85);
+        border-bottom: 1px solid rgba(228, 224, 213, 0.5);
         padding: 4.5rem 2rem;
+      }
+      .funcionario-section::before {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        width: min(70vw, 480px);
+        height: min(70vw, 480px);
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(213, 172, 35, 0.15) 0%, transparent 68%);
+        top: -12%;
+        right: -8%;
+        z-index: 0;
+      }
+      .funcionario-section::after {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        width: min(56vw, 380px);
+        height: min(56vw, 380px);
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 50%, rgba(90, 66, 61, 0.1) 0%, transparent 68%);
+        bottom: -10%;
+        left: -7%;
+        z-index: 0;
+      }
+      .funcionario-section-inner {
+        position: relative;
+        z-index: 1;
       }
       .funcionario-header {
         text-align: center;
@@ -1136,59 +1308,76 @@ export default function LandingPage() {
       .funcionario-subtitle {
         font-family: 'Inter', sans-serif;
         font-size: 0.95rem;
-        color: #666;
+        color: #6f625a;
         max-width: 600px;
         margin: 0 auto;
         line-height: 1.7;
       }
-      .funcionario-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
+      .funcionario-scroll-wrap {
         max-width: 1200px;
         margin: 0 auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(60, 41, 34, 0.45) rgba(47, 35, 33, 0.08);
+        padding-bottom: 0.75rem;
       }
-      @media (max-width: 1023px) {
-        .funcionario-grid {
-          display: none;
-        }
+      .funcionario-scroll-wrap::-webkit-scrollbar {
+        height: 8px;
       }
-      .funcionario-carousel {
-        display: none;
-        position: relative;
-        max-width: 400px;
-        margin: 0 auto;
-        overflow: hidden;
+      .funcionario-scroll-wrap::-webkit-scrollbar-track {
+        background: rgba(47, 35, 33, 0.06);
+        border-radius: 4px;
       }
-      @media (max-width: 1023px) {
-        .funcionario-carousel {
-          display: block;
-        }
+      .funcionario-scroll-wrap::-webkit-scrollbar-thumb {
+        background: rgba(60, 41, 34, 0.35);
+        border-radius: 4px;
       }
-      .funcionario-carousel-track {
+      .funcionario-scroll-wrap::-webkit-scrollbar-thumb:hover {
+        background: rgba(60, 41, 34, 0.5);
+      }
+      .funcionario-scroll-row {
         display: flex;
-        transition: transform 0.5s ease;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 1.5rem;
+        width: max-content;
+        padding: 2px 2px 4px;
       }
-      .funcionario-carousel-slide {
-        min-width: 100%;
-        padding: 0 1rem;
+      .funcionario-scroll-item {
+        flex: 0 0 auto;
+        width: 280px;
+        max-width: min(280px, calc(100vw - 3.5rem));
+        scroll-snap-align: start;
+        display: flex;
+        align-items: stretch;
       }
       .funcionario-card {
-        background: #fff;
-        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(229, 225, 216, 0.9);
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 2px 12px rgba(47, 35, 33, 0.08);
+        box-shadow: 0 10px 36px rgba(47, 35, 33, 0.07), 0 2px 8px rgba(47, 35, 33, 0.04);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        min-height: 0;
       }
       .funcionario-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(47, 35, 33, 0.12);
+        box-shadow: 0 16px 42px rgba(47, 35, 33, 0.1), 0 4px 12px rgba(47, 35, 33, 0.05);
       }
       .funcionario-card-img {
         position: relative;
         aspect-ratio: 3/4;
         overflow: hidden;
         background: #ececea;
+        flex-shrink: 0;
       }
       .funcionario-card-img img {
         width: 100%;
@@ -1211,6 +1400,10 @@ export default function LandingPage() {
       }
       .funcionario-card-content {
         padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
       }
       .funcionario-card-name {
         font-family: 'Barlow Condensed', sans-serif;
@@ -1230,7 +1423,11 @@ export default function LandingPage() {
         font-size: 0.82rem;
         color: #666;
         line-height: 1.6;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
       }
       .funcionario-card-social {
         display: flex;
@@ -1254,27 +1451,6 @@ export default function LandingPage() {
       .funcionario-social-link svg {
         width: 16px;
         height: 16px;
-      }
-      .funcionario-carousel-dots {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-top: 1.5rem;
-      }
-      .funcionario-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(47, 35, 33, 0.2);
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        padding: 0;
-      }
-      .funcionario-dot.active {
-        background: #3c2922;
-        width: 24px;
-        border-radius: 4px;
       }
     `;
     document.head.appendChild(style);
@@ -1318,7 +1494,9 @@ export default function LandingPage() {
       <div className="funcionario-card-content">
         <h3 className="funcionario-card-name">{funcionario.name}</h3>
         <p className="funcionario-card-role">{funcionario.role}</p>
-        <p className="funcionario-card-bio">{funcionario.bio}</p>
+        <p className="funcionario-card-bio" title={funcionario.bio}>
+          {funcionario.bio}
+        </p>
       </div>
     </div>
   );
@@ -1569,7 +1747,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="mt-16 border-y border-[#e4e0d5] bg-[#ece9df]">
+          <div className="mt-16 border-y border-[#e4e0d5] bg-[#ece9df] fade-in">
             <div className="mx-auto grid max-w-[1280px] gap-8 px-6 py-12 text-center md:grid-cols-3 md:px-20">
               <div>
                 <p className="mb-2 text-sm font-semibold text-[#2f2321]" style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2rem' }}>
@@ -1600,95 +1778,114 @@ export default function LandingPage() {
         </section>
 
         {/* FUNCIONARIOS */}
-        <section className="funcionario-section" id="equipe">
-          <div className="funcionario-header">
-            <h2 className="funcionario-title">Nossa Equipe</h2>
-            <p className="funcionario-subtitle">
-              Profissionais altamente qualificados e dedicados a proporcionar os melhores resultados para nossos clientes
-            </p>
-          </div>
-
-          {/* Desktop Grid */}
-          <div className="funcionario-grid">
-            {Funcionarios.map((funcionario) => (
-              <FuncionarioCard key={funcionario.id} funcionario={funcionario} />
-            ))}
-          </div>
-
-          {/* Mobile Carousel */}
-          <div className="funcionario-carousel">
-            <div className="funcionario-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-              {Funcionarios.map((funcionario) => (
-                <div key={funcionario.id} className="funcionario-carousel-slide">
-                  <FuncionarioCard funcionario={funcionario} />
-                </div>
-              ))}
+        <section className="funcionario-section fade-in" id="equipe">
+          <div className="funcionario-section-inner">
+            <div className="funcionario-header">
+              <p
+                className="funcionario-kicker mb-4 text-center text-[11px] uppercase tracking-[0.26em] text-[#b29b55]"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                Profissionais
+              </p>
+              <h2 className="funcionario-title">Nossa Equipe</h2>
+              <p className="funcionario-subtitle">
+                Profissionais altamente qualificados e dedicados a proporcionar os melhores resultados para nossos clientes
+              </p>
             </div>
-            <div className="funcionario-carousel-dots">
-              {Funcionarios.map((_, index) => (
-                <button
-                  key={index}
-                  className={`funcionario-dot ${index === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`Ir para membro ${index + 1}`}
-                />
-              ))}
+
+            <div
+              className="funcionario-scroll-wrap"
+              role="region"
+              aria-label="Membros da equipe — deslize para ver todos"
+            >
+              <div className="funcionario-scroll-row">
+                {Funcionarios.map((funcionario) => (
+                  <div key={funcionario.id} className="funcionario-scroll-item">
+                    <FuncionarioCard funcionario={funcionario} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* DEPOIMENTOS */}
-        <section className="depoimentos-section" id="depoimentos">
-          <div className="depoimentos-header">
-            <h2 className="depoimentos-title">Depoimentos</h2>
-            <p className="depoimentos-subtitle">
-              Veja o que nossos clientes têm a dizer sobre a experiência e os resultados alcançados em nossos tratamentos
-            </p>
-          </div>
+        <section className="depoimentos-section fade-in" id="depoimentos">
+          <div className="depoimentos-section-inner">
+            <div className="depoimentos-header">
+              <p
+                className="depoimentos-kicker mb-4 text-center text-[11px] uppercase tracking-[0.26em] text-[#b29b55]"
+                style={{ fontFamily: 'Inter, sans-serif' }}
+              >
+                Experiências reais
+              </p>
+              <h2 className="depoimentos-title">Depoimentos</h2>
+              <p className="depoimentos-subtitle">
+                Veja o que nossos clientes têm a dizer sobre a experiência e os resultados alcançados em nossos tratamentos
+              </p>
+            </div>
 
-          {/* Desktop Grid */}
-          <div className="depoimentos-grid">
-            {Depoimentos.map((depoimento) => (
-              <DepoimentoCard key={depoimento.id} depoimento={depoimento} />
-            ))}
-          </div>
-
-          {/* Mobile Carousel */}
-          <div className="depoimentos-carousel">
-            <div className="depoimentos-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-              {Depoimentos.map((depoimento) => (
-                <div key={depoimento.id} className="depoimentos-carousel-slide">
-                  <DepoimentoCard depoimento={depoimento} />
+            {/* Desktop: grid + ver mais */}
+            <div className="depoimentos-desktop-wrap">
+              <div className="depoimentos-grid">
+                {(depoimentosExpanded
+                  ? Depoimentos
+                  : Depoimentos.slice(0, DEPOIMENTOS_GRID_PREVIEW)
+                ).map((depoimento) => (
+                  <DepoimentoCard key={depoimento.id} depoimento={depoimento} />
+                ))}
+              </div>
+              {Depoimentos.length > DEPOIMENTOS_GRID_PREVIEW && (
+                <div className="depoimentos-ver-mais-wrap">
+                  <button
+                    type="button"
+                    className="depoimentos-ver-mais-btn"
+                    aria-expanded={depoimentosExpanded}
+                    onClick={() => setDepoimentosExpanded((v) => !v)}
+                  >
+                    {depoimentosExpanded ? 'Ver menos' : 'Ver mais'}
+                  </button>
                 </div>
-              ))}
+              )}
             </div>
-            <div className="depoimentos-carousel-dots">
-              {Depoimentos.map((_, index) => (
-                <button
-                  key={index}
-                  className={`depoimento-dot ${index === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`Ir para depoimento ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
 
-          {/* CTA */}
-          <div className="depoimentos-cta">
-            <p className="depoimentos-cta-text">
-              Quer fazer parte da nossa lista de clientes satisfeitos?
-            </p>
-            <a href={whatsappAgendamento} className="depoimentos-cta-btn" target="_blank" rel="noopener noreferrer">
-              Agende Seu Horário
-            </a>
+            {/* Mobile Carousel */}
+            <div className="depoimentos-carousel">
+              <div className="depoimentos-carousel-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                {Depoimentos.map((depoimento) => (
+                  <div key={depoimento.id} className="depoimentos-carousel-slide">
+                    <DepoimentoCard depoimento={depoimento} />
+                  </div>
+                ))}
+              </div>
+              <div className="depoimentos-carousel-dots">
+                {Depoimentos.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`depoimento-dot ${index === currentIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentIndex(index)}
+                    aria-label={`Ir para depoimento ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="depoimentos-cta">
+              <p className="depoimentos-cta-text">
+                Quer fazer parte da nossa lista de clientes satisfeitos?
+              </p>
+              <a href={whatsappAgendamento} className="depoimentos-cta-btn" target="_blank" rel="noopener noreferrer">
+                Agende Seu Horário
+              </a>
+            </div>
           </div>
         </section>
 
         {/* SERVICES */}
         <section
           id="services"
-          className="relative overflow-hidden px-4 md:px-16 py-20 bg-gradient-to-b from-[#2f2321] via-[#2a1f1d] to-[#241a18]"
+          className="relative overflow-hidden px-4 md:px-16 py-20 bg-gradient-to-b from-[#2f2321] via-[#2a1f1d] to-[#241a18] fade-in"
         >
           {/* BACKGROUND DECOR */}
           <div className="absolute inset-0 pointer-events-none">
@@ -1918,7 +2115,7 @@ export default function LandingPage() {
         </section>
 
         {/* FEATURES */}
-        <section className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
+        <section className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20 fade-in">
           <svg className="absolute inset-0 w-full h-full opacity-45 pointer-events-none" viewBox="0 0 1200 580" fill="none">
             <path d="M-20 250C170 110 340 180 530 280C700 370 860 290 1090 410" stroke="#b3aa9c" strokeWidth="1.1" />
             <path d="M740 40C650 120 650 210 700 300C770 410 930 430 1170 520" stroke="#b9b1a2" strokeWidth="1.1" />
@@ -2007,7 +2204,7 @@ export default function LandingPage() {
         </section>
 
         {/* CURSOS */}
-        <section id="cursos" className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20">
+        <section id="cursos" className="relative overflow-hidden bg-[#ececea] px-4 md:px-16 py-14 md:py-20 fade-in">
 
           <div className="absolute left-1/2 top-[6%] h-[88%] w-[104%] -translate-x-1/2 rounded-full bg-[#e2dfda]" />
 
@@ -2194,7 +2391,7 @@ export default function LandingPage() {
               {instagramPosts.map((p, i) => (
                 <div
                   key={i}
-                  className="group relative overflow-hidden rounded-lg"
+                  className="group relative overflow-hidden rounded-lg stagger-item"
                 >
                   <a href={p.url} target="_blank" rel="noopener noreferrer">
 
@@ -2217,11 +2414,12 @@ export default function LandingPage() {
 
         </section>
 
-        <footer id="contacts" className="relative rounded-t-[32px] md:rounded-t-[40px] overflow-hidden bg-[#8f876f] text-white px-6 md:px-16 py-14">
-          <svg className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 1200 360" fill="none">
+        <footer id="contacts" className="relative rounded-t-[32px] md:rounded-t-[40px] overflow-hidden bg-[#8f876f] text-white px-6 md:px-16 py-14 fade-in">
+          <svg className="absolute inset-0 z-0 w-full h-full opacity-30 pointer-events-none" viewBox="0 0 1200 360" fill="none">
             <path d="M-40 200C170 130 340 190 540 240C760 290 920 240 1210 300" stroke="#d8d1c2" strokeWidth="1.1" />
             <path d="M420 40C560 50 620 100 640 160C650 230 600 280 510 320" stroke="#d8d1c2" strokeWidth="1.1" />
           </svg>
+          <div className="relative z-10">
           <div className="lx-footer-top">
             <div className="lx-footer-col">
               <div className="lx-footer-logo">SULEIMA</div>
@@ -2232,20 +2430,26 @@ export default function LandingPage() {
               <p className="lx-footer-label">Endereço</p>
               <div className="lx-footer-address-big">Rua América<br />1321</div>
               <p className="lx-footer-city">Salto — SP</p>
-              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="hidden md:block bg-[#3c292] text-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-[#5a3d33] transition-all duration-300 mb-2" style={{ textDecoration: 'none', display: 'inline-block' }}>Ver no Google Maps</a>
+              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="hidden md:inline-block bg-[#3c2922] text-white px-5 py-2.5 text-[10.5px] uppercase tracking-[0.1em] rounded-full hover:bg-[#5a3d33] transition-all duration-300 mb-2 no-underline">Ver no Google Maps</a>
             </div>
             <div className="lx-footer-col">
               <p className="lx-footer-label">Contato</p>
               <div className="lx-footer-contact-row">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z" /></svg>
+                <span className="lx-footer-contact-icon" aria-hidden>
+                  <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92V21a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h4.09a2 2 0 012 1.72c.12.89.32 1.76.59 2.6a2 2 0 01-.45 2.11L9.91 10.91a16 16 0 006.18 6.18l1.48-1.32a2 2 0 012.11-.45c.84.27 1.71.47 2.6.59A2 2 0 0122 16.92z" /></svg>
+                </span>
                 <a href="tel:+5511958671658">+55 (11) 95867-1658</a>
               </div>
               <div className="lx-footer-contact-row">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="4" width="18" height="16" rx="2" /><path strokeLinecap="round" d="M3 6l9 7 9-7" /></svg>
+                <span className="lx-footer-contact-icon" aria-hidden>
+                  <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><path strokeLinecap="round" d="M3 6l9 7 9-7" /></svg>
+                </span>
                 <a href="mailto:suleimaestetica@icloud.com">suleimaestetica@icloud.com</a>
               </div>
               <div className="lx-footer-contact-row">
-                <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" style={{ opacity: 0.4, flexShrink: 0 }}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>
+                <span className="lx-footer-contact-icon" aria-hidden>
+                  <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg>
+                </span>
                 <a href={instagramProfileUrl} target="_blank" rel="noopener noreferrer">@suleimaestetica</a>
               </div>
             </div>
@@ -2253,6 +2457,7 @@ export default function LandingPage() {
           <div className="lx-footer-bottom mt-6">
             <p className="lx-footer-copy">© SULEIMA ESTÉTICA · TODOS OS DIREITOS RESERVADOS</p>
             <p className="lx-footer-copy">SALTO, SÃO PAULO · BRASIL</p>
+          </div>
           </div>
         </footer>
 
