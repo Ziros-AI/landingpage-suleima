@@ -388,14 +388,14 @@ export default function LandingPage() {
     },
     {
       id: 4,
-      name: "Dra. Luana",
+      name: "Luana Almeida",
       role: "Gestora Comercial",
       image: imagemF2,
       bio: "Responsável pela gestão comercial e estagiária na área de estética"
     },
     {
       id: 5,
-      name: "Dra. Marcia",
+      name: "Marcia Marina",
       role: "Terapeuta Integrativa e Complementar",
       image: ImagemMarcia,
       bio: "Especialista em saúde física e emocional através de terapias manuais e integrativas"
