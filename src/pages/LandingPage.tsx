@@ -368,7 +368,7 @@ export default function LandingPage() {
     {
       id: 1,
       name: "Dra. Suleima",
-      role: "Fisioterapeuta Dermato-Funcional",
+      role: "Farmacêutica Esteta e Proprietária",
       image: imagemSu1,
       bio: "Especialista em tratamentos faciais e harmonização"
     },
@@ -389,7 +389,7 @@ export default function LandingPage() {
     {
       id: 4,
       name: "Luana Almeida",
-      role: "Gestora Comercial",
+      role: "Gestora Comercial e Esteticista",
       image: imagemF2,
       bio: "Responsável pela gestão comercial e estagiária na área de estética"
     },
