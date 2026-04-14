@@ -127,7 +127,7 @@ export default function LandingPage() {
       id: 't1',
       cat: 'facial',
       name: 'LIMPEZA DE PELE',
-      duration: '60min',
+      duration: '90min',
       desc: 'A limpeza de pele profissional remove impurezas, células mortas e cravos, devolvendo luminosidade e textura uniforme à pele.',
       idealFor: 'Manutenção mensal e controle de oleosidade',
       steps: [
@@ -157,7 +157,7 @@ export default function LandingPage() {
       id: 't3',
       cat: 'facial',
       name: 'PEELING QUÍMICO',
-      duration: '30min',
+      duration: '60min',
       desc: 'Renovação celular acelerada com ácidos que promovem descamação controlada, uniformizando tom e textura da pele.',
       idealFor: 'Manchas, oleosidade e envelhecimento precoce',
       steps: [
@@ -187,7 +187,7 @@ export default function LandingPage() {
       id: 't5',
       cat: 'corporal',
       name: 'CRIOLIPÓLISE',
-      duration: '60min',
+      duration: '150min',
       desc: 'Eliminação de gordura localizada por congelamento, reduzindo células de gordura sem dor e sem cirurgia.',
       idealFor: 'Gordura localizada resistente à dieta e exercício',
       steps: [
@@ -368,7 +368,7 @@ export default function LandingPage() {
     {
       id: 1,
       name: "Dra. Suleima",
-      role: "Fisioterapeuta Dermato-Funcional",
+      role: "Farmacêutica Esteta e Proprietária",
       image: imagemSu1,
       bio: "Especialista em tratamentos faciais e harmonização"
     },
@@ -389,7 +389,7 @@ export default function LandingPage() {
     {
       id: 4,
       name: "Luana Almeida",
-      role: "Gestora Comercial",
+      role: "Gestora Comercial e Esteticista",
       image: imagemF2,
       bio: "Responsável pela gestão comercial e estagiária na área de estética"
     },
