@@ -41,6 +41,7 @@ import depoimentoAlessandraPereira from '../assets/ImagensDepoimentos/Alessandra
 import depoimentoAlessandraBarbosa from '../assets/ImagensDepoimentos/AlessandraBarbosa.png';
 import depoimentoThaisCominatto from '../assets/ImagensDepoimentos/ThaisCominatto.png';
 import depoimentoEdileneAntunes from '../assets/ImagensDepoimentos/EdileneAntunes.png';
+import ImagemCarla from '../assets/imagensFuncionarios/ImagemCarla.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -399,6 +400,13 @@ export default function LandingPage() {
       role: "Terapeuta Integrativa e Complementar",
       image: ImagemMarcia,
       bio: "Especialista em saúde física e emocional através de terapias manuais e integrativas"
+    },
+    {
+      id: 6,
+      name: "Carla Regina",
+      role: "Bronzeadora Estética",
+      image: ImagemCarla,
+      bio: "Responsável por realçar a beleza feminina através de técnicas de bronzeamento artificial e cuidado personalizado."
     }
   ];
 
