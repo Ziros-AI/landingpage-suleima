@@ -389,20 +389,13 @@ export default function LandingPage() {
     },
     {
       id: 4,
-      name: "Luana Almeida",
-      role: "Gestora Comercial e Esteticista",
-      image: imagemF2,
-      bio: "Responsável pela gestão comercial e estagiária na área de estética"
-    },
-    {
-      id: 5,
       name: "Marcia Marina",
       role: "Terapeuta Integrativa e Complementar",
       image: ImagemMarcia,
       bio: "Especialista em saúde física e emocional através de terapias manuais e integrativas"
     },
     {
-      id: 6,
+      id: 5,
       name: "Carla Regina",
       role: "Bronzeadora Estética",
       image: ImagemCarla,
