@@ -33,7 +33,6 @@ import imagemPeeling from '../assets/ImagensClinica/ImagemPeeling.jpeg';
 import imagemJatoDePlasma from '../assets/ImagensClinica/ImagemJatoDePlasma.jpeg';
 import imagemG4Cortada from '../assets/imagensGluteo/ImagemG4Cortada.jpeg';
 import imagemF1 from '../assets/imagensFuncionarios/FuncionariaAna.jpeg';
-import imagemF2 from '../assets/imagensFuncionarios/FuncionariaLuana.jpeg';
 import ImagemMarcia from '../assets/imagensFuncionarios/ImagemMarcia.jpeg';
 import depoimentoRaquelMenegazzi from '../assets/ImagensDepoimentos/RaquelMenegazzi.png';
 import depoimentoDenisClasse from '../assets/ImagensDepoimentos/DenisClasse.png';
