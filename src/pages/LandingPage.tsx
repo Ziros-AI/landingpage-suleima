@@ -33,7 +33,6 @@ import imagemPeeling from '../assets/ImagensClinica/ImagemPeeling.jpeg';
 import imagemJatoDePlasma from '../assets/ImagensClinica/ImagemJatoDePlasma.jpeg';
 import imagemG4Cortada from '../assets/imagensGluteo/ImagemG4Cortada.jpeg';
 import imagemF1 from '../assets/imagensFuncionarios/FuncionariaAna.jpeg';
-import imagemF2 from '../assets/imagensFuncionarios/FuncionariaLuana.jpeg';
 import ImagemMarcia from '../assets/imagensFuncionarios/ImagemMarcia.jpeg';
 import depoimentoRaquelMenegazzi from '../assets/ImagensDepoimentos/RaquelMenegazzi.png';
 import depoimentoDenisClasse from '../assets/ImagensDepoimentos/DenisClasse.png';
@@ -41,6 +40,7 @@ import depoimentoAlessandraPereira from '../assets/ImagensDepoimentos/Alessandra
 import depoimentoAlessandraBarbosa from '../assets/ImagensDepoimentos/AlessandraBarbosa.png';
 import depoimentoThaisCominatto from '../assets/ImagensDepoimentos/ThaisCominatto.png';
 import depoimentoEdileneAntunes from '../assets/ImagensDepoimentos/EdileneAntunes.png';
+import ImagemCarla from '../assets/imagensFuncionarios/ImagemCarla.jpeg';
 
 const instagramProfileUrl = 'https://www.instagram.com/suleimaestetica';
 
@@ -388,17 +388,17 @@ export default function LandingPage() {
     },
     {
       id: 4,
-      name: "Luana Almeida",
-      role: "Gestora Comercial e Esteticista",
-      image: imagemF2,
-      bio: "Responsável pela gestão comercial e estagiária na área de estética"
-    },
-    {
-      id: 5,
       name: "Marcia Marina",
       role: "Terapeuta Integrativa e Complementar",
       image: ImagemMarcia,
       bio: "Especialista em saúde física e emocional através de terapias manuais e integrativas"
+    },
+    {
+      id: 5,
+      name: "Carla Regina",
+      role: "Bronzeadora Estética",
+      image: ImagemCarla,
+      bio: "Responsável por realçar a beleza feminina através de técnicas de bronzeamento artificial e cuidado personalizado."
     }
   ];
 
